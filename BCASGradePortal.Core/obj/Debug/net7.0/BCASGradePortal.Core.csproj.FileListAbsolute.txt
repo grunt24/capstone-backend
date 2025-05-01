@@ -1,0 +1,14 @@
+C:\Users\Brent Jay\Desktop\Programming\Lance\BCASGradePortal.Core\bin\Debug\net7.0\BCASGradePortal.Core.deps.json
+C:\Users\Brent Jay\Desktop\Programming\Lance\BCASGradePortal.Core\bin\Debug\net7.0\BCASGradePortal.Core.runtimeconfig.json
+C:\Users\Brent Jay\Desktop\Programming\Lance\BCASGradePortal.Core\bin\Debug\net7.0\BCASGradePortal.Core.dll
+C:\Users\Brent Jay\Desktop\Programming\Lance\BCASGradePortal.Core\bin\Debug\net7.0\BCASGradePortal.Core.pdb
+C:\Users\Brent Jay\Desktop\Programming\Lance\BCASGradePortal.Core\obj\Debug\net7.0\BCASGradePortal.Core.csproj.AssemblyReference.cache
+C:\Users\Brent Jay\Desktop\Programming\Lance\BCASGradePortal.Core\obj\Debug\net7.0\BCASGradePortal.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Brent Jay\Desktop\Programming\Lance\BCASGradePortal.Core\obj\Debug\net7.0\BCASGradePortal.Core.AssemblyInfoInputs.cache
+C:\Users\Brent Jay\Desktop\Programming\Lance\BCASGradePortal.Core\obj\Debug\net7.0\BCASGradePortal.Core.AssemblyInfo.cs
+C:\Users\Brent Jay\Desktop\Programming\Lance\BCASGradePortal.Core\obj\Debug\net7.0\BCASGradePortal.Core.csproj.CoreCompileInputs.cache
+C:\Users\Brent Jay\Desktop\Programming\Lance\BCASGradePortal.Core\obj\Debug\net7.0\BCASGradePortal.Core.dll
+C:\Users\Brent Jay\Desktop\Programming\Lance\BCASGradePortal.Core\obj\Debug\net7.0\refint\BCASGradePortal.Core.dll
+C:\Users\Brent Jay\Desktop\Programming\Lance\BCASGradePortal.Core\obj\Debug\net7.0\BCASGradePortal.Core.pdb
+C:\Users\Brent Jay\Desktop\Programming\Lance\BCASGradePortal.Core\obj\Debug\net7.0\BCASGradePortal.Core.genruntimeconfig.cache
+C:\Users\Brent Jay\Desktop\Programming\Lance\BCASGradePortal.Core\obj\Debug\net7.0\ref\BCASGradePortal.Core.dll

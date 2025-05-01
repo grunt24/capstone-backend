@@ -1,0 +1,272 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\Auth\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent jay\\desktop\\programming\\lance\\auth\\backendapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent jay\\desktop\\programming\\lance\\auth\\backendapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E3B29B1-0210-4932-84E7-084430A6BE8B}|..\\BCASGradePortal.Core\\BCASGradePortal.Core.csproj|c:\\users\\brent jay\\desktop\\programming\\lance\\bcasgradeportal.core\\authentication\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E3B29B1-0210-4932-84E7-084430A6BE8B}|..\\BCASGradePortal.Core\\BCASGradePortal.Core.csproj|c:\\users\\brent jay\\desktop\\programming\\lance\\bcasgradeportal.core\\authentication\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent jay\\desktop\\programming\\lance\\auth\\backendapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E3B29B1-0210-4932-84E7-084430A6BE8B}|..\\BCASGradePortal.Core\\BCASGradePortal.Core.csproj|c:\\users\\brent jay\\desktop\\programming\\lance\\bcasgradeportal.core\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E3B29B1-0210-4932-84E7-084430A6BE8B}|..\\BCASGradePortal.Core\\BCASGradePortal.Core.csproj|c:\\users\\brent jay\\desktop\\programming\\lance\\bcasgradeportal.core\\generalserviceresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E3B29B1-0210-4932-84E7-084430A6BE8B}|..\\BCASGradePortal.Core\\BCASGradePortal.Core.csproj|c:\\users\\brent jay\\desktop\\programming\\lance\\bcasgradeportal.core\\loginserviceresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E3B29B1-0210-4932-84E7-084430A6BE8B}|..\\BCASGradePortal.Core\\BCASGradePortal.Core.csproj|c:\\users\\brent jay\\desktop\\programming\\lance\\bcasgradeportal.core\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E3B29B1-0210-4932-84E7-084430A6BE8B}|..\\BCASGradePortal.Core\\BCASGradePortal.Core.csproj|c:\\users\\brent jay\\desktop\\programming\\lance\\bcasgradeportal.core\\models\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E3B29B1-0210-4932-84E7-084430A6BE8B}|..\\BCASGradePortal.Core\\BCASGradePortal.Core.csproj|c:\\users\\brent jay\\desktop\\programming\\lance\\bcasgradeportal.core\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1E3B29B1-0210-4932-84E7-084430A6BE8B}|..\\BCASGradePortal.Core\\BCASGradePortal.Core.csproj|c:\\users\\brent jay\\desktop\\programming\\lance\\bcasgradeportal.core\\bcasgradeportal.core.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{531B755F-0773-4112-B686-006EAD648819}|Auth\\Capstone.Core.csproj|c:\\users\\brent jay\\desktop\\programming\\lance\\auth\\auth\\capstone.core.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{531B755F-0773-4112-B686-006EAD648819}|Auth\\Capstone.Core.csproj|solutionrelative:auth\\capstone.core.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent jay\\desktop\\programming\\lance\\auth\\backendapi\\backendapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\backendapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{531B755F-0773-4112-B686-006EAD648819}|Auth\\Capstone.Core.csproj|c:\\users\\brent jay\\desktop\\programming\\lance\\auth\\auth\\entities\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{531B755F-0773-4112-B686-006EAD648819}|Auth\\Capstone.Core.csproj|solutionrelative:auth\\entities\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 211,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\BCASGradePortal.Core\\Interfaces\\IAuthService.cs",
+              "RelativeDocumentMoniker": "..\\BCASGradePortal.Core\\Interfaces\\IAuthService.cs",
+              "ToolTip": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\BCASGradePortal.Core\\Interfaces\\IAuthService.cs",
+              "RelativeToolTip": "..\\BCASGradePortal.Core\\Interfaces\\IAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T11:34:00.507Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\BCASGradePortal.Core\\Context\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "..\\BCASGradePortal.Core\\Context\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\BCASGradePortal.Core\\Context\\AppDbContext.cs",
+              "RelativeToolTip": "..\\BCASGradePortal.Core\\Context\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T11:33:50.851Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "JwtTokenService.cs",
+              "DocumentMoniker": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\BCASGradePortal.Core\\Authentication\\JwtTokenService.cs",
+              "RelativeDocumentMoniker": "..\\BCASGradePortal.Core\\Authentication\\JwtTokenService.cs",
+              "ToolTip": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\BCASGradePortal.Core\\Authentication\\JwtTokenService.cs",
+              "RelativeToolTip": "..\\BCASGradePortal.Core\\Authentication\\JwtTokenService.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB8AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T11:33:17.315Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\Auth\\BackendApi\\Program.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Program.cs",
+              "ToolTip": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\Auth\\BackendApi\\Program.cs",
+              "RelativeToolTip": "BackendApi\\Program.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAEUAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T11:36:46.318Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LoginServiceResponse.cs",
+              "DocumentMoniker": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\BCASGradePortal.Core\\LoginServiceResponse.cs",
+              "RelativeDocumentMoniker": "..\\BCASGradePortal.Core\\LoginServiceResponse.cs",
+              "ToolTip": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\BCASGradePortal.Core\\LoginServiceResponse.cs",
+              "RelativeToolTip": "..\\BCASGradePortal.Core\\LoginServiceResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T11:34:23.061Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\BCASGradePortal.Core\\Authentication\\AuthService.cs",
+              "RelativeDocumentMoniker": "..\\BCASGradePortal.Core\\Authentication\\AuthService.cs",
+              "ToolTip": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\BCASGradePortal.Core\\Authentication\\AuthService.cs",
+              "RelativeToolTip": "..\\BCASGradePortal.Core\\Authentication\\AuthService.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAIwDkAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T11:25:42.317Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\Auth\\BackendApi\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\Auth\\BackendApi\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "BackendApi\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwCYAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T11:43:47.836Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\BCASGradePortal.Core\\Models\\User.cs",
+              "RelativeDocumentMoniker": "..\\BCASGradePortal.Core\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\BCASGradePortal.Core\\Models\\User.cs",
+              "RelativeToolTip": "..\\BCASGradePortal.Core\\Models\\User.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T11:34:10.002Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GeneralServiceResponse.cs",
+              "DocumentMoniker": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\BCASGradePortal.Core\\GeneralServiceResponse.cs",
+              "RelativeDocumentMoniker": "..\\BCASGradePortal.Core\\GeneralServiceResponse.cs",
+              "ToolTip": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\BCASGradePortal.Core\\GeneralServiceResponse.cs",
+              "RelativeToolTip": "..\\BCASGradePortal.Core\\GeneralServiceResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T13:33:56.234Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UserDto.cs",
+              "DocumentMoniker": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\BCASGradePortal.Core\\Models\\UserDto.cs",
+              "RelativeDocumentMoniker": "..\\BCASGradePortal.Core\\Models\\UserDto.cs",
+              "ToolTip": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\BCASGradePortal.Core\\Models\\UserDto.cs",
+              "RelativeToolTip": "..\\BCASGradePortal.Core\\Models\\UserDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T11:34:17.233Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "BackendApi.csproj",
+              "DocumentMoniker": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\Auth\\BackendApi\\BackendApi.csproj",
+              "RelativeDocumentMoniker": "BackendApi\\BackendApi.csproj",
+              "ToolTip": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\Auth\\BackendApi\\BackendApi.csproj",
+              "RelativeToolTip": "BackendApi\\BackendApi.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-01T11:24:19.337Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "BCASGradePortal.Core.csproj",
+              "DocumentMoniker": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\BCASGradePortal.Core\\BCASGradePortal.Core.csproj",
+              "RelativeDocumentMoniker": "..\\BCASGradePortal.Core\\BCASGradePortal.Core.csproj",
+              "ToolTip": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\BCASGradePortal.Core\\BCASGradePortal.Core.csproj",
+              "RelativeToolTip": "..\\BCASGradePortal.Core\\BCASGradePortal.Core.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-01T11:31:24.299Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Capstone.Core.csproj",
+              "DocumentMoniker": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\Auth\\Auth\\Capstone.Core.csproj",
+              "RelativeDocumentMoniker": "Auth\\Capstone.Core.csproj",
+              "ToolTip": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\Auth\\Auth\\Capstone.Core.csproj",
+              "RelativeToolTip": "Auth\\Capstone.Core.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-01T11:37:27.332Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Student.cs",
+              "DocumentMoniker": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\Auth\\Auth\\Entities\\Student.cs",
+              "RelativeDocumentMoniker": "Auth\\Entities\\Student.cs",
+              "ToolTip": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\Auth\\Auth\\Entities\\Student.cs",
+              "RelativeToolTip": "Auth\\Entities\\Student.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAowBYAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T05:40:46.352Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 189,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\Auth\\BackendApi\\appsettings.json",
+              "RelativeDocumentMoniker": "BackendApi\\appsettings.json",
+              "ToolTip": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\Auth\\BackendApi\\appsettings.json",
+              "RelativeToolTip": "BackendApi\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-01T11:48:08.078Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

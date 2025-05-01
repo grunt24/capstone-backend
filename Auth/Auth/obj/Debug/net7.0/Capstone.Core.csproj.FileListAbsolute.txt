@@ -1,0 +1,14 @@
+C:\Users\Brent Jay\Desktop\Programming\Lance\Auth\Auth\bin\Debug\net7.0\Capstone.Core.deps.json
+C:\Users\Brent Jay\Desktop\Programming\Lance\Auth\Auth\bin\Debug\net7.0\Capstone.Core.dll
+C:\Users\Brent Jay\Desktop\Programming\Lance\Auth\Auth\bin\Debug\net7.0\Capstone.Core.pdb
+C:\Users\Brent Jay\Desktop\Programming\Lance\Auth\Auth\obj\Debug\net7.0\Capstone.Core.csproj.AssemblyReference.cache
+C:\Users\Brent Jay\Desktop\Programming\Lance\Auth\Auth\obj\Debug\net7.0\Capstone.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Brent Jay\Desktop\Programming\Lance\Auth\Auth\obj\Debug\net7.0\Capstone.Core.AssemblyInfoInputs.cache
+C:\Users\Brent Jay\Desktop\Programming\Lance\Auth\Auth\obj\Debug\net7.0\Capstone.Core.AssemblyInfo.cs
+C:\Users\Brent Jay\Desktop\Programming\Lance\Auth\Auth\obj\Debug\net7.0\Capstone.Core.csproj.CoreCompileInputs.cache
+C:\Users\Brent Jay\Desktop\Programming\Lance\Auth\Auth\obj\Debug\net7.0\Capstone.Core.dll
+C:\Users\Brent Jay\Desktop\Programming\Lance\Auth\Auth\obj\Debug\net7.0\refint\Capstone.Core.dll
+C:\Users\Brent Jay\Desktop\Programming\Lance\Auth\Auth\obj\Debug\net7.0\Capstone.Core.pdb
+C:\Users\Brent Jay\Desktop\Programming\Lance\Auth\Auth\obj\Debug\net7.0\ref\Capstone.Core.dll
+C:\Users\Brent Jay\Desktop\Programming\Lance\Auth\Auth\bin\Debug\net7.0\Capstone.Core.runtimeconfig.json
+C:\Users\Brent Jay\Desktop\Programming\Lance\Auth\Auth\obj\Debug\net7.0\Capstone.Core.genruntimeconfig.cache
