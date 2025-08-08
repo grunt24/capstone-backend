@@ -1,0 +1,9 @@
+﻿  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=CapstoneDatabase;Trusted_Connection=True;MultipleActiveResultSets=true"
+  },
+  "JWT": {
+    "ValidIssuer": "https://localhost:7255",
+    "ValidAudience": "http://localhost:5173",
+    "Secret": "This is my secret Key"
+  },

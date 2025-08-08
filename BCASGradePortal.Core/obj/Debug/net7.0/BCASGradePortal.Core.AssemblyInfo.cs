@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BCASGradePortal.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a8f874cfeabcbbaae96efe48fdd69174721bf07")]
 [assembly: System.Reflection.AssemblyProductAttribute("BCASGradePortal.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BCASGradePortal.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

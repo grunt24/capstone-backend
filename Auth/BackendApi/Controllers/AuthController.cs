@@ -1,8 +1,9 @@
-﻿using BCASGradePortal.Core.Authentication;
-using BCASGradePortal.Core.Models;
+﻿using BackendApi.Core.Models.Dto;
+using BackendApi.IRepositories;
+using BackendApi.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Identity.Client;
+using Microsoft.IdentityModel.Tokens;
 using NuGet.Protocol.Plugins;
 
 namespace BackendApi.Controllers;
@@ -11,19 +12,19 @@ namespace BackendApi.Controllers;
 [ApiController]
 public class AuthController : ControllerBase
 {
-    private readonly AuthService _authService;
+    private readonly IAuthRepository _authService;
 
-    public AuthController(AuthService authService)
+    public AuthController(IAuthRepository authService)
     {
         _authService = authService;
     }
 
-    [HttpPost("register")]
-    public async Task<IActionResult> Register([FromBody] UserDto userDto)
+    [HttpPost("create-student")]
+    public async Task<IActionResult> Register([FromBody] UserCredentialsDto userDto)
     {
         try
         {
-            var result = await _authService.RegisterAsync(userDto.Username, userDto.Password);
+            var result = await _authService.RegisterAsync(userDto);
             return Ok(result);
         }
         catch (Exception e)
@@ -32,26 +33,45 @@ public class AuthController : ControllerBase
         }
     }
 
-
     [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] UserDto request)
+    public async Task<IActionResult> Login([FromBody] LoginDto request)
     {
-        var result = await _authService.LoginAsync(request.Username, request.Password); // ✅ Await it!
-        return Ok(new { token = result.NewToken, username = result.Username}); // ✅ Only return needed fields
+        var result = await _authService.LoginAsync(request); 
+        return Ok(new { token = result.NewToken, username = result.Username, fullname = result.Fullname, role = result.Role.ToString(), id = result.Id}); 
     }
-
-    [HttpGet]
-    public async Task<IActionResult> GetAllUser()
+    [HttpPut("update-role/{id}")]
+    public async Task<IActionResult> UpdateUserRole(int id, [FromBody] UserRoleUpdateDto dto)
     {
-        var result = await _authService.UsersList();
+        var result = await _authService.UpdateUserRoleAsync(id, dto);
         return Ok(result);
     }
+    [HttpPut("update-user/{id}")]
+    public async Task<IActionResult> UpdateUser(int id, [FromBody] UserUpdateDto dto)
+    {
+        var result = await _authService.UpdateUserDetailsAsync(id, dto);
+        return Ok(result);
+    }
+    [HttpGet("all-users")]
+    public async Task<IActionResult> GetAllUsers()
+    {
+        var users = await _authService.GetAllUsersAsync();
+        return Ok(users);
+    }
+    [HttpGet("all-students")]
+    public async Task<IActionResult> GetAllStudents()
+    {
+        var users = await _authService.GetAllStudents();
+        return Ok(users);
+    }
 
-    //[Authorize]
-    //[HttpGet("protected")]
-    //public IActionResult Protected()
-    //{
-    //    return Ok(new { message = "You are authorized!" });
-    //}
+    [HttpDelete("delete-user/{id}")]
+    public async Task<IActionResult> DeleteStudent(int id)
+    {
+        var result = await _authService.DeleteStudentAsync(id);
 
+        if (!result.Success)
+            return NotFound(result);
+
+        return Ok(result);
+    }
 }

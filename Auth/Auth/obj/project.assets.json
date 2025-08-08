@@ -3591,23 +3591,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Brent Jay\\.nuget\\packages\\": {},
+    "C:\\Users\\brent\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\Auth\\Auth\\Capstone.Core.csproj",
+      "projectUniqueName": "C:\\Users\\brent\\source\\repos\\grunt24\\capstone-backend\\Auth\\Auth\\Capstone.Core.csproj",
       "projectName": "Capstone.Core",
-      "projectPath": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\Auth\\Auth\\Capstone.Core.csproj",
-      "packagesPath": "C:\\Users\\Brent Jay\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Brent Jay\\Desktop\\Programming\\Lance\\Auth\\Auth\\obj\\",
+      "projectPath": "C:\\Users\\brent\\source\\repos\\grunt24\\capstone-backend\\Auth\\Auth\\Capstone.Core.csproj",
+      "packagesPath": "C:\\Users\\brent\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\brent\\source\\repos\\grunt24\\capstone-backend\\Auth\\Auth\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Brent Jay\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\brent\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3633,7 +3633,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net7.0": {
@@ -3681,12 +3682,26 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[7.0.20, 7.0.20]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[7.0.20, 7.0.20]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[7.0.20, 7.0.20]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.406\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304\\RuntimeIdentifierGraph.json"
       }
     }
   }
