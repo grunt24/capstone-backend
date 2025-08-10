@@ -68,6 +68,8 @@ builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddScoped<ISubjectRepository, SubjectService>();
 builder.Services.AddScoped<IStudentSubjectService, StudentSubjectService>();
 builder.Services.AddScoped<IJwtTokenRepository, JwtTokenService>();
+builder.Services.AddScoped<IGradeRepository, GradeService>();
+
 
 
 

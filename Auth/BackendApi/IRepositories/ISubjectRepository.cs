@@ -11,5 +11,6 @@ namespace BackendApi.IRepositories
         Task<GeneralServiceResponse> CreateSubject(SubjectDto subjectDto);
         Task<GeneralServiceResponse> UpdateSubject(int id, SubjectDto subjectDto);
         Task<GeneralServiceResponse> DeleteSubject(int id);
+        Task<IEnumerable<SubjectWithStudentsDto>> GetSubjectsByTeacherId(int teacherId);
     }
 }

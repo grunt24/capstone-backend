@@ -68,5 +68,12 @@ namespace BackendApi.Controllers
             var result = await _subjectService.DeleteSubject(id);
             return Ok(result);
         }
+        // GET: api/Subjects/teacher/1
+        [HttpGet("teacher/{teacherId}")]
+        public async Task<ActionResult<IEnumerable<SubjectWithTeacherDto>>> GetSubjectsByTeacherId(int teacherId)
+        {
+            var subjects = await _subjectService.GetSubjectsByTeacherId(teacherId);
+            return Ok(subjects);
+        }
     }
 }

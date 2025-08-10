@@ -81,7 +81,34 @@ namespace BackendApi.Services
                 Message = "Subject updated successfully"
             };
         }
+        public async Task<IEnumerable<SubjectWithStudentsDto>> GetSubjectsByTeacherId(int teacherId)
+        {
+            var subjects = await _context.Subjects
+                .Where(s => s.TeacherId == teacherId)
+                .Include(s => s.StudentSubjects) // Ensure StudentSubjects is included
+                .ThenInclude(ss => ss.Grade) // Then include the Grade for each StudentSubject
+                .Include(s => s.StudentSubjects) // Re-include to ensure navigation is complete for Student
+                .ThenInclude(ss => ss.User) // Then include the Student for each StudentSubject
+                .Select(s => new SubjectWithStudentsDto
+                {
+                    Id = s.Id,
+                    SubjectName = s.SubjectName,
+                    SubjectCode = s.SubjectCode,
+                    Description = s.Description,
+                    Credits = s.Credits,
+                    TeacherName = s.Teacher != null ? s.Teacher.Fullname : "No Teacher Assigned",
+                    Students = s.StudentSubjects.Select(ss => new StudentWithGradesDto
+                    {
+                        StudentId = ss.StudentID,
+                        Fullname = ss.User.Fullname,
+                        MainGrade = ss.Grade != null ? ss.Grade.MainGrade : null,
+                        CalculatedGrade = ss.Grade != null ? ss.Grade.CalculatedGrade : null
+                    }).ToList()
+                })
+                .ToListAsync();
 
+            return subjects;
+        }
         public async Task<GeneralServiceResponse> DeleteSubject(int id)
         {
             var subject = await _context.Subjects.FindAsync(id);

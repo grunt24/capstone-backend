@@ -110,6 +110,58 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BackendApi.Controllers.GradesController",
+    "Method": "SaveGrades",
+    "RelativePath": "api/Grades/save",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "saveGradesDto",
+        "Type": "System.Collections.Generic.List\u00601[[BackendApi.Core.Models.Dto.SaveGradesDto, BackendApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BackendApi.Core.General.GeneralServiceResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BackendApi.Controllers.GradesController",
+    "Method": "GetGradesBySubject",
+    "RelativePath": "api/Grades/subject/{subjectId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "subjectId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BackendApi.Core.Models.Dto.GradeDto, BackendApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "BackendApi.Controllers.StudentSubjectsController",
     "Method": "GetAllStudentSubjects",
     "RelativePath": "api/StudentSubjects",
@@ -358,6 +410,32 @@
     "ReturnTypes": [
       {
         "Type": "BackendApi.Core.General.GeneralServiceResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BackendApi.Controllers.SubjectsController",
+    "Method": "GetSubjectsByTeacherId",
+    "RelativePath": "api/Subjects/teacher/{teacherId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "teacherId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BackendApi.Core.Models.Dto.SubjectWithTeacherDto, BackendApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

@@ -19,5 +19,6 @@ namespace BackendApi.Core.Models
         public int SubjectID { get; set; }
 
         public Subject? Subject { get; set; }
+        public Grade? Grade { get; set; }
     }
 }

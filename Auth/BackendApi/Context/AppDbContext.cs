@@ -1,4 +1,5 @@
-﻿using BackendApi.Core.Models;
+﻿using BackendApi.Core;
+using BackendApi.Core.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BackendApi.Context
@@ -12,5 +13,7 @@ namespace BackendApi.Context
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<StudentSubject> StudentSubjects { get; set; }
+        public DbSet<Grade> Grades { get; set; }
+        public DbSet<GradeItem> GradeItems { get; set; }
     }
 }
