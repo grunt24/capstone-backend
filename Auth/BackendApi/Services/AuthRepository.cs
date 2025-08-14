@@ -3,6 +3,7 @@ using BackendApi.Core.General;
 using BackendApi.Core.Models;
 using BackendApi.Core.Models.Dto;
 using BackendApi.IRepositories;
+using Humanizer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -22,19 +23,89 @@ namespace BackendApi.Repositories
         private readonly AppDbContext _context;
         private readonly PasswordHasher<StudentModel> _passwordHasher;
         private readonly IJwtTokenRepository _tokenService;
-        private readonly ITeacherRepository teacherRepository;
+        private readonly IHttpContextAccessor _contextAccessor;
 
         public AuthRepository(
             AppDbContext context,
             IJwtTokenRepository tokenService,
-            IConfiguration configuration
-,
-            ITeacherRepository teacherRepository)
+            IConfiguration configuration,
+            IHttpContextAccessor contextAccessor)
         {
             _context = context;
             _tokenService = tokenService;
             _passwordHasher = new PasswordHasher<StudentModel>();
-            this.teacherRepository = teacherRepository;
+            _contextAccessor = contextAccessor;
+        }
+
+        //Added
+        public async Task<ResponseData<UserEvent>> GetUserLatestAction()
+        {
+            var currentUser = await GetCurrentUserAsync();
+
+            if (currentUser.Role is not (UserRole.Superadmin or UserRole.Admin))
+            {
+                throw new UnauthorizedAccessException("You are not authorized to view the latest events.");
+            }
+
+
+            var isSuperadmin = _context.Users.Any(u => u.Role == UserRole.Superadmin);
+
+            var latestEvents = await _context.UserEvents
+                .OrderByDescending(u => u.Timestamp) //latest event is in the top
+                .Take(10)
+                .ToListAsync();
+
+            if (latestEvents != null)
+            {
+                return new ResponseData<UserEvent>
+                {
+                    Success = true,
+                    Message = "Latest event fetched successfully.",
+                    Data = latestEvents
+                };
+            }
+            else
+            {
+                return new ResponseData<UserEvent>
+                {
+                    Success = true,
+                    Message = "No Current events",
+                    Data = null, 
+                };
+            }
+
+        }
+        public async Task<UserDto> GetCurrentUserAsync()
+        {
+            // Get the current user's claims from the HTTP context
+            var userClaims = _contextAccessor.HttpContext?.User;
+
+            // If there's no user or they are not authenticated, throw an exception
+            if (userClaims == null || !userClaims.Identity.IsAuthenticated)
+            {
+                throw new Exception("User not authenticated");
+            }
+
+            // Extract user info from the claims
+            var userId = int.Parse(userClaims.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+            var username = userClaims.FindFirst(ClaimTypes.Name)?.Value;
+
+            // Find the user in the database using their ID
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+
+            if (user == null)
+            {
+                throw new Exception("User not found");
+            }
+
+            // Map the user to a StudentDto to return
+            return new UserDto
+            {
+                Id = user.Id,
+                Username = user.Username,
+                Role = user.Role,
+                Fullname = user.Fullname,
+            };
         }
         public async Task<IEnumerable<StudentDto>> GetAllUsersAsync()
         {
@@ -62,8 +133,6 @@ namespace BackendApi.Repositories
                     Fullname = u.Fullname,
                     Department = u.Department,
                     YearLevel = u.YearLevel
-                    
-
                 })
                 .ToListAsync();
         }
@@ -71,11 +140,15 @@ namespace BackendApi.Repositories
 
         public async Task<GeneralServiceResponse> RegisterAsync(UserCredentialsDto userCredential)
         {
+            var currentUser = await GetCurrentUserAsync();
+
+            // Check if username already exists
             if (_context.Users.Any(us => us.Username == userCredential.Username))
             {
                 throw new Exception("Username already exists");
             }
 
+            // Create new user
             var user = new StudentModel
             {
                 Username = userCredential.Username,
@@ -85,11 +158,41 @@ namespace BackendApi.Repositories
                 Fullname = userCredential.Fullname
             };
 
+            // Hash password and set it on the user model
             user.Password = _passwordHasher.HashPassword(user, userCredential.Password);
 
-            await _context.AddAsync(user);
-            _context.SaveChanges();
+            // Create a user event for tracking
+            var transactionEvent = new UserEvent
+            {
+                UserId = currentUser.Id,
+                EventDescription = $"{currentUser.Username.Pascalize()} created new user: {user.Username.ToUpper()}.",
+                Timestamp = TimeStampFormat()
+            };
 
+            // Start a transaction
+            using var transaction = await _context.Database.BeginTransactionAsync();
+
+            try
+            {
+                // Add both entities
+                await _context.AddAsync(user);
+                await _context.AddAsync(transactionEvent);
+
+                // Save changes to the database
+                await _context.SaveChangesAsync();
+
+                // Commit the transaction
+                await transaction.CommitAsync();
+            }
+            catch (Exception ex)
+            {
+                // Rollback if anything goes wrong
+                await transaction.RollbackAsync();
+                // Handle or log the exception
+                throw new Exception("An error occurred while saving the user and transaction event.", ex);
+            }
+
+            // Return success message
             return new GeneralServiceResponse
             {
                 Success = true,
@@ -99,6 +202,9 @@ namespace BackendApi.Repositories
 
         public async Task<LoginServiceResponse> LoginAsync(LoginDto userCredential)
         {
+            //userCredential.Username = "superadmin";
+            //userCredential.Password = "superadmin";
+
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == userCredential.Username);
 
             if (user == null)
@@ -113,15 +219,30 @@ namespace BackendApi.Repositories
             string? userFullname = null;
             int returnId;
 
+            //added
+
+            //user.LatestTransaction = $"{userCredential.Username.ToUpper()} Login at {DateTime.Now:yyyy-MM-dd hh:mm:ss}";
+
+            var userEvent = new UserEvent
+            {
+                Timestamp = TimeStampFormat(),
+                EventDescription = $"{user.Username.Pascalize()} Logged in",
+                UserId = user.Id,
+                User = user,
+            };
+            _context.UserEvents.Update(userEvent);
+            await _context.SaveChangesAsync();
+
             if (user.Role == UserRole.Teacher)
             {
-                var teacher = await teacherRepository.GetTeacherByUserIdAsync(user.Id);
+                var teacher = await _context.Teachers.FirstOrDefaultAsync(t => t.UserID == user.Id);
                 if (teacher == null)
                     throw new Exception("Associated teacher not found.");
 
                 returnId = teacher.Id;
                 userFullname = teacher.Fullname;
             }
+
             else
             {
                 var student = await GetStudentByUserIdAsync(user.Id);
@@ -137,6 +258,11 @@ namespace BackendApi.Repositories
                 Fullname = userFullname,
                 Role = user.Role.ToString(),
             };
+        }
+
+        public string TimeStampFormat()
+        {
+            return $"{DateTime.Now:yyyy-MM-dd hh:mm:ss tt}";
         }
 
         private async Task<StudentModel?> GetStudentByUserIdAsync(int userId)
@@ -179,6 +305,8 @@ namespace BackendApi.Repositories
 
         public async Task<GeneralServiceResponse> UpdateUserRoleAsync(int id, UserRoleUpdateDto dto)
         {
+            var currentUser = await GetCurrentUserAsync();
+
             var user = await _context.Users.FindAsync(id);
             if (user == null)
             {
@@ -189,18 +317,42 @@ namespace BackendApi.Repositories
                 };
             }
 
+            var previousRole = user.Role;
             user.Role = dto.Role;
-            _context.Users.Update(user);
-            await _context.SaveChangesAsync();
 
-            return new GeneralServiceResponse
+            var transactionEvent = new UserEvent
             {
-                Success = true,
-                Message = $"User role updated to {dto.Role}"
+                UserId = currentUser.Id,
+                EventDescription = $"{currentUser.Username.Pascalize()} updated user '{user.Username}' role from {previousRole} to {dto.Role}.",
+                Timestamp = TimeStampFormat()
             };
+
+            using var transaction = await _context.Database.BeginTransactionAsync();
+
+            try
+            {
+                _context.Users.Update(user);
+                await _context.UserEvents.AddAsync(transactionEvent);
+                await _context.SaveChangesAsync();
+                await transaction.CommitAsync();
+
+                return new GeneralServiceResponse
+                {
+                    Success = true,
+                    Message = $"User role updated to {dto.Role}"
+                };
+            }
+            catch (Exception ex)
+            {
+                await transaction.RollbackAsync();
+                throw new Exception("An error occurred while updating user role and logging the event.", ex);
+            }
         }
+
         public async Task<GeneralServiceResponse> DeleteStudentAsync(int id)
         {
+            var currentUser = await GetCurrentUserAsync();
+
             var student = await _context.Users
                 .FirstOrDefaultAsync(u => u.Id == id);
 
@@ -219,9 +371,15 @@ namespace BackendApi.Repositories
                 .ToListAsync();
 
             _context.StudentSubjects.RemoveRange(relatedSubjects);
-
             _context.Users.Remove(student);
             await _context.SaveChangesAsync();
+
+            var transactionEvent = new UserEvent
+            {
+                UserId = currentUser.Id,
+                EventDescription = $"{currentUser.Username} deleted: {student.Username}",
+                Timestamp = TimeStampFormat()
+            };
 
             return new GeneralServiceResponse
             {

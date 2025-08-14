@@ -70,7 +70,8 @@ builder.Services.AddScoped<IStudentSubjectService, StudentSubjectService>();
 builder.Services.AddScoped<IJwtTokenRepository, JwtTokenService>();
 builder.Services.AddScoped<IGradeRepository, GradeService>();
 
-
+//added
+builder.Services.AddHttpContextAccessor();
 
 
 builder.Services.AddEndpointsApiExplorer();

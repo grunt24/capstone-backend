@@ -1,3 +1,4 @@
+using BackendApi.Core.Models.Dto;
 using BackendApi.IRepositories;
 using System.ComponentModel.DataAnnotations;
 
@@ -27,5 +28,11 @@ namespace BackendApi.Core.Models
 
         // Navigation property for student-subject relation
         public ICollection<StudentSubject> StudentSubjects { get; set; } = new List<StudentSubject>();
+        //Added - B2
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
+        public string? LastUpdatedBy { get; set; }
+        public string? LatestTransaction { get; set; }
+        public ICollection<UserEvent> UserEvents { get; set; }
     }
 }

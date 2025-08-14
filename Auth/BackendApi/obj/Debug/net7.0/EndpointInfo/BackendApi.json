@@ -5,6 +5,42 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Auth/roles": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Auth/user-events": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Auth/currentuser": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Auth/create-student": {
       "post": {
         "tags": [
@@ -67,7 +103,7 @@
         }
       }
     },
-    "/api/Auth/update-role/{id}": {
+    "/api/Auth/update-userRole/{id}": {
       "put": {
         "tags": [
           "Auth"
@@ -1257,6 +1293,29 @@
               "$ref": "#/components/schemas/StudentSubject"
             },
             "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastUpdatedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "latestTransaction": {
+            "type": "string",
+            "nullable": true
+          },
+          "userEvents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserEvent"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1506,6 +1565,28 @@
             "nullable": true
           },
           "yearLevel": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserEvent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "eventDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "timestamp": {
             "type": "string",
             "nullable": true
           }

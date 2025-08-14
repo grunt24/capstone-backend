@@ -1,4 +1,5 @@
-﻿using BackendApi.Core.Models.Dto;
+﻿using BackendApi.Core.Models;
+using BackendApi.Core.Models.Dto;
 using BackendApi.IRepositories;
 using BackendApi.Repositories;
 using Microsoft.AspNetCore.Authorization;
@@ -17,6 +18,53 @@ public class AuthController : ControllerBase
     public AuthController(IAuthRepository authService)
     {
         _authService = authService;
+    }
+
+    [HttpGet("roles")]
+    [Authorize]
+    public IActionResult GetAllRoles()
+    {
+        var currentUser = _authService.GetCurrentUserAsync();
+        var roles = Enum.GetValues(typeof(UserRole))
+            .Cast<UserRole>()
+            .Select(r => new
+            {
+                Value = (int)r,
+                RoleName = r.ToString()
+            })
+            .ToList();
+
+        return Ok(roles);
+    }
+
+
+    [HttpGet("user-events")]
+    public async Task<IActionResult> GetUsersLatestEvent()
+    {
+        try
+        {
+            var response = await _authService.GetUserLatestAction();
+            return Ok(response.Data);
+        }
+        catch (Exception ex)
+        {
+            return Unauthorized(ex.Message);
+        }
+    }
+
+
+    [HttpGet("currentuser")]
+    public async Task<IActionResult> GetCurrentUser()
+    {
+        try
+        {
+            var user = await _authService.GetCurrentUserAsync();
+            return Ok(user);
+        }
+        catch (Exception ex)
+        {
+            return Unauthorized(ex.Message);
+        }
     }
 
     [HttpPost("create-student")]
@@ -39,7 +87,7 @@ public class AuthController : ControllerBase
         var result = await _authService.LoginAsync(request); 
         return Ok(new { token = result.NewToken, username = result.Username, fullname = result.Fullname, role = result.Role.ToString(), id = result.Id}); 
     }
-    [HttpPut("update-role/{id}")]
+    [HttpPut("update-userRole/{id}")]
     public async Task<IActionResult> UpdateUserRole(int id, [FromBody] UserRoleUpdateDto dto)
     {
         var result = await _authService.UpdateUserRoleAsync(id, dto);

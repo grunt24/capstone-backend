@@ -4,6 +4,7 @@ using BackendApi.Core.General;
 using BackendApi.Core.Models;
 using BackendApi.Core.Models.Dto;
 using BackendApi.IRepositories;
+using Humanizer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -16,11 +17,13 @@ namespace BackendApi.Services
     {
         private readonly AppDbContext _context;
         private readonly IMapper _mapper;
+        private readonly IAuthRepository _authRepository;
 
-        public TeacherService(AppDbContext context, IMapper mapper)
+        public TeacherService(AppDbContext context, IMapper mapper, IAuthRepository authRepository)
         {
             _context = context;
             _mapper = mapper;
+            _authRepository = authRepository;
         }
 
         public async Task<Teacher?> GetTeacherByUserIdAsync(int userId)
@@ -61,7 +64,8 @@ namespace BackendApi.Services
 
         public async Task<GeneralServiceResponse> CreateTeacherWithAccountAsync(CreateTeacherWithAccountDto dto)
         {
-            // Check if username already exists
+            var currentUser = await _authRepository.GetCurrentUserAsync();
+
             if (_context.Users.Any(u => u.Username == dto.Username))
             {
                 return new GeneralServiceResponse
@@ -71,47 +75,65 @@ namespace BackendApi.Services
                 };
             }
 
-            // 1. Create User
-            var user = new StudentModel
+            using var transaction = await _context.Database.BeginTransactionAsync();
+
+            try
             {
-                Username = dto.Username,
-                Role = UserRole.Teacher,
-                Fullname = dto.Fullname,
-            };
+                var user = new StudentModel
+                {
+                    Username = dto.Username,
+                    Role = UserRole.Teacher,
+                    Fullname = dto.Fullname,
+                };
 
-            var hasher = new PasswordHasher<StudentModel>();
-            user.Password = hasher.HashPassword(user, dto.Password);
+                var hasher = new PasswordHasher<StudentModel>();
+                user.Password = hasher.HashPassword(user, dto.Password);
 
-            await _context.Users.AddAsync(user);
-            await _context.SaveChangesAsync();
+                await _context.Users.AddAsync(user);
+                await _context.SaveChangesAsync();
 
-            // 2. Create Teacher (linked to user)
-            var teacher = new Teacher
-            {
-                Fullname = dto.Fullname,
-                UserID = user.Id
-            };
+                var teacher = new Teacher
+                {
+                    Fullname = dto.Fullname,
+                    UserID = user.Id
+                };
 
-            // 3. Assign Subjects
-            if (dto.SubjectIds.Any())
-            {
-                teacher.Subjects = await _context.Subjects
-                    .Where(s => dto.SubjectIds.Contains(s.Id))
-                    .ToListAsync();
+                if (dto.SubjectIds.Any())
+                {
+                    teacher.Subjects = await _context.Subjects
+                        .Where(s => dto.SubjectIds.Contains(s.Id))
+                        .ToListAsync();
+                }
+
+                await _context.Teachers.AddAsync(teacher);
+
+                var userEvent = new UserEvent
+                {
+                    UserId = currentUser.Id,
+                    Timestamp = _authRepository.TimeStampFormat(),
+                    EventDescription = $"{currentUser.Username.Pascalize()} created a teacher account for {teacher.Fullname}"
+                };
+
+                await _context.UserEvents.AddAsync(userEvent);
+                await _context.SaveChangesAsync();
+                await transaction.CommitAsync();
+
+                return new GeneralServiceResponse
+                {
+                    Success = true,
+                    Message = "Teacher account and subject assignment created successfully"
+                };
             }
-
-            await _context.Teachers.AddAsync(teacher);
-            await _context.SaveChangesAsync();
-
-            return new GeneralServiceResponse
+            catch
             {
-                Success = true,
-                Message = "Teacher account and subject assignment created successfully"
-            };
+                await transaction.RollbackAsync();
+                throw;
+            }
         }
-
         public async Task<GeneralServiceResponse> UpdateTeacher(int id, TeacherDto teacherDto)
         {
+            var currentUser = await _authRepository.GetCurrentUserAsync();
+
             var existingTeacher = await _context.Teachers
                 .Include(t => t.Subjects)
                 .FirstOrDefaultAsync(t => t.Id == id);
@@ -125,57 +147,119 @@ namespace BackendApi.Services
                 };
             }
 
-            existingTeacher.Fullname = teacherDto.Fullname;
-            existingTeacher.UserID = teacherDto.UserId;
+            using var transaction = await _context.Database.BeginTransactionAsync();
 
-            // Update Subjects
-            existingTeacher.Subjects.Clear();
-            if (teacherDto.SubjectIds.Any())
+            try
             {
-                var subjects = await _context.Subjects
-                    .Where(s => teacherDto.SubjectIds.Contains(s.Id))
-                    .ToListAsync();
+                existingTeacher.Fullname = teacherDto.Fullname;
+                existingTeacher.UserID = teacherDto.UserId;
 
-                foreach (var sub in subjects)
-                    existingTeacher.Subjects.Add(sub);
+                existingTeacher.Subjects.Clear();
+
+                if (teacherDto.SubjectIds.Any())
+                {
+                    var subjects = await _context.Subjects
+                        .Where(s => teacherDto.SubjectIds.Contains(s.Id))
+                        .ToListAsync();
+
+                    foreach (var sub in subjects)
+                        existingTeacher.Subjects.Add(sub);
+                }
+
+                var userEvent = new UserEvent
+                {
+                    UserId = currentUser.Id,
+                    Timestamp = _authRepository.TimeStampFormat(),
+                    EventDescription = $"{currentUser.Username.Pascalize()} updated teacher: {existingTeacher.Fullname}"
+                };
+
+                await _context.UserEvents.AddAsync(userEvent);
+                await _context.SaveChangesAsync();
+                await transaction.CommitAsync();
+
+                return new GeneralServiceResponse
+                {
+                    Success = true,
+                    Message = "Teacher updated successfully."
+                };
             }
-
-            await _context.SaveChangesAsync();
-
-            return new GeneralServiceResponse
+            catch
             {
-                Success = true,
-                Message = "Teacher updated successfully."
-            };
+                await transaction.RollbackAsync();
+                throw;
+            }
         }
-
         public async Task<GeneralServiceResponse> DeleteTeacher(int id)
         {
+            var currentUser = await _authRepository.GetCurrentUserAsync();
+
             var teacher = await _context.Teachers
                 .Include(t => t.Subjects)
+                .Include(t => t.User) // Include User to access username for logging
                 .FirstOrDefaultAsync(t => t.Id == id);
 
-            var subjectsWithTeacher = await _context.Subjects
-    .Where(s => s.TeacherId == teacher.Id)
-    .ToListAsync();
-
-            foreach (var subject in subjectsWithTeacher)
+            if (teacher == null)
             {
-                subject.TeacherId = null;
+                return new GeneralServiceResponse
+                {
+                    Success = false,
+                    Message = "Teacher not found"
+                };
             }
 
-            // Optional: Clear navigation property to avoid tracking issues
-            teacher.Subjects.Clear();
+            using var transaction = await _context.Database.BeginTransactionAsync();
 
-
-            _context.Teachers.Remove(teacher);
-            await _context.SaveChangesAsync();
-
-            return new GeneralServiceResponse
+            try
             {
-                Success = true,
-                Message = "Teacher deleted successfully."
-            };
+                // 1. Nullify TeacherId on Subjects
+                var subjectsWithTeacher = await _context.Subjects
+                    .Where(s => s.TeacherId == teacher.Id)
+                    .ToListAsync();
+
+                foreach (var subject in subjectsWithTeacher)
+                {
+                    subject.TeacherId = null;
+                }
+
+                // 2. Optional: Clear navigation properties
+                teacher.Subjects.Clear();
+
+                // 3. Remove the Teacher
+                _context.Teachers.Remove(teacher);
+
+                // 4. Remove the associated User (if exists)
+                var user = await _context.Users.FindAsync(teacher.UserID);
+                if (user != null)
+                {
+                    _context.Users.Remove(user);
+                }
+
+                // 5. Log the action
+                var userEvent = new UserEvent
+                {
+                    UserId = currentUser.Id,
+                    Timestamp = _authRepository.TimeStampFormat(),
+                    EventDescription = $"{currentUser.Username.Pascalize()} deleted teacher: {teacher.Fullname}."
+                };
+
+                await _context.UserEvents.AddAsync(userEvent);
+
+                // 6. Save changes and commit transaction
+                await _context.SaveChangesAsync();
+                await transaction.CommitAsync();
+
+                return new GeneralServiceResponse
+                {
+                    Success = true,
+                    Message = "Teacher and associated user deleted successfully."
+                };
+            }
+            catch
+            {
+                await transaction.RollbackAsync();
+                throw;
+            }
         }
+
     }
 }

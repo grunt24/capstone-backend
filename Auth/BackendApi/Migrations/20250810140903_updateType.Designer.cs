@@ -4,6 +4,7 @@ using BackendApi.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackendApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250810140903_updateType")]
+    partial class updateType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,7 +47,7 @@ namespace BackendApi.Migrations
                     b.HasIndex("StudentSubjectId")
                         .IsUnique();
 
-                    b.ToTable("Grades", (string)null);
+                    b.ToTable("Grades");
                 });
 
             modelBuilder.Entity("BackendApi.Core.GradeItem", b =>
@@ -72,7 +75,7 @@ namespace BackendApi.Migrations
 
                     b.HasIndex("GradeId");
 
-                    b.ToTable("GradeItems", (string)null);
+                    b.ToTable("GradeItems");
                 });
 
             modelBuilder.Entity("BackendApi.Core.Models.Dto.UserEvent", b =>
@@ -97,7 +100,7 @@ namespace BackendApi.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserEvents", (string)null);
+                    b.ToTable("UserEvents");
                 });
 
             modelBuilder.Entity("BackendApi.Core.Models.StudentModel", b =>
@@ -144,7 +147,7 @@ namespace BackendApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("BackendApi.Core.Models.StudentSubject", b =>
@@ -167,7 +170,7 @@ namespace BackendApi.Migrations
 
                     b.HasIndex("SubjectID");
 
-                    b.ToTable("StudentSubjects", (string)null);
+                    b.ToTable("StudentSubjects");
                 });
 
             modelBuilder.Entity("BackendApi.Core.Models.Subject", b =>
@@ -201,7 +204,7 @@ namespace BackendApi.Migrations
 
                     b.HasIndex("TeacherId");
 
-                    b.ToTable("Subjects", (string)null);
+                    b.ToTable("Subjects");
                 });
 
             modelBuilder.Entity("BackendApi.Core.Models.Teacher", b =>
@@ -222,7 +225,7 @@ namespace BackendApi.Migrations
 
                     b.HasIndex("UserID");
 
-                    b.ToTable("Teachers", (string)null);
+                    b.ToTable("Teachers");
                 });
 
             modelBuilder.Entity("BackendApi.Core.Grade", b =>

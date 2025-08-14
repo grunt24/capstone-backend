@@ -17,6 +17,9 @@ namespace BackendApi.IRepositories
         Task<IEnumerable<StudentDto>> GetAllStudents();
         Task<GeneralServiceResponse> UpdateUserDetailsAsync(int id, UserUpdateDto dto);
         Task<GeneralServiceResponse> DeleteStudentAsync(int id);
-
+        //added
+        Task<UserDto> GetCurrentUserAsync();
+        Task<ResponseData<UserEvent>> GetUserLatestAction();
+        string TimeStampFormat();
     }
 }

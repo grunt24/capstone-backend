@@ -4,6 +4,8 @@ using BackendApi.Core.General;
 using BackendApi.Core.Models;
 using BackendApi.Core.Models.Dto;
 using BackendApi.IRepositories;
+using BackendApi.Repositories;
+using Humanizer;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +17,13 @@ namespace BackendApi.Services
     {
         private readonly AppDbContext _context;
         private readonly IMapper _mapper;
+        IAuthRepository _authRepository;
 
-        public SubjectService(AppDbContext context, IMapper mapper)
+        public SubjectService(AppDbContext context, IMapper mapper, IAuthRepository authRepository)
         {
             _context = context;
             _mapper = mapper;
+            _authRepository = authRepository;
         }
 
         public async Task<IEnumerable<SubjectWithTeacherDto>> GetAllSubjects()
@@ -48,20 +52,43 @@ namespace BackendApi.Services
 
         public async Task<GeneralServiceResponse> CreateSubject(SubjectDto subjectDto)
         {
+            var currentUser = await _authRepository.GetCurrentUserAsync();
             var subject = _mapper.Map<Subject>(subjectDto);
-            await _context.Subjects.AddAsync(subject);
-            await _context.SaveChangesAsync();
 
-            return new GeneralServiceResponse
+            var userEvent = new UserEvent
             {
-                Success = true,
-                Message = "Subject created successfully"
+                UserId = currentUser.Id,
+                Timestamp = _authRepository.TimeStampFormat(),
+                EventDescription = $"{currentUser.Username.Pascalize()} created subject: {subject.SubjectName}"
             };
+
+            using var transaction = await _context.Database.BeginTransactionAsync();
+
+            try
+            {
+                await _context.Subjects.AddAsync(subject);
+                await _context.UserEvents.AddAsync(userEvent);
+                await _context.SaveChangesAsync();
+                await transaction.CommitAsync();
+
+                return new GeneralServiceResponse
+                {
+                    Success = true,
+                    Message = "Subject created successfully"
+                };
+            }
+            catch
+            {
+                await transaction.RollbackAsync();
+                throw;
+            }
         }
 
         public async Task<GeneralServiceResponse> UpdateSubject(int id, SubjectDto subjectDto)
         {
+            var currentUser = await _authRepository.GetCurrentUserAsync();
             var subject = await _context.Subjects.FindAsync(id);
+
             if (subject == null)
             {
                 return new GeneralServiceResponse
@@ -71,15 +98,37 @@ namespace BackendApi.Services
                 };
             }
 
-            _mapper.Map(subjectDto, subject);
-            _context.Subjects.Update(subject);
-            await _context.SaveChangesAsync();
+            var originalName = subject.SubjectName;
 
-            return new GeneralServiceResponse
+            _mapper.Map(subjectDto, subject);
+
+            var userEvent = new UserEvent
             {
-                Success = true,
-                Message = "Subject updated successfully"
+                UserId = currentUser.Id,
+                Timestamp = _authRepository.TimeStampFormat(),
+                EventDescription = $"{currentUser.Username.Pascalize()} updated subject: {originalName} → {subject.SubjectName}"
             };
+
+            using var transaction = await _context.Database.BeginTransactionAsync();
+
+            try
+            {
+                _context.Subjects.Update(subject);
+                await _context.UserEvents.AddAsync(userEvent);
+                await _context.SaveChangesAsync();
+                await transaction.CommitAsync();
+
+                return new GeneralServiceResponse
+                {
+                    Success = true,
+                    Message = "Subject updated successfully"
+                };
+            }
+            catch
+            {
+                await transaction.RollbackAsync();
+                throw;
+            }
         }
         public async Task<IEnumerable<SubjectWithStudentsDto>> GetSubjectsByTeacherId(int teacherId)
         {
@@ -111,7 +160,9 @@ namespace BackendApi.Services
         }
         public async Task<GeneralServiceResponse> DeleteSubject(int id)
         {
+            var currentUser = await _authRepository.GetCurrentUserAsync();
             var subject = await _context.Subjects.FindAsync(id);
+
             if (subject == null)
             {
                 return new GeneralServiceResponse
@@ -121,14 +172,33 @@ namespace BackendApi.Services
                 };
             }
 
-            _context.Subjects.Remove(subject);
-            await _context.SaveChangesAsync();
-
-            return new GeneralServiceResponse
+            var userEvent = new UserEvent
             {
-                Success = true,
-                Message = "Subject deleted successfully"
+                UserId = currentUser.Id,
+                Timestamp = _authRepository.TimeStampFormat(),
+                EventDescription = $"{currentUser.Username.Pascalize()} deleted subject: {subject.SubjectName}"
             };
+
+            using var transaction = await _context.Database.BeginTransactionAsync();
+
+            try
+            {
+                _context.Subjects.Remove(subject);
+                await _context.UserEvents.AddAsync(userEvent);
+                await _context.SaveChangesAsync();
+                await transaction.CommitAsync();
+
+                return new GeneralServiceResponse
+                {
+                    Success = true,
+                    Message = "Subject deleted successfully"
+                };
+            }
+            catch
+            {
+                await transaction.RollbackAsync();
+                throw;
+            }
         }
     }
 }
