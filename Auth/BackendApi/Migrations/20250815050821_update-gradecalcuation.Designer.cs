@@ -4,6 +4,7 @@ using BackendApi.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackendApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250815050821_update-gradecalcuation")]
+    partial class updategradecalcuation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -149,133 +152,6 @@ namespace BackendApi.Migrations
                     b.ToTable("GradePointEquivalents");
                 });
 
-            modelBuilder.Entity("BackendApi.Core.Models.GradeWeights", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<decimal>("ClassStandingWeighted")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("MidtermWeighted")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("ProjectWeighted")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("QuizWeighted")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("SEPWeighted")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("GradeWeights");
-                });
-
-            modelBuilder.Entity("BackendApi.Core.Models.MidtermGrade", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AttendanceScore")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("ClassStandingAverage")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("ClassStandingPG")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("ClassStandingTotalScore")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("ClassStandingWeightedTotal")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("CombinedPrelimMidtermAverage")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<double>("GradePointEquivalent")
-                        .HasColumnType("float");
-
-                    b.Property<decimal>("MidtermPG")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("MidtermScore")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MidtermTotal")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("MidtermWeightedTotal")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("OverallPrelimAndMidterm")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("PrelimScore")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PrelimTotal")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("ProjectPG")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("ProjectScore")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("ProjectWeightedTotal")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("QuizPG")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("QuizWeightedTotal")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("RecitationScore")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("SEPPG")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("SEPScore")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("SEPWeightedTotal")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("StudentId")
-                        .HasColumnType("int");
-
-                    b.Property<double>("TotalMidtermGrade")
-                        .HasColumnType("float");
-
-                    b.Property<double>("TotalMidtermGradeRounded")
-                        .HasColumnType("float");
-
-                    b.Property<int>("TotalQuizScore")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("TotalScorePerlimAndMidterm")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("StudentId");
-
-                    b.ToTable("MidtermGrades");
-                });
-
             modelBuilder.Entity("BackendApi.Core.Models.MidtermQuizList", b =>
                 {
                     b.Property<int>("Id")
@@ -317,6 +193,10 @@ namespace BackendApi.Migrations
                     b.Property<string>("Department")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Fullname")
                         .HasColumnType("nvarchar(max)");
 
@@ -348,6 +228,10 @@ namespace BackendApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("StudentModel");
+
+                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("BackendApi.Core.Models.StudentSubject", b =>
@@ -428,6 +312,94 @@ namespace BackendApi.Migrations
                     b.ToTable("Teachers");
                 });
 
+            modelBuilder.Entity("BackendApi.Core.Models.MidtermGrade", b =>
+                {
+                    b.HasBaseType("BackendApi.Core.Models.StudentModel");
+
+                    b.Property<int>("AttendanceScore")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("ClassStandingAverage")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("ClassStandingPG")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("ClassStandingTotalScore")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("ClassStandingWeighted")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("CombinedPrelimMidtermAverage")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<double>("GradePointEquivalent")
+                        .HasColumnType("float");
+
+                    b.Property<decimal>("MidtermExamWeighted")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("MidtermPG")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("MidtermScore")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MidtermTotal")
+                        .HasColumnType("int");
+
+                    b.Property<double>("OverallPrelimAndMidterm")
+                        .HasColumnType("float");
+
+                    b.Property<int>("PrelimScore")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PrelimTotal")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("ProjectPG")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("ProjectScore")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("ProjectWeighted")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("QuizPG")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("QuizWeighted")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("RecitationScore")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("SEPPG")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("SEPScore")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("SEPWeighted")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<double>("TotalMidtermGrade")
+                        .HasColumnType("float");
+
+                    b.Property<double>("TotalMidtermGradeRounded")
+                        .HasColumnType("float");
+
+                    b.Property<int>("TotalQuizScore")
+                        .HasColumnType("int");
+
+                    b.Property<double>("TotalScorePerlimAndMidterm")
+                        .HasColumnType("float");
+
+                    b.HasDiscriminator().HasValue("MidtermGrade");
+                });
+
             modelBuilder.Entity("BackendApi.Core.Grade", b =>
                 {
                     b.HasOne("BackendApi.Core.Models.StudentSubject", "StudentSubject")
@@ -462,17 +434,6 @@ namespace BackendApi.Migrations
                     b.HasOne("BackendApi.Core.Models.StudentModel", "User")
                         .WithMany("UserEvents")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("BackendApi.Core.Models.MidtermGrade", b =>
-                {
-                    b.HasOne("BackendApi.Core.Models.StudentModel", "User")
-                        .WithMany()
-                        .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -530,13 +491,6 @@ namespace BackendApi.Migrations
                     b.Navigation("GradeItems");
                 });
 
-            modelBuilder.Entity("BackendApi.Core.Models.MidtermGrade", b =>
-                {
-                    b.Navigation("ClassStandingItems");
-
-                    b.Navigation("Quizzes");
-                });
-
             modelBuilder.Entity("BackendApi.Core.Models.StudentModel", b =>
                 {
                     b.Navigation("StudentSubjects");
@@ -557,6 +511,13 @@ namespace BackendApi.Migrations
             modelBuilder.Entity("BackendApi.Core.Models.Teacher", b =>
                 {
                     b.Navigation("Subjects");
+                });
+
+            modelBuilder.Entity("BackendApi.Core.Models.MidtermGrade", b =>
+                {
+                    b.Navigation("ClassStandingItems");
+
+                    b.Navigation("Quizzes");
                 });
 #pragma warning restore 612, 618
         }

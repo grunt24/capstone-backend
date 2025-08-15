@@ -140,6 +140,62 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BackendApi.Controllers.GradeController",
+    "Method": "CalculateMidtermGrade",
+    "RelativePath": "api/Grade/calculate-midterm",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "midtermGradeDto",
+        "Type": "BackendApi.Core.Models.Dto.MidtermGradeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BackendApi.Core.Models.Dto.MidtermGradeDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 500
+      }
+    ]
+  },
+  {
+    "ContainingType": "BackendApi.Controllers.GradeController",
+    "Method": "UploadMidtermGrades",
+    "RelativePath": "api/Grade/upload-midterm",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BackendApi.Controllers.GradesController",
     "Method": "SaveGrades",
     "RelativePath": "api/Grades/save",

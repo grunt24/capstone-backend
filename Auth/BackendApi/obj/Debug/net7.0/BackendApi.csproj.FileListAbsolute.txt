@@ -1287,3 +1287,5 @@ C:\Users\brent\Desktop\main-capstoneBackend\Auth\BackendApi\obj\Debug\net7.0\sco
 C:\Users\brent\Desktop\main-capstoneBackend\Auth\BackendApi\obj\Debug\net7.0\BackendApi.csproj.Up2Date
 C:\Users\brent\Desktop\main-capstoneBackend\Auth\BackendApi\obj\Debug\net7.0\BackendApi.genruntimeconfig.cache
 C:\Users\brent\Desktop\main-capstoneBackend\Auth\BackendApi\obj\Debug\net7.0\ref\BackendApi.dll
+C:\Users\brent\Desktop\main-capstoneBackend\Auth\BackendApi\bin\Debug\net7.0\ExcelDataReader.dll
+C:\Users\brent\Desktop\main-capstoneBackend\Auth\BackendApi\bin\Debug\net7.0\ExcelDataReader.DataSet.dll

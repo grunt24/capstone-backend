@@ -69,6 +69,8 @@ builder.Services.AddScoped<ISubjectRepository, SubjectService>();
 builder.Services.AddScoped<IStudentSubjectService, StudentSubjectService>();
 builder.Services.AddScoped<IJwtTokenRepository, JwtTokenService>();
 builder.Services.AddScoped<IGradeRepository, GradeService>();
+builder.Services.AddScoped<IGradeCalculationService, GradeCalculationService>();
+builder.Services.AddScoped<IGradePointService, GradePointService>();
 
 //added
 builder.Services.AddHttpContextAccessor();

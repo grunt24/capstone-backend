@@ -18,6 +18,13 @@ namespace BackendApi.Context
         public DbSet<GradeItem> GradeItems { get; set; }
         //added
         public DbSet<UserEvent> UserEvents { get; set; }
+        public DbSet<GradePointEquivalent> GradePointEquivalents { get; set; }
+        public DbSet<MidtermGrade> MidtermGrades { get; set; }
+        public DbSet<MidtermQuizList> MidtermQuizLists { get; set; }
+        public DbSet<ClassStandingItem> ClassStanding { get; set; }
+        public DbSet<GradeWeights> GradeWeights { get; set; }
 
     }
+
+
 }

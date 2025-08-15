@@ -4,6 +4,7 @@ using BackendApi.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackendApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250815055102_add-weightsGrade")]
+    partial class addweightsGrade
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -157,19 +160,22 @@ namespace BackendApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<decimal>("ClassStandingWeighted")
+                    b.Property<decimal>("ClassStanding")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal>("MidtermWeighted")
+                    b.Property<decimal>("MidtermExam")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal>("ProjectWeighted")
+                    b.Property<decimal>("Prelim")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal>("QuizWeighted")
+                    b.Property<decimal>("Project")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal>("SEPWeighted")
+                    b.Property<decimal>("Quizzes")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("SEP")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
@@ -197,7 +203,7 @@ namespace BackendApi.Migrations
                     b.Property<int>("ClassStandingTotalScore")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("ClassStandingWeightedTotal")
+                    b.Property<decimal>("ClassStandingWeighted")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("CombinedPrelimMidtermAverage")
@@ -205,6 +211,9 @@ namespace BackendApi.Migrations
 
                     b.Property<double>("GradePointEquivalent")
                         .HasColumnType("float");
+
+                    b.Property<decimal>("MidtermExamWeighted")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("MidtermPG")
                         .HasColumnType("decimal(18,2)");
@@ -214,9 +223,6 @@ namespace BackendApi.Migrations
 
                     b.Property<int>("MidtermTotal")
                         .HasColumnType("int");
-
-                    b.Property<decimal>("MidtermWeightedTotal")
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("OverallPrelimAndMidterm")
                         .HasColumnType("decimal(18,2)");
@@ -233,13 +239,13 @@ namespace BackendApi.Migrations
                     b.Property<int>("ProjectScore")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("ProjectWeightedTotal")
+                    b.Property<decimal>("ProjectWeighted")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("QuizPG")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal>("QuizWeightedTotal")
+                    b.Property<decimal>("QuizWeighted")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("RecitationScore")
@@ -251,7 +257,7 @@ namespace BackendApi.Migrations
                     b.Property<int>("SEPScore")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("SEPWeightedTotal")
+                    b.Property<decimal>("SEPWeighted")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("StudentId")
