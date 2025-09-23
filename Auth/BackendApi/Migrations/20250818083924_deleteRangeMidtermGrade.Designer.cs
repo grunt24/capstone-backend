@@ -4,6 +4,7 @@ using BackendApi.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackendApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250818083924_deleteRangeMidtermGrade")]
+    partial class deleteRangeMidtermGrade
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -83,9 +86,6 @@ namespace BackendApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("FinalsGradeId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Label")
                         .HasColumnType("nvarchar(max)");
 
@@ -99,8 +99,6 @@ namespace BackendApi.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("FinalsGradeId");
 
                     b.HasIndex("MidtermGradeId");
 
@@ -130,104 +128,6 @@ namespace BackendApi.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("UserEvents");
-                });
-
-            modelBuilder.Entity("BackendApi.Core.Models.FinalsGrade", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AttendanceScore")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("ClassStandingAverage")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("ClassStandingPG")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("ClassStandingTotalScore")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("ClassStandingWeightedTotal")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("CombinedFinalsAverage")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("FinalsPG")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("FinalsScore")
-                        .HasColumnType("int");
-
-                    b.Property<int>("FinalsTotal")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("FinalsWeightedTotal")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<double>("GradePointEquivalent")
-                        .HasColumnType("float");
-
-                    b.Property<decimal>("OverallFinals")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("ProjectPG")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("ProjectScore")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("ProjectWeightedTotal")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("QuizPG")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("QuizWeightedTotal")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("RecitationScore")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("SEPPG")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("SEPScore")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("SEPWeightedTotal")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("StudentId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("SubjectId")
-                        .HasColumnType("int");
-
-                    b.Property<double>("TotalFinalsGrade")
-                        .HasColumnType("float");
-
-                    b.Property<double>("TotalFinalsGradeRounded")
-                        .HasColumnType("float");
-
-                    b.Property<int>("TotalQuizScore")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("TotalScoreFinals")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("StudentId");
-
-                    b.HasIndex("SubjectId");
-
-                    b.ToTable("FinalsGrades");
                 });
 
             modelBuilder.Entity("BackendApi.Core.Models.GradePointEquivalent", b =>
@@ -360,9 +260,6 @@ namespace BackendApi.Migrations
                     b.Property<int>("StudentId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SubjectId")
-                        .HasColumnType("int");
-
                     b.Property<double>("TotalMidtermGrade")
                         .HasColumnType("float");
 
@@ -379,21 +276,16 @@ namespace BackendApi.Migrations
 
                     b.HasIndex("StudentId");
 
-                    b.HasIndex("SubjectId");
-
                     b.ToTable("MidtermGrades");
                 });
 
-            modelBuilder.Entity("BackendApi.Core.Models.QuizList", b =>
+            modelBuilder.Entity("BackendApi.Core.Models.MidtermQuizList", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("FinalsGradeId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Label")
                         .HasColumnType("nvarchar(max)");
@@ -409,11 +301,9 @@ namespace BackendApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FinalsGradeId");
-
                     b.HasIndex("MidtermGradeId");
 
-                    b.ToTable("QuizLists");
+                    b.ToTable("MidtermQuizLists");
                 });
 
             modelBuilder.Entity("BackendApi.Core.Models.StudentModel", b =>
@@ -565,10 +455,6 @@ namespace BackendApi.Migrations
 
             modelBuilder.Entity("BackendApi.Core.Models.ClassStandingItem", b =>
                 {
-                    b.HasOne("BackendApi.Core.Models.FinalsGrade", null)
-                        .WithMany("ClassStandingItems")
-                        .HasForeignKey("FinalsGradeId");
-
                     b.HasOne("BackendApi.Core.Models.MidtermGrade", null)
                         .WithMany("ClassStandingItems")
                         .HasForeignKey("MidtermGradeId")
@@ -586,23 +472,6 @@ namespace BackendApi.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("BackendApi.Core.Models.FinalsGrade", b =>
-                {
-                    b.HasOne("BackendApi.Core.Models.StudentModel", "User")
-                        .WithMany()
-                        .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BackendApi.Core.Models.Subject", "Subject")
-                        .WithMany()
-                        .HasForeignKey("SubjectId");
-
-                    b.Navigation("Subject");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("BackendApi.Core.Models.MidtermGrade", b =>
                 {
                     b.HasOne("BackendApi.Core.Models.StudentModel", "User")
@@ -611,21 +480,11 @@ namespace BackendApi.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BackendApi.Core.Models.Subject", "Subject")
-                        .WithMany()
-                        .HasForeignKey("SubjectId");
-
-                    b.Navigation("Subject");
-
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("BackendApi.Core.Models.QuizList", b =>
+            modelBuilder.Entity("BackendApi.Core.Models.MidtermQuizList", b =>
                 {
-                    b.HasOne("BackendApi.Core.Models.FinalsGrade", null)
-                        .WithMany("Quizzes")
-                        .HasForeignKey("FinalsGradeId");
-
                     b.HasOne("BackendApi.Core.Models.MidtermGrade", null)
                         .WithMany("Quizzes")
                         .HasForeignKey("MidtermGradeId")
@@ -674,13 +533,6 @@ namespace BackendApi.Migrations
             modelBuilder.Entity("BackendApi.Core.Grade", b =>
                 {
                     b.Navigation("GradeItems");
-                });
-
-            modelBuilder.Entity("BackendApi.Core.Models.FinalsGrade", b =>
-                {
-                    b.Navigation("ClassStandingItems");
-
-                    b.Navigation("Quizzes");
                 });
 
             modelBuilder.Entity("BackendApi.Core.Models.MidtermGrade", b =>

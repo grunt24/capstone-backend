@@ -28,6 +28,10 @@ builder.Services.AddCors(options =>
 builder.Services.AddAutoMapper(typeof(SubjectProfile));
 
 builder.Services.AddAutoMapper(typeof(TeacherProfile));
+builder.Services.AddAutoMapper(typeof(StudentProfile));
+builder.Services.AddAutoMapper(typeof(GradeProfile));
+
+
 
 
 
@@ -71,6 +75,8 @@ builder.Services.AddScoped<IJwtTokenRepository, JwtTokenService>();
 builder.Services.AddScoped<IGradeRepository, GradeService>();
 builder.Services.AddScoped<IGradeCalculationService, GradeCalculationService>();
 builder.Services.AddScoped<IGradePointService, GradePointService>();
+builder.Services.AddScoped<IStudentRepository, StudentService>();
+
 
 //added
 builder.Services.AddHttpContextAccessor();

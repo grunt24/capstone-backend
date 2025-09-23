@@ -2,21 +2,23 @@
 
 namespace BackendApi.Core.Models
 {
-    public class MidtermGrade
+    public class FinalsGrade
     {
+        public int Id { get; set; }
+
         [ForeignKey("User")]
         public int StudentId { get; set; }
         public StudentModel? User { get; set; }
+
         [ForeignKey("SubjectId")]
         public int? SubjectId { get; set; }
         public Subject? Subject { get; set; }
 
-        public int Id { get; set; }
+        // Final Grades will use the same QuizList and ClassStandingItem tables
         public ICollection<QuizList> Quizzes { get; set; } = new List<QuizList>();
-        public int TotalQuizScore { get; set; } // TS
-        public decimal QuizPG { get; set; } // Percentage Grade for quizzes
-        public decimal QuizWeightedTotal { get; set; } // The final weighted score for quizzes
-
+        public int TotalQuizScore { get; set; }
+        public decimal QuizPG { get; set; }
+        public decimal QuizWeightedTotal { get; set; }
         // Class Standing (25% of the grade)
         public int RecitationScore { get; set; }
         public int AttendanceScore { get; set; }
@@ -25,7 +27,6 @@ namespace BackendApi.Core.Models
         public decimal ClassStandingAverage { get; set; }
         public decimal ClassStandingPG { get; set; } // Percentage Grade for class standing
         public decimal ClassStandingWeightedTotal { get; set; } // The final weighted score for class standing
-
 
         // Speak English Policy (SEP) (5% of the grade)
         public int SEPScore { get; set; }
@@ -38,36 +39,18 @@ namespace BackendApi.Core.Models
         public decimal ProjectWeightedTotal { get; set; } // The final weighted score for the project
 
         // Prelim and Midterm Exam (30% of the grade)
-        public int PrelimScore { get; set; }
-        public int PrelimTotal { get; set; }
-        public int MidtermScore { get; set; }
-        public int MidtermTotal { get; set; }
-        public decimal TotalScorePerlimAndMidterm { get; set; }
-        public decimal OverallPrelimAndMidterm { get; set; }
-        public decimal CombinedPrelimMidtermAverage { get; set; } // Average of prelim & midterm scores
-        public decimal MidtermPG { get; set; } // Percentage Grade for the combined exam
-        public decimal MidtermWeightedTotal { get; set; } // The final weighted score for the midterm exam
+        public int FinalsScore { get; set; }
+        public int FinalsTotal { get; set; }
+        public decimal TotalScoreFinals { get; set; }
+        public decimal OverallFinals { get; set; }
+        public decimal CombinedFinalsAverage { get; set; } // Average of prelim & midterm scores
+        public decimal FinalsPG { get; set; } // Percentage Grade for the combined exam
+        public decimal FinalsWeightedTotal { get; set; } // The final weighted score for the midterm exam
 
         // Final calculated grade
-        public double TotalMidtermGrade { get; set; } // Summation of all weighted totals
-        public double TotalMidtermGradeRounded { get; set; } // e.g., 74.50 = 75
-
+        public double TotalFinalsGrade { get; set; } // Summation of all weighted totals
+        public double TotalFinalsGradeRounded { get; set; } // e.g., 74.50 = 75
         // The final grade point equivalent
         public double GradePointEquivalent { get; set; }
-
-    }
-    public class QuizList
-    {
-        public int Id { get; set; }
-        public string? Label { get; set; } // e.g., "Quiz 1"
-        public int? QuizScore { get; set; }
-        public int? TotalQuizScore { get; set; }
-    }
-    public class ClassStandingItem
-    {
-        public int Id { get; set; }
-        public string? Label { get; set; } // e.g., "SW/ASS/GRP WRK 1"
-        public int? Score { get; set; }
-        public int? Total { get; set; }
     }
 }

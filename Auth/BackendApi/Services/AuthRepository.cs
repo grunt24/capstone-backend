@@ -38,7 +38,7 @@ namespace BackendApi.Repositories
         }
 
         //Added
-        public async Task<ResponseData<UserEvent>> GetUserLatestAction()
+        public async Task<ResponseData<IEnumerable<UserEvent>>> GetUserLatestAction()
         {
             var currentUser = await GetCurrentUserAsync();
 
@@ -57,7 +57,7 @@ namespace BackendApi.Repositories
 
             if (latestEvents != null)
             {
-                return new ResponseData<UserEvent>
+                return new ResponseData<IEnumerable<UserEvent>>
                 {
                     Success = true,
                     Message = "Latest event fetched successfully.",
@@ -66,7 +66,7 @@ namespace BackendApi.Repositories
             }
             else
             {
-                return new ResponseData<UserEvent>
+                return new ResponseData<IEnumerable<UserEvent>>
                 {
                     Success = true,
                     Message = "No Current events",

@@ -261,5 +261,69 @@ namespace BackendApi.Services
             }
         }
 
+        // New service method to get a list of students for the logged-in teacher.
+        public async Task<IEnumerable<StudentInfoDto>> GetStudentsForLoggedInTeacherAsync(int userId)
+        {
+            // Find the teacher by the logged-in user's ID and eagerly load their subjects and students.
+            var teacher = await _context.Teachers
+                .Include(t => t.Subjects)
+                    .ThenInclude(s => s.StudentSubjects)
+                        .ThenInclude(ss => ss.User)
+                .FirstOrDefaultAsync(t => t.UserID == userId);
+
+            // If no teacher is found for the user ID, return an empty list.
+            if (teacher == null)
+            {
+                return Enumerable.Empty<StudentInfoDto>();
+            }
+
+            // A dictionary to store unique students and their subjects.
+            var studentsDict = new Dictionary<int, StudentInfoDto>();
+
+            foreach (var subject in teacher.Subjects)
+            {
+                foreach (var studentSubject in subject.StudentSubjects)
+                {
+                    var student = studentSubject.User;
+                    if (student != null)
+                    {
+                        if (!studentsDict.ContainsKey(student.Id))
+                        {
+                            // If the student is not yet in the dictionary, add them with their first subject.
+                            studentsDict.Add(student.Id, new StudentInfoDto
+                            {
+                                UserId = student.Id,
+                                Fullname = student.Fullname,
+                                Subjects = new List<SubjectItemDto>()
+                                {
+                                    new SubjectItemDto
+                                    {
+                                        SubjectId = subject.Id,
+                                        SubjectName = subject.SubjectName,
+                                        SubjectCode = subject.SubjectCode,
+                                        TeacherName = teacher.Fullname
+                                    }
+                                }
+                            });
+                        }
+                        else
+                        {
+                            // If the student is already in the dictionary, add the new subject to their list.
+                            studentsDict[student.Id].Subjects.Add(new SubjectItemDto
+                            {
+                                SubjectId = subject.Id,
+                                SubjectName = subject.SubjectName,
+                                SubjectCode = subject.SubjectCode,
+                                TeacherName = teacher.Fullname
+                            });
+                        }
+                    }
+                }
+            }
+
+            // Return the list of unique students with their associated subjects.
+            return studentsDict.Values;
+        }
+
     }
 }

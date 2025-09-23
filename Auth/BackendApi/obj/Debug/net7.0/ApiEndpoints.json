@@ -140,9 +140,71 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "BackendApi.Controllers.GradeController",
-    "Method": "CalculateMidtermGrade",
-    "RelativePath": "api/Grade/calculate-midterm",
+    "ContainingType": "BackendApi.Controllers.GradeCalculationController",
+    "Method": "DeleteFinalsGradesAsync",
+    "RelativePath": "api/GradeCalculation/delete-finalGrades",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "gradeIds",
+        "Type": "System.Collections.Generic.List\u00601[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApi.Controllers.GradeCalculationController",
+    "Method": "DeleteMidtermGrades",
+    "RelativePath": "api/GradeCalculation/delete-midtermGrades",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "gradeIds",
+        "Type": "System.Collections.Generic.List\u00601[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BackendApi.Core.General.ResponseData\u00601[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BackendApi.Controllers.GradeCalculationController",
+    "Method": "GetGradePointEquivalents",
+    "RelativePath": "api/GradeCalculation/equivalents",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApi.Controllers.GradeCalculationController",
+    "Method": "GetWeights",
+    "RelativePath": "api/GradeCalculation/grade-percentage",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApi.Controllers.GradeCalculationController",
+    "Method": "ManualInsertGrade",
+    "RelativePath": "api/GradeCalculation/manual-insert",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -155,7 +217,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "BackendApi.Core.Models.Dto.MidtermGradeDto",
+        "Type": "BackendApi.Core.Models.MidtermGrade",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -180,9 +242,45 @@
     ]
   },
   {
-    "ContainingType": "BackendApi.Controllers.GradeController",
+    "ContainingType": "BackendApi.Controllers.GradeCalculationController",
+    "Method": "GetFinalGrades",
+    "RelativePath": "api/GradeCalculation/students-finalGrades",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApi.Controllers.GradeCalculationController",
+    "Method": "GetAll",
+    "RelativePath": "api/GradeCalculation/students-midtermGrades",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApi.Controllers.GradeCalculationController",
+    "Method": "UploadFinalsGrades",
+    "RelativePath": "api/GradeCalculation/upload-finals",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApi.Controllers.GradeCalculationController",
     "Method": "UploadMidtermGrades",
-    "RelativePath": "api/Grade/upload-midterm",
+    "RelativePath": "api/GradeCalculation/upload-midterm",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -649,5 +747,25 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApi.Controllers.TeachersController",
+    "Method": "GetStudentsForLoggedInTeacher",
+    "RelativePath": "api/Teachers/my-students",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BackendApi.Core.Models.Dto.StudentInfoDto, BackendApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   }
 ]

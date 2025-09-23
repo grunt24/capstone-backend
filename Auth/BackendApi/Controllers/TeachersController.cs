@@ -87,6 +87,27 @@ namespace BackendApi.Controllers
 
             return Ok(result);
         }
+        // New endpoint for teachers to get their list of students
+        [HttpGet("my-students")]
+        [Authorize(Roles = "Teacher")]
+        public async Task<ActionResult<IEnumerable<StudentInfoDto>>> GetStudentsForLoggedInTeacher()
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userIdClaim))
+            {
+                return Unauthorized(new GeneralServiceResponse { Success = false, Message = "Unauthorized user" });
+            }
+
+            int userId = int.Parse(userIdClaim);
+            var students = await _teacherService.GetStudentsForLoggedInTeacherAsync(userId);
+
+            if (students == null || !students.Any())
+            {
+                return NotFound(new GeneralServiceResponse { Success = false, Message = "No students found for this teacher's subjects." });
+            }
+
+            return Ok(students);
+        }
 
     }
 }

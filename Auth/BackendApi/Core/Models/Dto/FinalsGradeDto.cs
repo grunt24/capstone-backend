@@ -1,10 +1,6 @@
 ﻿namespace BackendApi.Core.Models.Dto
 {
-    /// <summary>
-    /// Data Transfer Object for MidtermGrade, used to transfer data between layers.
-    /// This DTO includes the student's full name for display purposes.
-    /// </summary>
-    public class MidtermGradeDto
+    public class FinalsGradeDto
     {
         // Student Information
         public int StudentId { get; set; }
@@ -38,49 +34,25 @@
         public decimal ProjectPG { get; set; }
         public decimal ProjectWeighted { get; set; }
 
-        public int PrelimScore { get; set; }
-        public int PrelimTotal { get; set; }
+        // Prelim and Midterm Exam (30% of the grade)
+        public int FinalsScore { get; set; }
+        public int FinalsTotal { get; set; }
 
-        public int MidtermScore { get; set; }
-        public int MidtermTotal { get; set; }
+        public decimal TotalScoreFinals { get; set; }
+        public decimal OverallFinals { get; set; }
+        public decimal CombinedFinalsAverage { get; set; } // Average of prelim & midterm scores
+        public decimal FinalsPG { get; set; } // Percentage Grade for the combined exam
+        public decimal FinalsWeightedTotal { get; set; } // The final weighted score for the midterm exam
 
-        public decimal TotalScorePerlimAndMidterm { get; set; }
-        public decimal OverallPrelimAndMidterm { get; set; }
-
-        public decimal CombinedPrelimMidtermAverage { get; set; }
-        public decimal MidtermPG { get; set; }
-        public decimal MidtermExamWeighted { get; set; }
-
-        public double TotalMidtermGrade { get; set; }
-        public double TotalMidtermGradeRounded { get; set; }
-
+        // Final calculated grade
+        public double TotalFinalsGrade { get; set; } // Summation of all weighted totals
+        public double TotalFinalsGradeRounded { get; set; } // e.g., 74.50 = 75
+        // The final grade point equivalent
         public double GradePointEquivalent { get; set; }
     }
-
-    /// <summary>
-    /// Data Transfer Object for MidtermQuizList.
-    /// </summary>
-    public class QuizListDto
+    public class FinalsGradeUploadResult
     {
-        public int Id { get; set; }
-        public string? Label { get; set; }
-        public int? QuizScore { get; set; }
-        public int? TotalQuizScore { get; set; }
-    }
-
-    /// <summary>
-    /// Data Transfer Object for ClassStandingItem.
-    /// </summary>
-    public class ClassStandingItemDto
-    {
-        public int Id { get; set; }
-        public string? Label { get; set; }
-        public int? Score { get; set; }
-        public int? Total { get; set; }
-    }
-    public class MidtermGradeUploadResult
-    {
-        public List<MidtermGrade> CalculatedGrades { get; set; } = new List<MidtermGrade>();
+        public List<FinalsGrade> CalculatedGrades { get; set; } = new List<FinalsGrade>();
         public List<string> Warnings { get; set; } = new List<string>();
     }
 }

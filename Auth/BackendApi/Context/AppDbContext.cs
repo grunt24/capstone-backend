@@ -20,11 +20,46 @@ namespace BackendApi.Context
         public DbSet<UserEvent> UserEvents { get; set; }
         public DbSet<GradePointEquivalent> GradePointEquivalents { get; set; }
         public DbSet<MidtermGrade> MidtermGrades { get; set; }
-        public DbSet<MidtermQuizList> MidtermQuizLists { get; set; }
+        public DbSet<FinalsGrade> FinalsGrades { get; set; }
+        public DbSet<QuizList> QuizLists { get; set; }
         public DbSet<ClassStandingItem> ClassStanding { get; set; }
         public DbSet<GradeWeights> GradeWeights { get; set; }
 
-    }
+            protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // Configure cascade delete for MidtermGrade's QuizList
+            modelBuilder.Entity<QuizList>()
+                .HasOne<MidtermGrade>()
+                .WithMany(g => g.Quizzes)
+                .HasForeignKey("MidtermGradeId")
+                .OnDelete(DeleteBehavior.Cascade);
 
+            // Configure cascade delete for MidtermGrade's ClassStandingItem
+            modelBuilder.Entity<ClassStandingItem>()
+                .HasOne<MidtermGrade>()
+                .WithMany(g => g.ClassStandingItems)
+                .HasForeignKey("MidtermGradeId")
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // --- Finals Grade Configurations ---
+
+            // Configure cascade delete for FinalsGrade's QuizList
+            modelBuilder.Entity<QuizList>()
+                .HasOne<FinalsGrade>()
+                .WithMany(g => g.Quizzes)
+                .HasForeignKey("FinalsGradeId")
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // Configure cascade delete for FinalsGrade's ClassStandingItem
+            modelBuilder.Entity<ClassStandingItem>()
+                .HasOne<FinalsGrade>()
+                .WithMany(g => g.ClassStandingItems)
+                .HasForeignKey("FinalsGradeId")
+                .OnDelete(DeleteBehavior.Cascade);
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+    }
 
 }

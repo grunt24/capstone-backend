@@ -237,10 +237,58 @@
         }
       }
     },
-    "/api/Grade/calculate-midterm": {
+    "/api/GradeCalculation/equivalents": {
+      "get": {
+        "tags": [
+          "GradeCalculation"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/GradeCalculation/grade-percentage": {
+      "get": {
+        "tags": [
+          "GradeCalculation"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/GradeCalculation/students-midtermGrades": {
+      "get": {
+        "tags": [
+          "GradeCalculation"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/GradeCalculation/students-finalGrades": {
+      "get": {
+        "tags": [
+          "GradeCalculation"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/GradeCalculation/manual-insert": {
       "post": {
         "tags": [
-          "Grade"
+          "GradeCalculation"
         ],
         "requestBody": {
           "content": {
@@ -267,17 +315,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/MidtermGradeDto"
+                  "$ref": "#/components/schemas/MidtermGrade"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/MidtermGradeDto"
+                  "$ref": "#/components/schemas/MidtermGrade"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/MidtermGradeDto"
+                  "$ref": "#/components/schemas/MidtermGrade"
                 }
               }
             }
@@ -308,10 +356,10 @@
         }
       }
     },
-    "/api/Grade/upload-midterm": {
+    "/api/GradeCalculation/upload-midterm": {
       "post": {
         "tags": [
-          "Grade"
+          "GradeCalculation"
         ],
         "requestBody": {
           "content": {
@@ -328,6 +376,141 @@
               "encoding": {
                 "file": {
                   "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/GradeCalculation/upload-finals": {
+      "post": {
+        "tags": [
+          "GradeCalculation"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "file": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/GradeCalculation/delete-midtermGrades": {
+      "delete": {
+        "tags": [
+          "GradeCalculation"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringResponseData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringResponseData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringResponseData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/GradeCalculation/delete-finalGrades": {
+      "delete": {
+        "tags": [
+          "GradeCalculation"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "format": "int32"
                 }
               }
             }
@@ -1146,10 +1329,72 @@
           }
         }
       }
+    },
+    "/api/Teachers/my-students": {
+      "get": {
+        "tags": [
+          "Teachers"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StudentInfoDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StudentInfoDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StudentInfoDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "ClassStandingItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "score": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "total": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ClassStandingItemDto": {
         "type": "object",
         "properties": {
@@ -1351,6 +1596,153 @@
         },
         "additionalProperties": false
       },
+      "MidtermGrade": {
+        "type": "object",
+        "properties": {
+          "studentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "user": {
+            "$ref": "#/components/schemas/StudentModel"
+          },
+          "subjectId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "subject": {
+            "$ref": "#/components/schemas/Subject"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "quizzes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QuizList"
+            },
+            "nullable": true
+          },
+          "totalQuizScore": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "quizPG": {
+            "type": "number",
+            "format": "double"
+          },
+          "quizWeightedTotal": {
+            "type": "number",
+            "format": "double"
+          },
+          "recitationScore": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "attendanceScore": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "classStandingItems": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClassStandingItem"
+            },
+            "nullable": true
+          },
+          "classStandingTotalScore": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "classStandingAverage": {
+            "type": "number",
+            "format": "double"
+          },
+          "classStandingPG": {
+            "type": "number",
+            "format": "double"
+          },
+          "classStandingWeightedTotal": {
+            "type": "number",
+            "format": "double"
+          },
+          "sepScore": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "seppg": {
+            "type": "number",
+            "format": "double"
+          },
+          "sepWeightedTotal": {
+            "type": "number",
+            "format": "double"
+          },
+          "projectScore": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "projectPG": {
+            "type": "number",
+            "format": "double"
+          },
+          "projectWeightedTotal": {
+            "type": "number",
+            "format": "double"
+          },
+          "prelimScore": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "prelimTotal": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "midtermScore": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "midtermTotal": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalScorePerlimAndMidterm": {
+            "type": "number",
+            "format": "double"
+          },
+          "overallPrelimAndMidterm": {
+            "type": "number",
+            "format": "double"
+          },
+          "combinedPrelimMidtermAverage": {
+            "type": "number",
+            "format": "double"
+          },
+          "midtermPG": {
+            "type": "number",
+            "format": "double"
+          },
+          "midtermWeightedTotal": {
+            "type": "number",
+            "format": "double"
+          },
+          "totalMidtermGrade": {
+            "type": "number",
+            "format": "double"
+          },
+          "totalMidtermGradeRounded": {
+            "type": "number",
+            "format": "double"
+          },
+          "gradePointEquivalent": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
       "MidtermGradeDto": {
         "type": "object",
         "properties": {
@@ -1362,6 +1754,23 @@
             "type": "string",
             "nullable": true
           },
+          "subjectId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "subjectCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "subjectName": {
+            "type": "string",
+            "nullable": true
+          },
+          "subjectTeacher": {
+            "type": "string",
+            "nullable": true
+          },
           "id": {
             "type": "integer",
             "format": "int32"
@@ -1369,7 +1778,7 @@
           "quizzes": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MidtermQuizListDto"
+              "$ref": "#/components/schemas/QuizListDto"
             },
             "nullable": true
           },
@@ -1491,30 +1900,6 @@
         },
         "additionalProperties": false
       },
-      "MidtermQuizListDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "label": {
-            "type": "string",
-            "nullable": true
-          },
-          "quizScore": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "totalQuizScore": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "ProblemDetails": {
         "type": "object",
         "properties": {
@@ -1542,6 +1927,54 @@
         },
         "additionalProperties": { }
       },
+      "QuizList": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "quizScore": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "totalQuizScore": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "QuizListDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "quizScore": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "totalQuizScore": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "SaveGradesDto": {
         "type": "object",
         "properties": {
@@ -1568,6 +2001,44 @@
           "mainGrade": {
             "type": "number",
             "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StringResponseData": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StudentInfoDto": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fullname": {
+            "type": "string",
+            "nullable": true
+          },
+          "subjects": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubjectItemDto"
+            },
             "nullable": true
           }
         },
@@ -1750,6 +2221,28 @@
           "teacherId": {
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SubjectItemDto": {
+        "type": "object",
+        "properties": {
+          "subjectId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "subjectName": {
+            "type": "string",
+            "nullable": true
+          },
+          "subjectCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "teacherName": {
+            "type": "string",
             "nullable": true
           }
         },

@@ -19,7 +19,7 @@ namespace BackendApi.IRepositories
         Task<GeneralServiceResponse> DeleteStudentAsync(int id);
         //added
         Task<UserDto> GetCurrentUserAsync();
-        Task<ResponseData<UserEvent>> GetUserLatestAction();
+        Task<ResponseData<IEnumerable<UserEvent>>> GetUserLatestAction();
         string TimeStampFormat();
     }
 }
