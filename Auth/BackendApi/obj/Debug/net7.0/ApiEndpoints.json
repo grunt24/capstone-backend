@@ -89,6 +89,16 @@
   },
   {
     "ContainingType": "BackendApi.Controllers.AuthController",
+    "Method": "GetStudentsGroupedByYearAndDepartment",
+    "RelativePath": "api/Auth/students-by-year-department",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApi.Controllers.AuthController",
     "Method": "UpdateUser",
     "RelativePath": "api/Auth/update-user/{id}",
     "HttpMethod": "PUT",
@@ -203,6 +213,16 @@
   },
   {
     "ContainingType": "BackendApi.Controllers.GradeCalculationController",
+    "Method": "GetGradesCount",
+    "RelativePath": "api/GradeCalculation/grades-count",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApi.Controllers.GradeCalculationController",
     "Method": "ManualInsertGrade",
     "RelativePath": "api/GradeCalculation/manual-insert",
     "HttpMethod": "POST",
@@ -249,6 +269,27 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApi.Controllers.GradeCalculationController",
+    "Method": "GetStudentsGradesByAcademicYearAndSemester",
+    "RelativePath": "api/GradeCalculation/students-grades-by-ay-semester",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "academicYear",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "semester",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {

@@ -14,13 +14,15 @@ public class GradeCalculationService : IGradeCalculationService
 {
     private readonly AppDbContext _context;
     IStudentRepository _studentRepository;
+    IAuthRepository _authRepository;
     IMapper _mapper;
 
-    public GradeCalculationService(AppDbContext context, IStudentRepository studentRepository, IMapper mapper)
+    public GradeCalculationService(AppDbContext context, IStudentRepository studentRepository, IMapper mapper, IAuthRepository authRepository)
     {
         _context = context;
         _studentRepository = studentRepository;
         _mapper = mapper;
+        _authRepository = authRepository;
     }
 
 
@@ -48,6 +50,8 @@ public class GradeCalculationService : IGradeCalculationService
         {
             StudentId = studentGradeDto.StudentId,
             SubjectId = studentGradeDto.SubjectId,
+            Semester = studentGradeDto.Semester,
+            AcademicYear = studentGradeDto.AcademicYear,
             Quizzes = studentGradeDto.Quizzes.Select(q => new QuizList { Label = q.Label, QuizScore = q.QuizScore, TotalQuizScore = q.TotalQuizScore }).ToList(),
             RecitationScore = studentGradeDto.RecitationScore,
             AttendanceScore = studentGradeDto.AttendanceScore,
@@ -83,6 +87,8 @@ public class GradeCalculationService : IGradeCalculationService
         {
             StudentId = studentGradesDto.StudentId,
             SubjectId = studentGradesDto.SubjectId,
+            Semester = studentGradesDto.Semester,
+            AcademicYear = studentGradesDto.AcademicYear,
             Quizzes = studentGradesDto.Quizzes.Select(q => new QuizList { Label = q.Label, QuizScore = q.QuizScore, TotalQuizScore = q.TotalQuizScore }).ToList(),
             RecitationScore = studentGradesDto.RecitationScore,
             AttendanceScore = studentGradesDto.AttendanceScore,
@@ -111,39 +117,62 @@ public class GradeCalculationService : IGradeCalculationService
         // It will loop through the list and call the private _calculateMidtermGrade method for each student.
         throw new NotImplementedException();
     }
-
     public async Task<ResponseData<IEnumerable<MidtermGradeDto>>> GetMidtermGrades()
     {
-        var studentsMidtermGrades = await _context.MidtermGrades
+        var currentUser = await _authRepository.GetCurrentUserAsync();
+
+        var query = _context.MidtermGrades
             .Include(m => m.User)
             .Include(m => m.Quizzes)
             .Include(m => m.ClassStandingItems)
             .Include(m => m.Subject)
-                .ThenInclude(t => t.Teacher)
-            .ToListAsync();
+                .ThenInclude(s => s.Teacher)
+            .AsQueryable();
+
+        if (currentUser.Role == UserRole.Teacher)
+        {
+            // FIXED: Use UserId if Teacher entity uses it
+            var teacher = await _context.Teachers
+                .Include(t => t.Subjects)
+                .FirstOrDefaultAsync(t => t.UserID == currentUser.Id);
+
+            if (teacher == null)
+            {
+                return new ResponseData<IEnumerable<MidtermGradeDto>>
+                {
+                    Success = false,
+                    Message = "No teacher record found for this user.",
+                    Data = new List<MidtermGradeDto>()
+                };
+            }
+
+            var teacherSubjectIds = teacher.Subjects.Select(s => s.Id).ToList();
+
+            query = query.Where(m => m.SubjectId.HasValue && teacherSubjectIds.Contains(m.SubjectId.Value));
+        }
+
+        var studentsMidtermGrades = await query.ToListAsync();
 
         if (!studentsMidtermGrades.Any())
         {
             return new ResponseData<IEnumerable<MidtermGradeDto>>
             {
                 Success = false,
-                Message = "No midterm grades found in the database.",
+                Message = "No midterm grades found.",
                 Data = new List<MidtermGradeDto>()
             };
         }
 
-        // The mapper returns a List<MidtermGradeDto>
         var gradesDto = _mapper.Map<List<MidtermGradeDto>>(studentsMidtermGrades);
 
-        // The List<MidtermGradeDto> is implicitly convertible to IEnumerable<MidtermGradeDto>
         return new ResponseData<IEnumerable<MidtermGradeDto>>
         {
             Data = gradesDto,
             Success = true,
             Message = "Success"
         };
-
     }
+
 
     public async Task<ResponseData<IEnumerable<FinalsGradeDto>>> GetFinalGrades()
     {

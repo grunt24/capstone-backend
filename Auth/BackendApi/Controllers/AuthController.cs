@@ -112,6 +112,32 @@ public class AuthController : ControllerBase
         return Ok(users);
     }
 
+    [HttpGet("students-by-year-department")]
+    public async Task<IActionResult> GetStudentsGroupedByYearAndDepartment()
+    {
+        var students = await _authService.GetAllStudents(); // Already returns StudentDto list
+
+        var grouped = students
+            .GroupBy(s => s.YearLevel)
+            .Select(g => new
+            {
+                YearLevel = g.Key,
+                Departments = g
+                    .GroupBy(s => s.Department)
+                    .Select(dg => new
+                    {
+                        Department = dg.Key,
+                        Count = dg.Count()
+                    })
+                    .ToList()
+            })
+            .OrderBy(g => g.YearLevel)
+            .ToList();
+
+        return Ok(grouped);
+    }
+
+
     [HttpDelete("delete-user/{id}")]
     public async Task<IActionResult> DeleteStudent(int id)
     {

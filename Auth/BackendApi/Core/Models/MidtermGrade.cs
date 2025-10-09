@@ -54,6 +54,9 @@ namespace BackendApi.Core.Models
 
         // The final grade point equivalent
         public double GradePointEquivalent { get; set; }
+        // New properties for Semester and Academic Year
+        public string? Semester { get; set; }
+        public string? AcademicYear { get; set; }
 
     }
     public class QuizList

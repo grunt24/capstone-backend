@@ -55,6 +55,8 @@
         public double TotalMidtermGradeRounded { get; set; }
 
         public double GradePointEquivalent { get; set; }
+        public string? Semester { get; set; }
+        public string? AcademicYear { get; set; }
     }
 
     /// <summary>

@@ -213,6 +213,18 @@
         }
       }
     },
+    "/api/Auth/students-by-year-department": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Auth/delete-user/{id}": {
       "delete": {
         "tags": [
@@ -516,6 +528,48 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/GradeCalculation/students-grades-by-ay-semester": {
+      "get": {
+        "tags": [
+          "GradeCalculation"
+        ],
+        "parameters": [
+          {
+            "name": "academicYear",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "semester",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/GradeCalculation/grades-count": {
+      "get": {
+        "tags": [
+          "GradeCalculation"
+        ],
         "responses": {
           "200": {
             "description": "Success"
@@ -1739,6 +1793,14 @@
           "gradePointEquivalent": {
             "type": "number",
             "format": "double"
+          },
+          "semester": {
+            "type": "string",
+            "nullable": true
+          },
+          "academicYear": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1896,6 +1958,14 @@
           "gradePointEquivalent": {
             "type": "number",
             "format": "double"
+          },
+          "semester": {
+            "type": "string",
+            "nullable": true
+          },
+          "academicYear": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

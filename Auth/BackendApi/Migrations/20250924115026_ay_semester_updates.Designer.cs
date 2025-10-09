@@ -4,6 +4,7 @@ using BackendApi.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackendApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250924115026_ay_semester_updates")]
+    partial class aysemesterupdates
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -140,9 +143,6 @@ namespace BackendApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("AcademicYear")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("AttendanceScore")
                         .HasColumnType("int");
 
@@ -205,9 +205,6 @@ namespace BackendApi.Migrations
 
                     b.Property<decimal>("SEPWeightedTotal")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("Semester")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("StudentId")
                         .HasColumnType("int");

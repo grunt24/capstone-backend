@@ -25,7 +25,7 @@ namespace BackendApi.Context
         public DbSet<ClassStandingItem> ClassStanding { get; set; }
         public DbSet<GradeWeights> GradeWeights { get; set; }
 
-            protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Configure cascade delete for MidtermGrade's QuizList
             modelBuilder.Entity<QuizList>()
@@ -43,23 +43,22 @@ namespace BackendApi.Context
 
             // --- Finals Grade Configurations ---
 
-            // Configure cascade delete for FinalsGrade's QuizList
+            // **Changed to DeleteBehavior.NoAction to prevent a cycle**
             modelBuilder.Entity<QuizList>()
                 .HasOne<FinalsGrade>()
                 .WithMany(g => g.Quizzes)
                 .HasForeignKey("FinalsGradeId")
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.NoAction);
 
-            // Configure cascade delete for FinalsGrade's ClassStandingItem
+            // **Changed to DeleteBehavior.NoAction to prevent a cycle**
             modelBuilder.Entity<ClassStandingItem>()
                 .HasOne<FinalsGrade>()
                 .WithMany(g => g.ClassStandingItems)
                 .HasForeignKey("FinalsGradeId")
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.NoAction);
 
             base.OnModelCreating(modelBuilder);
         }
-
     }
 
 }

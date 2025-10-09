@@ -52,5 +52,7 @@ namespace BackendApi.Core.Models
         public double TotalFinalsGradeRounded { get; set; } // e.g., 74.50 = 75
         // The final grade point equivalent
         public double GradePointEquivalent { get; set; }
+        public string? Semester { get; set; }
+        public string? AcademicYear { get; set; }
     }
 }

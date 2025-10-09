@@ -11,7 +11,7 @@ namespace BackendApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Teacher,Superadmin")]
+    [Authorize(Roles = "Teacher,Superadmin,Admin")]
     public class GradesController : ControllerBase
     {
         private readonly IGradeRepository _gradeService;

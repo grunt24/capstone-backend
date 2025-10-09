@@ -3,11 +3,13 @@ using BackendApi.Core.General;
 using BackendApi.Core.Models;
 using BackendApi.Core.Models.Dto;
 using BackendApi.IRepositories;
+using BackendApi.Repositories;
 using BackendApi.Services;
 using ExcelDataReader;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
+using System.Globalization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,11 +24,13 @@ namespace BackendApi.Controllers
     {
         private readonly IGradeCalculationService _gradeCalculationService;
         private readonly AppDbContext _dbContext;
+        private readonly IAuthRepository _authRepo;
 
-        public GradeCalculationController(IGradeCalculationService gradeCalculationService, AppDbContext dbContext)
+        public GradeCalculationController(IGradeCalculationService gradeCalculationService, AppDbContext dbContext, IAuthRepository authRepo)
         {
             _gradeCalculationService = gradeCalculationService;
             _dbContext = dbContext;
+            _authRepo = authRepo;
         }
         [HttpGet("equivalents")]
         public async Task<IActionResult> GetGradePointEquivalents()
@@ -115,6 +119,37 @@ namespace BackendApi.Controllers
 
             var dataTable = dataSet.Tables[0];
 
+            // Read Semester and Academic Year from Row 4 (index 3) and Column 1 (index 0)
+            const int semesterAndAYRowIndex = 3;
+            const int semesterAndAYColumnIndex = 0;
+            var semesterAndAYText = dataTable.Rows[semesterAndAYRowIndex][semesterAndAYColumnIndex]?.ToString();
+
+            string? semester = null;
+            string? academicYear = null;
+
+            if (!string.IsNullOrEmpty(semesterAndAYText))
+            {
+                var parts = semesterAndAYText.Split(',');
+                if (parts.Length >= 2)
+                {
+                    semester = parts[0].Trim();
+                    academicYear = parts[1].Trim();
+
+                    // ✅ Normalize semester text
+                    if (semester.Contains("1st", StringComparison.OrdinalIgnoreCase))
+                        semester = "First";
+                    else if (semester.Contains("2nd", StringComparison.OrdinalIgnoreCase))
+                        semester = "Second";
+                    else
+                        semester = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(semester.ToLower());
+                }
+            }
+            else
+            {
+                return BadRequest("Semester and Academic Year not found in the uploaded file.");
+            }
+
+
             // Read SubjectCode from Row 8 (index 7) and look up SubjectId
             const int subjectCodeRowIndex = 7;
             const int subjectCodeColumnIndex = 0;
@@ -134,6 +169,14 @@ namespace BackendApi.Controllers
             {
                 return NotFound($"Subject with code '{subjectCode}' not found in the database.");
             }
+
+            // Read PrelimTotal and MidtermTotal from Row 13 (index 12)
+            const int totalScoresRowIndex = 12;
+            const int prelimTotalColumnIndex = 31; // Column AF
+            const int midtermTotalColumnIndex = 32; // Column AG
+
+            var prelimTotal = dataTable.Rows[totalScoresRowIndex][prelimTotalColumnIndex] is DBNull ? 0 : Convert.ToInt32(dataTable.Rows[totalScoresRowIndex][prelimTotalColumnIndex]);
+            var midtermTotal = dataTable.Rows[totalScoresRowIndex][midtermTotalColumnIndex] is DBNull ? 0 : Convert.ToInt32(dataTable.Rows[totalScoresRowIndex][midtermTotalColumnIndex]);
 
 
             const int quizTotalRowIndex = 11;
@@ -193,15 +236,34 @@ namespace BackendApi.Controllers
                     StudentId = studentId,
                     StudentFullName = studentName,
                     SubjectId = subjectId, // Added SubjectId to the DTO
+                    Semester = semester,
+                    AcademicYear = academicYear,
                     RecitationScore = row[recScoreColumnIndex] is DBNull ? 0 : Convert.ToInt32(row[recScoreColumnIndex]),
                     AttendanceScore = row[attScoreColumnIndex] is DBNull ? 0 : Convert.ToInt32(row[attScoreColumnIndex]),
                     SEPScore = row[sepScoreColumnIndex] is DBNull ? 0 : Convert.ToInt32(row[sepScoreColumnIndex]),
                     ProjectScore = row[projScoreColumnIndex] is DBNull ? 0 : Convert.ToInt32(row[projScoreColumnIndex]),
                     PrelimScore = row[prelimScoreColumnIndex] is DBNull ? 0 : Convert.ToInt32(row[prelimScoreColumnIndex]),
-                    PrelimTotal = 100,
+                    PrelimTotal = prelimTotal,
                     MidtermScore = row[midtermScoreColumnIndex] is DBNull ? 0 : Convert.ToInt32(row[midtermScoreColumnIndex]),
-                    MidtermTotal = 100
+                    MidtermTotal = midtermTotal
                 };
+
+                // ✅ Check if midterm grade for this student already exists
+                bool alreadyExists = await _dbContext.MidtermGrades.AnyAsync(g =>
+                    g.StudentId == studentId &&
+                    g.SubjectId == subjectId &&
+                    g.AcademicYear == academicYear &&
+                    g.Semester == semester
+                );
+
+                if (alreadyExists)
+                {
+                    result.Warnings.Add(
+                        $"Grade already uploaded for {studentName} ({academicYear}, {semester}) in subject {subjectCode}. Skipping row."
+                    );
+                    continue; // skip to next student
+                }
+
 
                 for (int i = 0; i < 8; i++)
                 {
@@ -267,6 +329,37 @@ namespace BackendApi.Controllers
             }
 
             var dataTable = dataSet.Tables[0];
+
+            // Read Semester and Academic Year from Row 4 (index 3) and Column 1 (index 0)
+            const int semesterAndAYRowIndex = 3;
+            const int semesterAndAYColumnIndex = 0;
+            var semesterAndAYText = dataTable.Rows[semesterAndAYRowIndex][semesterAndAYColumnIndex]?.ToString();
+
+            string? semester = null;
+            string? academicYear = null;
+
+            if (!string.IsNullOrEmpty(semesterAndAYText))
+            {
+                var parts = semesterAndAYText.Split(',');
+                if (parts.Length >= 2)
+                {
+                    semester = parts[0].Trim();
+                    academicYear = parts[1].Trim();
+
+                    // ✅ Normalize semester text
+                    if (semester.Contains("1st", StringComparison.OrdinalIgnoreCase))
+                        semester = "First";
+                    else if (semester.Contains("2nd", StringComparison.OrdinalIgnoreCase))
+                        semester = "Second";
+                    else
+                        semester = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(semester.ToLower());
+                }
+            }
+            else
+            {
+                return BadRequest("Semester and Academic Year not found in the uploaded file.");
+            }
+
 
             // Read SubjectCode from Row 8 (index 7) and look up SubjectId
             const int subjectCodeRowIndex = 7;
@@ -350,7 +443,7 @@ namespace BackendApi.Controllers
 
                 if (!userLookup.TryGetValue(studentName, out var studentId))
                 {
-                    result.Warnings.Add("");
+                    //result.Warnings.Add("");
                     continue;
                 }
 
@@ -359,6 +452,8 @@ namespace BackendApi.Controllers
                     StudentId = studentId,
                     StudentFullName = studentName,
                     SubjectId = subjectId,
+                    Semester = semester,
+                    AcademicYear = academicYear,
                     RecitationScore = row[recScoreColumnIndex] is DBNull ? 0 : Convert.ToInt32(row[recScoreColumnIndex]),
                     AttendanceScore = row[attScoreColumnIndex] is DBNull ? 0 : Convert.ToInt32(row[attScoreColumnIndex]),
                     SEPScore = row[sepScoreColumnIndex] is DBNull ? 0 : Convert.ToInt32(row[sepScoreColumnIndex]),
@@ -367,10 +462,22 @@ namespace BackendApi.Controllers
                     FinalsTotal = finalExamTotal,
                     TotalScoreFinals = totalScoreFinals,
                     OverallFinals = overAllFInals
-
-
-
                 };
+
+                bool alreadyExists = await _dbContext.FinalsGrades.AnyAsync(g =>
+    g.StudentId == studentId &&
+    g.SubjectId == subjectId &&
+    g.AcademicYear == academicYear &&
+    g.Semester == semester
+);
+
+                if (alreadyExists)
+                {
+                    result.Warnings.Add(
+                        $"Grade already uploaded for {studentName} ({academicYear}, {semester}) in subject {subjectCode}. Skipping row."
+                    );
+                    continue; // skip to next student
+                }
 
                 for (int i = 0; i < 8; i++)
                 {
@@ -444,5 +551,202 @@ namespace BackendApi.Controllers
 
             return Ok(result);
         }
+
+        [HttpGet("students-grades-by-ay-semester")]
+        public async Task<IActionResult> GetStudentsGradesByAcademicYearAndSemester([FromQuery] string academicYear, [FromQuery] string semester)
+        {
+            if (string.IsNullOrEmpty(academicYear) || string.IsNullOrEmpty(semester))
+            {
+                return BadRequest(new
+                {
+                    success = false,
+                    message = "Academic year and semester are required."
+                });
+            }
+
+            var currentUser = await _authRepo.GetCurrentUserAsync();
+
+            // Base queries
+            var midtermQuery = _dbContext.MidtermGrades
+                .Include(g => g.Subject)
+                .Include(g => g.User)
+                .Include(g => g.Quizzes)
+                .Where(g => g.AcademicYear == academicYear && g.Semester == semester);
+
+            var finalsQuery = _dbContext.FinalsGrades
+                .Include(g => g.Subject)
+                .Include(g => g.User)
+                .Include(g => g.Quizzes)
+                .Where(g => g.AcademicYear == academicYear && g.Semester == semester);
+
+            // Filter based on role
+            if (currentUser.Role == UserRole.Student)
+            {
+                midtermQuery = midtermQuery.Where(g => g.StudentId == currentUser.Id);
+                finalsQuery = finalsQuery.Where(g => g.StudentId == currentUser.Id);
+            }
+            else if (currentUser.Role == UserRole.Teacher)
+            {
+                midtermQuery = midtermQuery.Where(g => g.Subject.TeacherId == currentUser.Id);
+                finalsQuery = finalsQuery.Where(g => g.Subject.TeacherId == currentUser.Id);
+            }
+            // Admin/Superadmin = no filtering
+
+            var midtermGrades = await midtermQuery
+                .Select(g => new
+                { g.StudentId, Fullname = g.User.Fullname, 
+                    g.SubjectId, g.Subject.SubjectName, 
+                    g.Subject.SubjectCode, 
+                    g.AcademicYear, g.Semester, 
+                    g.QuizPG, g.RecitationScore, 
+                    g.AttendanceScore, g.ClassStandingPG,
+                    g.ProjectScore, g.SEPScore, 
+                    g.PrelimScore, g.PrelimTotal, 
+                    g.MidtermScore, g.MidtermTotal, 
+                    g.CombinedPrelimMidtermAverage, 
+                    g.TotalMidtermGradeRounded, 
+                    Quizzes = g.Quizzes.Select(q => new { q.Id, q.Label, q.QuizScore, q.TotalQuizScore }).ToList(),
+                    ClassStandingItems = g.ClassStandingItems.Select(c => new {c.Id, c.Label, c.Score, c.Total}).ToList()
+                })
+                .ToListAsync();
+
+
+            var finalGrades = await finalsQuery
+                .Select(g => new
+                { g.StudentId, Fullname = g.User.Fullname, 
+                    g.SubjectId, g.Subject.SubjectName, 
+                    g.Subject.SubjectCode,
+                    g.AcademicYear, g.Semester, 
+                    g.QuizPG, g.RecitationScore, 
+                    g.AttendanceScore, g.ClassStandingPG, 
+                    g.ProjectScore, g.SEPScore, 
+                    g.FinalsScore, g.FinalsTotal, 
+                    g.CombinedFinalsAverage, 
+                    g.TotalFinalsGradeRounded, 
+                    Quizzes = g.Quizzes.Select(q => new { q.Id, q.Label, q.QuizScore, q.TotalQuizScore }).ToList(),
+                    ClassStandingItems = g.ClassStandingItems.Select(c => new { c.Id, c.Label, c.Score, c.Total }).ToList()
+                }).ToListAsync();
+
+            // Merge grades (for all roles)
+            var mergedGrades = midtermGrades
+                .Select(m => new
+                {
+                    studentId = m.StudentId,
+                    studentFullName = m.Fullname,
+                    subjectId = m.SubjectId,
+                    subjectName = m.SubjectName,
+                    subjectCode = m.SubjectCode,
+                    academicYear = m.AcademicYear,
+                    semester = m.Semester,
+                    midtermGrade = m,
+                    finalGrade = finalGrades,
+                })
+                .ToList();
+
+            // If user is student → return only their grades (midterm + final)
+            if (currentUser.Role == UserRole.Student)
+            {
+                return Ok(new
+                {
+                    success = true,
+                    message = "Your grades retrieved successfully.",
+                    data = mergedGrades // already filtered above
+                });
+            }
+
+            // If teacher/admin → return all merged data
+            return Ok(new
+            {
+                success = true,
+                message = "Student grades retrieved successfully.",
+                data = mergedGrades
+            });
+        }
+
+
+
+        [HttpGet("grades-count")]
+        public async Task<IActionResult> GetGradesCount()
+        {
+            var midtermGrades = await _dbContext.MidtermGrades
+                .Select(g => new
+                {
+                    g.Semester,
+                    g.AcademicYear,
+                    SortKey = GenerateSortKey(g.AcademicYear, g.Semester)
+                })
+                .ToListAsync();
+
+            var finalGrades = await _dbContext.FinalsGrades
+                .Select(g => new
+                {
+                    g.Semester,
+                    g.AcademicYear,
+                    SortKey = GenerateSortKey(g.AcademicYear, g.Semester)
+                })
+                .ToListAsync();
+
+            var allGrades = midtermGrades
+                .Concat(finalGrades)
+                .Distinct()
+                .OrderByDescending(g => g.SortKey)
+                .ToList();
+
+            var latest = allGrades.FirstOrDefault();
+
+            // 🆕 Full filters like "2024-2025 First Semester"
+            var yearSemesterFilters = allGrades
+                .Where(g => !string.IsNullOrEmpty(g.AcademicYear) && !string.IsNullOrEmpty(g.Semester))
+                .Select(g => $"{g.AcademicYear.Replace("AY ", "").Trim()} {g.Semester}")
+                .Distinct()
+                .OrderByDescending(g => g)
+                .ToList();
+
+            var midtermCount = await _dbContext.MidtermGrades.CountAsync();
+            var finalCount = await _dbContext.FinalsGrades.CountAsync();
+
+            return Ok(new
+            {
+                success = true,
+                message = "Grades count retrieved successfully",
+                data = new
+                {
+                    midtermCount,
+                    finalCount,
+                    currentSemester = latest?.Semester ?? "Not Available",
+                    currentAcademicYear = latest?.AcademicYear ?? "Not Available",
+                    academicYearSemesterFilters = yearSemesterFilters // 🆕 for frontend dropdown
+                }
+            });
+        }
+
+
+
+        private static int GenerateSortKey(string academicYear, string semester)
+        {
+            int year = ExtractStartYear(academicYear);
+            int semOrder = NormalizeSemester(semester);
+            return (year * 10) + semOrder;
+        }
+
+        private static int ExtractStartYear(string academicYear)
+        {
+            if (string.IsNullOrWhiteSpace(academicYear)) return 0;
+            var parts = academicYear.Split('-');
+            return int.TryParse(parts[0], out int year) ? year : 0;
+        }
+
+        private static int NormalizeSemester(string semester)
+        {
+            return semester switch
+            {
+                "1st Semester" => 1,
+                "2nd Semester" => 2,
+                "Summer" => 3,
+                _ => 0
+            };
+        }
+
+
     }
 }
