@@ -6,6 +6,7 @@ namespace BackendApi.Core.Models
     {
         public int Id { get; set; }
 
+        public string? StudentNumber { get; set; }
         [ForeignKey("User")]
         public int StudentId { get; set; }
         public StudentModel? User { get; set; }

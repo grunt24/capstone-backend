@@ -231,11 +231,17 @@ namespace BackendApi.Controllers
                     continue;
                 }
 
+                var studentNumber = await _dbContext.Users
+    .Where(u => u.Id == studentId)
+    .Select(u => u.StudentNumber)
+    .FirstOrDefaultAsync();
+
                 var studentDto = new MidtermGradeDto
                 {
                     StudentId = studentId,
                     StudentFullName = studentName,
                     SubjectId = subjectId, // Added SubjectId to the DTO
+                    StudentNumber = studentNumber,
                     Semester = semester,
                     AcademicYear = academicYear,
                     RecitationScore = row[recScoreColumnIndex] is DBNull ? 0 : Convert.ToInt32(row[recScoreColumnIndex]),
@@ -447,11 +453,17 @@ namespace BackendApi.Controllers
                     continue;
                 }
 
+                var studentNumber = await _dbContext.Users
+.Where(u => u.Id == studentId)
+.Select(u => u.StudentNumber)
+.FirstOrDefaultAsync();
+
                 var studentDto = new FinalsGradeDto
                 {
                     StudentId = studentId,
                     StudentFullName = studentName,
                     SubjectId = subjectId,
+                    StudentNumber = studentName,
                     Semester = semester,
                     AcademicYear = academicYear,
                     RecitationScore = row[recScoreColumnIndex] is DBNull ? 0 : Convert.ToInt32(row[recScoreColumnIndex]),

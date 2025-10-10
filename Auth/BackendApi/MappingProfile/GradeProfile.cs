@@ -11,12 +11,14 @@ namespace BackendApi.MappingProfile
             CreateMap<MidtermGrade, MidtermGradeDto>()
                 .ForMember(dest => dest.StudentFullName,opt => opt.MapFrom(src => src.User.Fullname))
                 .ForMember(dest => dest.SubjectTeacher, opt => opt.MapFrom(src => src.Subject.Teacher.Fullname))
+                    .ForMember(dest => dest.StudentNumber, opt => opt.MapFrom(src => src.User.StudentNumber))
                 .ForMember(dest => dest.SubjectName,opt => opt.MapFrom(src => src.Subject.SubjectName))
                 .ForMember(dest => dest.SubjectCode,opt => opt.MapFrom(src => src.Subject.SubjectCode));
 
             CreateMap<FinalsGrade, FinalsGradeDto>()
                 .ForMember(dest => dest.StudentFullName, opt => opt.MapFrom(src => src.User.Fullname))
                 .ForMember(dest => dest.SubjectTeacher, opt => opt.MapFrom(src => src.Subject.Teacher.Fullname))
+                    .ForMember(dest => dest.StudentNumber, opt => opt.MapFrom(src => src.User.StudentNumber))
                 .ForMember(dest => dest.SubjectName, opt => opt.MapFrom(src => src.Subject.SubjectName))
                 .ForMember(dest => dest.SubjectCode, opt => opt.MapFrom(src => src.Subject.SubjectCode));
 

@@ -113,6 +113,7 @@ namespace BackendApi.Repositories
                 .Select(u => new StudentDto
                 {
                     Id = u.Id,
+                    StudentNumber = u.StudentNumber,
                     Username = u.Username,
                     Role = u.Role.ToString(),
                     Fullname = u.Fullname,
@@ -128,6 +129,7 @@ namespace BackendApi.Repositories
                 .Select(u => new StudentDto
                 {
                     Id = u.Id,
+                    StudentNumber = u.StudentNumber,
                     Username = u.Username,
                     Role = u.Role.ToString(),
                     Fullname = u.Fullname,
@@ -151,6 +153,7 @@ namespace BackendApi.Repositories
             // Create new user
             var user = new StudentModel
             {
+                StudentNumber = userCredential.StudentNumber,
                 Username = userCredential.Username,
                 Role = UserRole.Student,
                 Department = userCredential.Department,

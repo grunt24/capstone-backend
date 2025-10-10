@@ -2,6 +2,7 @@
 {
     public class UserCredentialsDto
     {
+        public required string StudentNumber { get; set; }
         public required string Username { get; set; }
         public required string Password { get; set; }
         public string? Fullname { get; set; }

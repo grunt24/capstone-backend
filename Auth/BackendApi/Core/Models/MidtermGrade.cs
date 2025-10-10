@@ -10,6 +10,7 @@ namespace BackendApi.Core.Models
         [ForeignKey("SubjectId")]
         public int? SubjectId { get; set; }
         public Subject? Subject { get; set; }
+        public string? StudentNumber { get; set; }
 
         public int Id { get; set; }
         public ICollection<QuizList> Quizzes { get; set; } = new List<QuizList>();

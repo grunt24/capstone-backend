@@ -15,9 +15,11 @@ namespace BackendApi.Core.Models
     {
         [Key]
         public int Id { get; set; }
+        public string? StudentNumber { get; set; } = null;
 
         [MaxLength(30)]
         public string Username { get; set; }
+
 
         [MaxLength(100)]
         public string Password { get; set; }

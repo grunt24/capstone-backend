@@ -4,6 +4,7 @@
     {
         // Student Information
         public int StudentId { get; set; }
+        public string? StudentNumber { get; set; } // Added to include the student's full name
         public string? StudentFullName { get; set; } // Added to include the student's full name
         public int? SubjectId { get; set; }
         public string? SubjectCode { get; set; }

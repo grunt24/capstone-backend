@@ -3,6 +3,7 @@
     public class StudentDto
     {
         public int Id { get; set; }
+        public string? StudentNumber { get; set; } = string.Empty;
         public string Username { get; set; } = string.Empty;
         public string Role { get; set; }
         public string? Fullname { get; set; }

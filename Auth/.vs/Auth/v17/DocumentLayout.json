@@ -3,52 +3,88 @@
   "WorkspaceRootPath": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\migrations\\20251010080833_added student-number latest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\migrations\\20251010080833_added student-number latest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\controllers\\gradecalculationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\controllers\\gradecalculationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\core\\models\\finalsgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\core\\models\\finalsgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\core\\models\\midtermgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\core\\models\\midtermgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\core\\models\\studentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\core\\models\\studentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\services\\gradecalculationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\services\\gradecalculationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\controllers\\gradescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\controllers\\gradescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\core\\models\\dto\\midtermgradedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\core\\models\\dto\\midtermgradedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\services\\gradeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\services\\gradeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\mappingprofile\\gradeprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\mappingprofile\\gradeprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\controllers\\studentsubjectscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\controllers\\studentsubjectscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\core\\models\\dto\\finalsgradedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\core\\models\\dto\\finalsgradedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Migrations\\20251010070738_added student-number.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:BackendApi\\Migrations\\20251010070738_added student-number.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\services\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\services\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\irepositories\\iauthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\irepositories\\iauthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\core\\models\\finalsgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\core\\models\\finalsgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\core\\models\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\core\\models\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\core\\models\\studentsubject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\core\\models\\studentsubject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\core\\models\\dto\\studentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\core\\models\\dto\\studentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\core\\models\\dto\\usercredentialsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\core\\models\\dto\\usercredentialsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\services\\studentsubjectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\services\\studentsubjectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\core\\models\\dto\\studentsubjectsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\core\\models\\dto\\studentsubjectsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\controllers\\studentsubjectscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\controllers\\studentsubjectscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\controllers\\gradescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\controllers\\gradescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\controllers\\subjectscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\controllers\\subjectscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\controllers\\teacherscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -59,6 +95,22 @@
       "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\services\\teacherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\services\\gradeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\services\\gradeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\irepositories\\iauthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\irepositories\\iauthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\core\\models\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\core\\models\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\core\\models\\studentsubject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\core\\models\\studentsubject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\irepositories\\iteacherrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\irepositories\\iteacherrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -67,32 +119,12 @@
       "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\irepositories\\igradecalculationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\core\\models\\dto\\finalsgradedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\core\\models\\dto\\finalsgradedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\core\\models\\dto\\studentsbydepartment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\core\\models\\dto\\studentsbydepartment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\services\\studentsubjectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\services\\studentsubjectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\migrations\\20250924123646_deployed-updates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\migrations\\20250924123646_deployed-updates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\core\\models\\dto\\midtermgradedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\core\\models\\dto\\midtermgradedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\core\\models\\midtermgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\core\\models\\midtermgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\migrations\\20250924115307_finals-ay-semester-updates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -107,24 +139,12 @@
       "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\mappingprofile\\gradeprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\mappingprofile\\gradeprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\core\\models\\studentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\core\\models\\studentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\services\\subjectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\services\\subjectservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\core\\models\\gradepointequivalent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\core\\models\\gradepointequivalent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\controllers\\subjectscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\controllers\\subjectscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\core\\general\\responsedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -151,10 +171,6 @@
       "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\irepositories\\istudentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\core\\models\\dto\\studentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\core\\models\\dto\\studentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\services\\gradepointservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\services\\gradepointservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -169,14 +185,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\core\\models\\dto\\teacherdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\core\\models\\dto\\teacherdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\core\\models\\dto\\usercredentialsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\core\\models\\dto\\usercredentialsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\core\\models\\dto\\studentsubjectsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\core\\models\\dto\\studentsubjectsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\core\\models\\teacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -214,17 +222,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 244,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "GradeCalculationService.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Services\\GradeCalculationService.cs",
               "RelativeDocumentMoniker": "BackendApi\\Services\\GradeCalculationService.cs",
               "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Services\\GradeCalculationService.cs",
               "RelativeToolTip": "BackendApi\\Services\\GradeCalculationService.cs",
-              "ViewState": "AgIAAHgAAAAAAAAAAAAcwIgAAABGAAAAAAAAAA==",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAAAIEAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-15T04:32:12.035Z",
               "IsPinned": true,
@@ -238,7 +246,7 @@
               "RelativeDocumentMoniker": "BackendApi\\Controllers\\GradeCalculationsController.cs",
               "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\GradeCalculationsController.cs",
               "RelativeToolTip": "BackendApi\\Controllers\\GradeCalculationsController.cs",
-              "ViewState": "AgIAAPUAAAAAAAAAAAAawAQBAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAFAAAAAAAAAAAADwv10AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-15T05:02:17.645Z",
               "IsPinned": true,
@@ -278,33 +286,111 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GradesController.cs",
-              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\GradesController.cs",
-              "RelativeDocumentMoniker": "BackendApi\\Controllers\\GradesController.cs",
-              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\GradesController.cs",
-              "RelativeToolTip": "BackendApi\\Controllers\\GradesController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwCUAAABBAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "20251010080833_added student-number latest.cs",
+              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Migrations\\20251010080833_added student-number latest.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Migrations\\20251010080833_added student-number latest.cs",
+              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Migrations\\20251010080833_added student-number latest.cs",
+              "RelativeToolTip": "BackendApi\\Migrations\\20251010080833_added student-number latest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T05:09:06.167Z",
+              "WhenOpened": "2025-10-10T08:08:34.344Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MidtermGrade.cs",
+              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\MidtermGrade.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Core\\Models\\MidtermGrade.cs",
+              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\MidtermGrade.cs",
+              "RelativeToolTip": "BackendApi\\Core\\Models\\MidtermGrade.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T07:38:57.269Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MidtermGradeDto.cs",
+              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\Dto\\MidtermGradeDto.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Core\\Models\\Dto\\MidtermGradeDto.cs",
+              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\Dto\\MidtermGradeDto.cs",
+              "RelativeToolTip": "BackendApi\\Core\\Models\\Dto\\MidtermGradeDto.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwA8AAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T12:17:09.978Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "GradeService.cs",
-              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Services\\GradeService.cs",
-              "RelativeDocumentMoniker": "BackendApi\\Services\\GradeService.cs",
-              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Services\\GradeService.cs",
-              "RelativeToolTip": "BackendApi\\Services\\GradeService.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAYwB4AAABoAAAAAAAAAA==",
+              "Title": "StudentModel.cs",
+              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\StudentModel.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Core\\Models\\StudentModel.cs",
+              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\StudentModel.cs",
+              "RelativeToolTip": "BackendApi\\Core\\Models\\StudentModel.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAYwBcAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-17T06:50:25.508Z",
+              "WhenOpened": "2025-08-15T05:12:01.155Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "FinalsGrade.cs",
+              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\FinalsGrade.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Core\\Models\\FinalsGrade.cs",
+              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\FinalsGrade.cs",
+              "RelativeToolTip": "BackendApi\\Core\\Models\\FinalsGrade.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T11:52:38.926Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "GradeProfile.cs",
+              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\MappingProfile\\GradeProfile.cs",
+              "RelativeDocumentMoniker": "BackendApi\\MappingProfile\\GradeProfile.cs",
+              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\MappingProfile\\GradeProfile.cs",
+              "RelativeToolTip": "BackendApi\\MappingProfile\\GradeProfile.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwCUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T07:24:59.571Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Context\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Context\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Context\\AppDbContext.cs",
+              "RelativeToolTip": "BackendApi\\Context\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-31T06:37:12.549Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FinalsGradeDto.cs",
+              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\Dto\\FinalsGradeDto.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Core\\Models\\Dto\\FinalsGradeDto.cs",
+              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\Dto\\FinalsGradeDto.cs",
+              "RelativeToolTip": "BackendApi\\Core\\Models\\Dto\\FinalsGradeDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T11:45:06.179Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\appsettings.json",
               "RelativeDocumentMoniker": "BackendApi\\appsettings.json",
@@ -317,33 +403,175 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "StudentSubjectsController.cs",
-              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\StudentSubjectsController.cs",
-              "RelativeDocumentMoniker": "BackendApi\\Controllers\\StudentSubjectsController.cs",
-              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\StudentSubjectsController.cs",
-              "RelativeToolTip": "BackendApi\\Controllers\\StudentSubjectsController.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAgwEYAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T05:23:45.881Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 12,
               "Title": "AuthRepository.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Services\\AuthRepository.cs",
               "RelativeDocumentMoniker": "BackendApi\\Services\\AuthRepository.cs",
               "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Services\\AuthRepository.cs",
               "RelativeToolTip": "BackendApi\\Services\\AuthRepository.cs",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAswE0AAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAEABAAAAAAAAAAAAwFwBAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-18T02:46:53.132Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
+              "Title": "20251010070738_added student-number.cs",
+              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Migrations\\20251010070738_added student-number.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Migrations\\20251010070738_added student-number.cs",
+              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Migrations\\20251010070738_added student-number.cs",
+              "RelativeToolTip": "BackendApi\\Migrations\\20251010070738_added student-number.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T07:07:38.968Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "BackendApi\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAIAwwGgAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-19T00:12:47.285Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "StudentDto.cs",
+              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\Dto\\StudentDto.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Core\\Models\\Dto\\StudentDto.cs",
+              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\Dto\\StudentDto.cs",
+              "RelativeToolTip": "BackendApi\\Core\\Models\\Dto\\StudentDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T02:38:39.05Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "UserCredentialsDto.cs",
+              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\Dto\\UserCredentialsDto.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Core\\Models\\Dto\\UserCredentialsDto.cs",
+              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\Dto\\UserCredentialsDto.cs",
+              "RelativeToolTip": "BackendApi\\Core\\Models\\Dto\\UserCredentialsDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-17T06:35:08.926Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "StudentSubjectService.cs",
+              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Services\\StudentSubjectService.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Services\\StudentSubjectService.cs",
+              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Services\\StudentSubjectService.cs",
+              "RelativeToolTip": "BackendApi\\Services\\StudentSubjectService.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAUwEYAAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T02:38:01.74Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "StudentSubjectsDto.cs",
+              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\Dto\\StudentSubjectsDto.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Core\\Models\\Dto\\StudentSubjectsDto.cs",
+              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\Dto\\StudentSubjectsDto.cs",
+              "RelativeToolTip": "BackendApi\\Core\\Models\\Dto\\StudentSubjectsDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-17T06:29:48.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "StudentSubjectsController.cs",
+              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\StudentSubjectsController.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Controllers\\StudentSubjectsController.cs",
+              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\StudentSubjectsController.cs",
+              "RelativeToolTip": "BackendApi\\Controllers\\StudentSubjectsController.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAA1wDAAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-15T05:23:45.881Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "GradesController.cs",
+              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\GradesController.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Controllers\\GradesController.cs",
+              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\GradesController.cs",
+              "RelativeToolTip": "BackendApi\\Controllers\\GradesController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwCYAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-15T05:09:06.167Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "SubjectsController.cs",
+              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\SubjectsController.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Controllers\\SubjectsController.cs",
+              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\SubjectsController.cs",
+              "RelativeToolTip": "BackendApi\\Controllers\\SubjectsController.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAqwEMAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-18T10:20:24.195Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "TeachersController.cs",
+              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\TeachersController.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Controllers\\TeachersController.cs",
+              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\TeachersController.cs",
+              "RelativeToolTip": "BackendApi\\Controllers\\TeachersController.cs",
+              "ViewState": "AgIAAFsAAAAAAAAAAAD4v3EAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-17T06:27:31.38Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "TeacherService.cs",
+              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Services\\TeacherService.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Services\\TeacherService.cs",
+              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Services\\TeacherService.cs",
+              "RelativeToolTip": "BackendApi\\Services\\TeacherService.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwDIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-17T06:28:25.647Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "GradeService.cs",
+              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Services\\GradeService.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Services\\GradeService.cs",
+              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Services\\GradeService.cs",
+              "RelativeToolTip": "BackendApi\\Services\\GradeService.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAYwB4AAABoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-17T06:50:25.508Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
               "Title": "IAuthRepository.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\IRepositories\\IAuthRepository.cs",
               "RelativeDocumentMoniker": "BackendApi\\IRepositories\\IAuthRepository.cs",
@@ -355,7 +583,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 26,
               "Title": "StudentSubject.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\StudentSubject.cs",
               "RelativeDocumentMoniker": "BackendApi\\Core\\Models\\StudentSubject.cs",
@@ -367,7 +595,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 25,
               "Title": "Subject.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\Subject.cs",
               "RelativeDocumentMoniker": "BackendApi\\Core\\Models\\Subject.cs",
@@ -379,44 +607,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "FinalsGrade.cs",
-              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\FinalsGrade.cs",
-              "RelativeDocumentMoniker": "BackendApi\\Core\\Models\\FinalsGrade.cs",
-              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\FinalsGrade.cs",
-              "RelativeToolTip": "BackendApi\\Core\\Models\\FinalsGrade.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAYwDoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T11:52:38.926Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "BackendApi\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "BackendApi\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAEwBoAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T00:12:47.285Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "TeacherService.cs",
-              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Services\\TeacherService.cs",
-              "RelativeDocumentMoniker": "BackendApi\\Services\\TeacherService.cs",
-              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Services\\TeacherService.cs",
-              "RelativeToolTip": "BackendApi\\Services\\TeacherService.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAtwCEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-17T06:28:25.647Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 27,
               "Title": "ITeacherRepository.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\IRepositories\\ITeacherRepository.cs",
               "RelativeDocumentMoniker": "BackendApi\\IRepositories\\ITeacherRepository.cs",
@@ -428,19 +619,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "TeachersController.cs",
-              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\TeachersController.cs",
-              "RelativeDocumentMoniker": "BackendApi\\Controllers\\TeachersController.cs",
-              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\TeachersController.cs",
-              "RelativeToolTip": "BackendApi\\Controllers\\TeachersController.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAAAD4v3EAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-17T06:27:31.38Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 28,
               "Title": "IGradeCalculationService.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\IRepositories\\IGradeCalculationService.cs",
               "RelativeDocumentMoniker": "BackendApi\\IRepositories\\IGradeCalculationService.cs",
@@ -452,31 +631,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "FinalsGradeDto.cs",
-              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\Dto\\FinalsGradeDto.cs",
-              "RelativeDocumentMoniker": "BackendApi\\Core\\Models\\Dto\\FinalsGradeDto.cs",
-              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\Dto\\FinalsGradeDto.cs",
-              "RelativeToolTip": "BackendApi\\Core\\Models\\Dto\\FinalsGradeDto.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAA2wDwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T11:45:06.179Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Context\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "BackendApi\\Context\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Context\\AppDbContext.cs",
-              "RelativeToolTip": "BackendApi\\Context\\AppDbContext.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAgwBYAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-31T06:37:12.549Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 29,
               "Title": "StudentsByDepartment.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\Dto\\StudentsByDepartment.cs",
               "RelativeDocumentMoniker": "BackendApi\\Core\\Models\\Dto\\StudentsByDepartment.cs",
@@ -488,19 +643,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "StudentSubjectService.cs",
-              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Services\\StudentSubjectService.cs",
-              "RelativeDocumentMoniker": "BackendApi\\Services\\StudentSubjectService.cs",
-              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Services\\StudentSubjectService.cs",
-              "RelativeToolTip": "BackendApi\\Services\\StudentSubjectService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAANsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-18T02:38:01.74Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 30,
               "Title": "20250924123646_deployed-updates.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Migrations\\20250924123646_deployed-updates.cs",
               "RelativeDocumentMoniker": "BackendApi\\Migrations\\20250924123646_deployed-updates.cs",
@@ -512,7 +655,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 52,
               "Title": "20250924115026_ay_semester_updates.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Migrations\\20250924115026_ay_semester_updates.cs",
               "RelativeDocumentMoniker": "BackendApi\\Migrations\\20250924115026_ay_semester_updates.cs",
@@ -524,31 +667,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "MidtermGradeDto.cs",
-              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\Dto\\MidtermGradeDto.cs",
-              "RelativeDocumentMoniker": "BackendApi\\Core\\Models\\Dto\\MidtermGradeDto.cs",
-              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\Dto\\MidtermGradeDto.cs",
-              "RelativeToolTip": "BackendApi\\Core\\Models\\Dto\\MidtermGradeDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T12:17:09.978Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "MidtermGrade.cs",
-              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\MidtermGrade.cs",
-              "RelativeDocumentMoniker": "BackendApi\\Core\\Models\\MidtermGrade.cs",
-              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\MidtermGrade.cs",
-              "RelativeToolTip": "BackendApi\\Core\\Models\\MidtermGrade.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAA6wDkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T07:38:57.269Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 31,
               "Title": "20250924115307_finals-ay-semester-updates.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Migrations\\20250924115307_finals-ay-semester-updates.cs",
               "RelativeDocumentMoniker": "BackendApi\\Migrations\\20250924115307_finals-ay-semester-updates.cs",
@@ -560,7 +679,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 32,
               "Title": "20250924114541_AY and Semester update.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Migrations\\20250924114541_AY and Semester update.cs",
               "RelativeDocumentMoniker": "BackendApi\\Migrations\\20250924114541_AY and Semester update.cs",
@@ -572,19 +691,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "StudentModel.cs",
-              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\StudentModel.cs",
-              "RelativeDocumentMoniker": "BackendApi\\Core\\Models\\StudentModel.cs",
-              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\StudentModel.cs",
-              "RelativeToolTip": "BackendApi\\Core\\Models\\StudentModel.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T05:12:01.155Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 33,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Program.cs",
               "RelativeDocumentMoniker": "BackendApi\\Program.cs",
@@ -596,7 +703,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 34,
               "Title": "SubjectService.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Services\\SubjectService.cs",
               "RelativeDocumentMoniker": "BackendApi\\Services\\SubjectService.cs",
@@ -608,19 +715,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "GradeProfile.cs",
-              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\MappingProfile\\GradeProfile.cs",
-              "RelativeDocumentMoniker": "BackendApi\\MappingProfile\\GradeProfile.cs",
-              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\MappingProfile\\GradeProfile.cs",
-              "RelativeToolTip": "BackendApi\\MappingProfile\\GradeProfile.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBYAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-18T07:24:59.571Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 51,
               "Title": "20250830230012_AddedSubjectInMidtermGradeModel.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Migrations\\20250830230012_AddedSubjectInMidtermGradeModel.cs",
               "RelativeDocumentMoniker": "BackendApi\\Migrations\\20250830230012_AddedSubjectInMidtermGradeModel.cs",
@@ -632,7 +727,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 35,
               "Title": "GradePointEquivalent.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\GradePointEquivalent.cs",
               "RelativeDocumentMoniker": "BackendApi\\Core\\Models\\GradePointEquivalent.cs",
@@ -644,19 +739,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "SubjectsController.cs",
-              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\SubjectsController.cs",
-              "RelativeDocumentMoniker": "BackendApi\\Controllers\\SubjectsController.cs",
-              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\SubjectsController.cs",
-              "RelativeToolTip": "BackendApi\\Controllers\\SubjectsController.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAuwEEAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-18T10:20:24.195Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 36,
               "Title": "ResponseData.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\General\\ResponseData.cs",
               "RelativeDocumentMoniker": "BackendApi\\Core\\General\\ResponseData.cs",
@@ -668,7 +751,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 37,
               "Title": "StudentProfile.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\MappingProfile\\StudentProfile.cs",
               "RelativeDocumentMoniker": "BackendApi\\MappingProfile\\StudentProfile.cs",
@@ -680,7 +763,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 38,
               "Title": "IStudentSubjectService.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\IRepositories\\IStudentSubjectService.cs",
               "RelativeDocumentMoniker": "BackendApi\\IRepositories\\IStudentSubjectService.cs",
@@ -692,7 +775,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 39,
               "Title": "StudentService.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Services\\StudentService.cs",
               "RelativeDocumentMoniker": "BackendApi\\Services\\StudentService.cs",
@@ -704,7 +787,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 40,
               "Title": "SubjectProfile.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\MappingProfile\\SubjectProfile.cs",
               "RelativeDocumentMoniker": "BackendApi\\MappingProfile\\SubjectProfile.cs",
@@ -716,7 +799,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 41,
               "Title": "IStudentRepository.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\IRepositories\\IStudentRepository.cs",
               "RelativeDocumentMoniker": "BackendApi\\IRepositories\\IStudentRepository.cs",
@@ -728,19 +811,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "StudentDto.cs",
-              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\Dto\\StudentDto.cs",
-              "RelativeDocumentMoniker": "BackendApi\\Core\\Models\\Dto\\StudentDto.cs",
-              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\Dto\\StudentDto.cs",
-              "RelativeToolTip": "BackendApi\\Core\\Models\\Dto\\StudentDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-18T02:38:39.05Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 42,
               "Title": "GradePointService.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Services\\GradePointService.cs",
               "RelativeDocumentMoniker": "BackendApi\\Services\\GradePointService.cs",
@@ -752,7 +823,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 43,
               "Title": "IGradeRepository.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\IRepositories\\IGradeRepository.cs",
               "RelativeDocumentMoniker": "BackendApi\\IRepositories\\IGradeRepository.cs",
@@ -764,7 +835,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 44,
               "Title": "IGradePointService.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\IRepositories\\IGradePointService.cs",
               "RelativeDocumentMoniker": "BackendApi\\IRepositories\\IGradePointService.cs",
@@ -776,19 +847,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "UserCredentialsDto.cs",
-              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\Dto\\UserCredentialsDto.cs",
-              "RelativeDocumentMoniker": "BackendApi\\Core\\Models\\Dto\\UserCredentialsDto.cs",
-              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\Dto\\UserCredentialsDto.cs",
-              "RelativeToolTip": "BackendApi\\Core\\Models\\Dto\\UserCredentialsDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-17T06:35:08.926Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 45,
               "Title": "TeacherDto.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\Dto\\TeacherDto.cs",
               "RelativeDocumentMoniker": "BackendApi\\Core\\Models\\Dto\\TeacherDto.cs",
@@ -800,7 +859,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 46,
               "Title": "Teacher.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\Teacher.cs",
               "RelativeDocumentMoniker": "BackendApi\\Core\\Models\\Teacher.cs",
@@ -812,19 +871,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "StudentSubjectsDto.cs",
-              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\Dto\\StudentSubjectsDto.cs",
-              "RelativeDocumentMoniker": "BackendApi\\Core\\Models\\Dto\\StudentSubjectsDto.cs",
-              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\Dto\\StudentSubjectsDto.cs",
-              "RelativeToolTip": "BackendApi\\Core\\Models\\Dto\\StudentSubjectsDto.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAxwBAAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-17T06:29:48.305Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 47,
               "Title": "20250815061856_modify-calculation.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Migrations\\20250815061856_modify-calculation.cs",
               "RelativeDocumentMoniker": "BackendApi\\Migrations\\20250815061856_modify-calculation.cs",
@@ -836,7 +883,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 48,
               "Title": "20250815055102_add-weightsGrade.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Migrations\\20250815055102_add-weightsGrade.cs",
               "RelativeDocumentMoniker": "BackendApi\\Migrations\\20250815055102_add-weightsGrade.cs",
@@ -848,7 +895,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 49,
               "Title": "20250815053422_add-tableMidtermGrade.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Migrations\\20250815053422_add-tableMidtermGrade.cs",
               "RelativeDocumentMoniker": "BackendApi\\Migrations\\20250815053422_add-tableMidtermGrade.cs",
@@ -860,7 +907,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 50,
               "Title": "20250815050821_update-gradecalcuation.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Migrations\\20250815050821_update-gradecalcuation.cs",
               "RelativeDocumentMoniker": "BackendApi\\Migrations\\20250815050821_update-gradecalcuation.cs",

@@ -127,6 +127,7 @@ public class GradeCalculationService : IGradeCalculationService
             .Include(m => m.ClassStandingItems)
             .Include(m => m.Subject)
                 .ThenInclude(s => s.Teacher)
+                .AsNoTracking()
             .AsQueryable();
 
         if (currentUser.Role == UserRole.Teacher)

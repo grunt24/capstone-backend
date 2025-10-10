@@ -1668,6 +1668,10 @@
           "subject": {
             "$ref": "#/components/schemas/Subject"
           },
+          "studentNumber": {
+            "type": "string",
+            "nullable": true
+          },
           "id": {
             "type": "integer",
             "format": "int32"
@@ -1811,6 +1815,10 @@
           "studentId": {
             "type": "integer",
             "format": "int32"
+          },
+          "studentNumber": {
+            "type": "string",
+            "nullable": true
           },
           "studentFullName": {
             "type": "string",
@@ -2121,6 +2129,10 @@
             "type": "integer",
             "format": "int32"
           },
+          "studentNumber": {
+            "type": "string",
+            "nullable": true
+          },
           "username": {
             "maxLength": 30,
             "type": "string",
@@ -2429,6 +2441,10 @@
       "UserCredentialsDto": {
         "type": "object",
         "properties": {
+          "studentNumber": {
+            "type": "string",
+            "nullable": true
+          },
           "username": {
             "type": "string",
             "nullable": true
