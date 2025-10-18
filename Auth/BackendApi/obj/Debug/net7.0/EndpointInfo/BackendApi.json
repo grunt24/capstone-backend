@@ -287,21 +287,13 @@
         ],
         "parameters": [
           {
-            "name": "studentId",
-            "in": "query",
-            "style": "form",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
             "name": "id",
             "in": "path",
             "required": true,
             "style": "simple",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],

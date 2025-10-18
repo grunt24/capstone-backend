@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\services\\gradecalculationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\services\\gradecalculationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\controllers\\gradecalculationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\controllers\\gradecalculationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -19,24 +31,12 @@
       "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\core\\models\\midtermgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\controllers\\gradecalculationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\controllers\\gradecalculationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\core\\models\\studentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\core\\models\\studentmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\services\\gradecalculationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\services\\gradecalculationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\controllers\\studentsubjectscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\controllers\\studentsubjectscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|solutionrelative:backendapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DBC18CA3-42E5-410C-8598-D2E2E34E2757}|BackendApi\\BackendApi.csproj|c:\\users\\brent\\desktop\\main-capstonebackend\\auth\\backendapi\\irepositories\\igradecalculationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -290,31 +290,29 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "GradeCalculationService.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Services\\GradeCalculationService.cs",
               "RelativeDocumentMoniker": "BackendApi\\Services\\GradeCalculationService.cs",
               "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Services\\GradeCalculationService.cs",
               "RelativeToolTip": "BackendApi\\Services\\GradeCalculationService.cs",
-              "ViewState": "AgIAAHQCAAAAAAAAAAAkwPICAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABwBAAAAAAAAAAAYwDIBAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-15T04:32:12.035Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "GradeCalculationsController.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\GradeCalculationsController.cs",
               "RelativeDocumentMoniker": "BackendApi\\Controllers\\GradeCalculationsController.cs",
               "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\GradeCalculationsController.cs",
               "RelativeToolTip": "BackendApi\\Controllers\\GradeCalculationsController.cs",
-              "ViewState": "AgIAAHkDAAAAAAAAAIAwwIQDAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACgAAAAAAAAAAAAtwD8AAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-15T05:02:17.645Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -362,7 +360,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "20251017234045_FixStudentFKs.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Migrations\\20251017234045_FixStudentFKs.cs",
               "RelativeDocumentMoniker": "BackendApi\\Migrations\\20251017234045_FixStudentFKs.cs",
@@ -370,12 +368,11 @@
               "RelativeToolTip": "BackendApi\\Migrations\\20251017234045_FixStudentFKs.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T23:40:46.561Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-17T23:40:46.561Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Context\\AppDbContext.cs",
               "RelativeDocumentMoniker": "BackendApi\\Context\\AppDbContext.cs",
@@ -383,20 +380,19 @@
               "RelativeToolTip": "BackendApi\\Context\\AppDbContext.cs",
               "ViewState": "AgIAABkAAAAAAAAAAAAswCoAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-31T06:37:12.549Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-31T06:37:12.549Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "BackendApi\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "BackendApi\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAJkAAAAAAAAAAAAIwKIAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T00:12:47.285Z",
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\appsettings.json",
+              "RelativeDocumentMoniker": "BackendApi\\appsettings.json",
+              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\appsettings.json",
+              "RelativeToolTip": "BackendApi\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-08-15T05:02:59.184Z",
               "EditorCaption": ""
             },
             {
@@ -406,6 +402,18 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "BackendApi\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "BackendApi\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAAAJwAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-19T00:12:47.285Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "MidtermGrade.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\MidtermGrade.cs",
               "RelativeDocumentMoniker": "BackendApi\\Core\\Models\\MidtermGrade.cs",
@@ -413,12 +421,11 @@
               "RelativeToolTip": "BackendApi\\Core\\Models\\MidtermGrade.cs",
               "ViewState": "AgIAADoAAAAAAAAAAAAmwEUAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T07:38:57.269Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-24T07:38:57.269Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "StudentModel.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Core\\Models\\StudentModel.cs",
               "RelativeDocumentMoniker": "BackendApi\\Core\\Models\\StudentModel.cs",
@@ -426,12 +433,11 @@
               "RelativeToolTip": "BackendApi\\Core\\Models\\StudentModel.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAUwCkAAABgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T05:12:01.155Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-15T05:12:01.155Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "StudentSubjectsController.cs",
               "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\Controllers\\StudentSubjectsController.cs",
               "RelativeDocumentMoniker": "BackendApi\\Controllers\\StudentSubjectsController.cs",
@@ -439,21 +445,7 @@
               "RelativeToolTip": "BackendApi\\Controllers\\StudentSubjectsController.cs",
               "ViewState": "AgIAACYAAAAAAAAAAAAtwDcAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T05:23:45.881Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\appsettings.json",
-              "RelativeDocumentMoniker": "BackendApi\\appsettings.json",
-              "ToolTip": "C:\\Users\\brent\\Desktop\\main-capstoneBackend\\Auth\\BackendApi\\appsettings.json",
-              "RelativeToolTip": "BackendApi\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-15T05:02:59.184Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-15T05:23:45.881Z"
             },
             {
               "$type": "Document",
@@ -465,8 +457,7 @@
               "RelativeToolTip": "BackendApi\\Core\\Models\\StudentSubject.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T05:22:15.53Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-15T05:22:15.53Z"
             },
             {
               "$type": "Document",
@@ -478,8 +469,7 @@
               "RelativeToolTip": "BackendApi\\IRepositories\\IGradeCalculationService.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAmwCgAAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-31T02:49:13.674Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-31T02:49:13.674Z"
             },
             {
               "$type": "Document",
@@ -491,8 +481,7 @@
               "RelativeToolTip": "BackendApi\\Services\\StudentSubjectService.cs",
               "ViewState": "AgIAAF0AAAAAAAAAAAAwwHMAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-18T02:38:01.74Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-18T02:38:01.74Z"
             },
             {
               "$type": "Document",
@@ -504,8 +493,7 @@
               "RelativeToolTip": "BackendApi\\Core\\Models\\FinalsGrade.cs",
               "ViewState": "AgIAACsAAAAAAAAAAAAkwD8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T11:52:38.926Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-24T11:52:38.926Z"
             },
             {
               "$type": "Document",
@@ -517,8 +505,7 @@
               "RelativeToolTip": "BackendApi\\Core\\Models\\Dto\\MidtermGradeDto.cs",
               "ViewState": "AgIAAFQAAAAAAAAAAAAtwF8AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T12:17:09.978Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-24T12:17:09.978Z"
             },
             {
               "$type": "Document",
@@ -530,8 +517,7 @@
               "RelativeToolTip": "BackendApi\\Core\\Models\\Dto\\FinalsGradeDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T11:45:06.179Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-24T11:45:06.179Z"
             },
             {
               "$type": "Document",
@@ -543,8 +529,7 @@
               "RelativeToolTip": "BackendApi\\Program.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAjwCcAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T05:06:47.527Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-15T05:06:47.527Z"
             },
             {
               "$type": "Document",
@@ -556,8 +541,7 @@
               "RelativeToolTip": "BackendApi\\Controllers\\FinalsGradeController .cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAQwBUAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T10:16:42.116Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-17T10:16:42.116Z"
             },
             {
               "$type": "Document",
@@ -569,8 +553,7 @@
               "RelativeToolTip": "BackendApi\\MappingProfile\\GradeProfile.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAAwBgAAABpAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-18T07:24:59.571Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-18T07:24:59.571Z"
             },
             {
               "$type": "Document",
@@ -582,8 +565,7 @@
               "RelativeToolTip": "BackendApi\\Core\\General\\ResponseData.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-18T02:16:39.363Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-18T02:16:39.363Z"
             },
             {
               "$type": "Document",
@@ -595,8 +577,7 @@
               "RelativeToolTip": "BackendApi\\MappingProfile\\StudentProfile.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-18T02:48:18.647Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-18T02:48:18.647Z"
             },
             {
               "$type": "Document",
@@ -608,8 +589,7 @@
               "RelativeToolTip": "BackendApi\\MappingProfile\\SubjectProfile.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-18T02:47:53.728Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-18T02:47:53.728Z"
             },
             {
               "$type": "Document",
@@ -621,8 +601,7 @@
               "RelativeToolTip": "BackendApi\\MappingProfile\\TeacherProfile.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T09:12:32.149Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-17T09:12:32.149Z"
             },
             {
               "$type": "Document",
@@ -634,8 +613,7 @@
               "RelativeToolTip": "BackendApi\\Services\\TeacherService.cs",
               "ViewState": "AgIAAAsBAAAAAAAAAAAIwCIBAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-17T06:28:25.647Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-17T06:28:25.647Z"
             },
             {
               "$type": "Document",
@@ -647,8 +625,7 @@
               "RelativeToolTip": "BackendApi\\Core\\Models\\Dto\\TeacherDto.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAMwBgAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-17T06:35:09.746Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-17T06:35:09.746Z"
             },
             {
               "$type": "Document",
@@ -660,8 +637,7 @@
               "RelativeToolTip": "BackendApi\\Controllers\\TeachersController.cs",
               "ViewState": "AgIAAFUAAAAAAAAAAAAMwFwAAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-17T06:27:31.38Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-17T06:27:31.38Z"
             },
             {
               "$type": "Document",
@@ -673,8 +649,7 @@
               "RelativeToolTip": "BackendApi\\IRepositories\\ITeacherRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwBEAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-17T06:31:45.745Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-17T06:31:45.745Z"
             },
             {
               "$type": "Document",
@@ -686,8 +661,7 @@
               "RelativeToolTip": "BackendApi\\Controllers\\ClassStandingsController.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAowBoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-16T14:55:43.185Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-16T14:55:43.185Z"
             },
             {
               "$type": "Document",
@@ -699,8 +673,7 @@
               "RelativeToolTip": "BackendApi\\Core\\Models\\AcademicPeriod.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T05:16:03.164Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-13T05:16:03.164Z"
             },
             {
               "$type": "Document",
@@ -712,8 +685,7 @@
               "RelativeToolTip": "BackendApi\\Controllers\\QuizzesController.cs",
               "ViewState": "AgIAAC4AAAAAAAAAAAAwwFEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T02:42:51.755Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-14T02:42:51.755Z"
             },
             {
               "$type": "Document",
@@ -725,8 +697,7 @@
               "RelativeToolTip": "BackendApi\\Core\\Models\\Subject.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAowCMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-17T06:29:29.309Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-17T06:29:29.309Z"
             },
             {
               "$type": "Document",
@@ -738,8 +709,7 @@
               "RelativeToolTip": "BackendApi\\Core\\Models\\Teacher.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAxwBsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-17T06:29:22.93Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-17T06:29:22.93Z"
             },
             {
               "$type": "Document",
@@ -751,8 +721,7 @@
               "RelativeToolTip": "BackendApi\\Services\\AuthRepository.cs",
               "ViewState": "AgIAAFEAAAAAAAAAAAAAAGwAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-18T02:46:53.132Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-18T02:46:53.132Z"
             },
             {
               "$type": "Document",
@@ -764,8 +733,7 @@
               "RelativeToolTip": "BackendApi\\Controllers\\GradesController.cs",
               "ViewState": "AgIAABkAAAAAAAAAAAAQwBwAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T05:09:06.167Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-15T05:09:06.167Z"
             },
             {
               "$type": "Document",
@@ -777,8 +745,7 @@
               "RelativeToolTip": "BackendApi\\Core\\Models\\Dto\\ClassStandingDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-15T01:27:16.977Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-15T01:27:16.977Z"
             },
             {
               "$type": "Document",
@@ -790,8 +757,7 @@
               "RelativeToolTip": "BackendApi\\Core\\Models\\Dto\\QuizDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T02:40:40.145Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-14T02:40:40.145Z"
             },
             {
               "$type": "Document",

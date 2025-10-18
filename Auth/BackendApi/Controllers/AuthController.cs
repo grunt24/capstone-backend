@@ -129,7 +129,7 @@ public class AuthController : ControllerBase
     [HttpGet("students-by-year-department")]
     public async Task<IActionResult> GetStudentsGroupedByYearAndDepartment()
     {
-        var students = await _authService.GetAllStudents(); // Already returns StudentDto list
+        var students = await _authService.GetAllStudents(); // Returns List<StudentDto>
 
         var grouped = students
             .GroupBy(s => s.YearLevel)
@@ -141,7 +141,17 @@ public class AuthController : ControllerBase
                     .Select(dg => new
                     {
                         Department = dg.Key,
-                        Count = dg.Count()
+                        Count = dg.Count(),
+                        Students = dg.Select(s => new
+                        {
+                            s.Id,
+                            s.StudentNumber,
+                            s.Fullname,
+                            s.Department,
+                            s.YearLevel,
+                            s.Username,
+                            s.Role
+                        }).ToList()
                     })
                     .ToList()
             })
@@ -150,6 +160,7 @@ public class AuthController : ControllerBase
 
         return Ok(grouped);
     }
+
 
 
     [HttpDelete("delete-user/{id}")]
