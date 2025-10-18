@@ -87,13 +87,38 @@ namespace BackendApi.Services
                 .Select(s => s.SubjectName)
                 .ToListAsync();
 
-            var studentSubjects = dto.SubjectIds.Select(subjectId => new StudentSubject
-            {
-                StudentID = dto.StudentId,
-                SubjectID = subjectId
-            }).ToList();
+            // Load current academic period
+            var academicPeriod = await _context.AcademicPeriods
+                .FirstOrDefaultAsync(ap => ap.IsCurrent);
 
-            // Format subject names into a readable string
+            if (academicPeriod == null)
+            {
+                return new GeneralServiceResponse
+                {
+                    Success = false,
+                    Message = "No current academic period found."
+                };
+            }
+
+            var existingSubjects = await _context.StudentSubjects
+    .Where(ss => ss.StudentID == dto.StudentId && dto.SubjectIds.Contains(ss.SubjectID))
+    .Select(ss => ss.SubjectID)
+    .ToListAsync();
+
+            if (existingSubjects.Any())
+            {
+                var existingSubjectNames = await _context.Subjects
+                    .Where(s => existingSubjects.Contains(s.Id))
+                    .Select(s => s.SubjectName)
+                    .ToListAsync();
+
+                return new GeneralServiceResponse
+                {
+                    Success = false,
+                    Message = $"Student already has the following subject(s): {string.Join(", ", existingSubjectNames)}"
+                };
+            }
+
             var subjectList = string.Join(", ", subjectNames);
 
             var eventDescription = $"{currentUser.Username.Pascalize()} assigned subject(s) [{subjectList}] to student ID {dto.StudentId}.";
@@ -109,7 +134,78 @@ namespace BackendApi.Services
 
             try
             {
+                var studentSubjects = dto.SubjectIds.Select(subjectId => new StudentSubject
+                {
+                    StudentID = dto.StudentId,
+                    SubjectID = subjectId
+                }).ToList();
+
                 await _context.StudentSubjects.AddRangeAsync(studentSubjects);
+
+                // Create default midterm and finals grades for each subject
+                foreach (var subjectId in dto.SubjectIds)
+                {
+                    var academicYear = $"{academicPeriod.StartYear}-{academicPeriod.EndYear}";
+                    var semester = academicPeriod.Semester;
+
+                    var midterm = new MidtermGrade
+                    {
+                        StudentId = dto.StudentId,
+                        SubjectId = subjectId,
+                        AcademicPeriodId = academicPeriod.Id,
+                        Semester = semester,
+                        AcademicYear = academicYear,
+                        RecitationScore = 0,
+                        AttendanceScore = 0,
+                        SEPScore = 0,
+                        ProjectScore = 0,
+                        PrelimScore = 0,
+                        PrelimTotal = 0,
+                        MidtermScore = 0,
+                        MidtermTotal = 0,
+                        TotalMidtermGrade = 0,
+                        TotalMidtermGradeRounded = 0,
+                        GradePointEquivalent = 5.00
+                    };
+
+                    var finals = new FinalsGrade
+                    {
+                        StudentId = dto.StudentId,
+                        SubjectId = subjectId,
+                        AcademicPeriodId = academicPeriod.Id,
+                        Semester = semester,
+                        AcademicYear = academicYear,
+                        RecitationScore = 0,
+                        AttendanceScore = 0,
+                        SEPScore = 0,
+                        ProjectScore = 0,
+                        FinalsScore = 0,
+                        FinalsTotal = 0,
+                        TotalQuizScore = 0,
+                        ClassStandingTotalScore = 0,
+                        ClassStandingAverage = 0,
+                        ClassStandingPG = 0,
+                        ClassStandingWeightedTotal = 0,
+                        QuizPG = 0,
+                        QuizWeightedTotal = 0,
+                        SEPPG = 0,
+                        SEPWeightedTotal = 0,
+                        ProjectPG = 0,
+                        ProjectWeightedTotal = 0,
+                        TotalScoreFinals = 0,
+                        OverallFinals = 0,
+                        CombinedFinalsAverage = 0,
+                        FinalsPG = 0,
+                        FinalsWeightedTotal = 0,
+                        TotalFinalsGrade = 0,
+                        TotalFinalsGradeRounded = 0,
+                        GradePointEquivalent = 5.00
+                    };
+
+                    await _context.MidtermGrades.AddAsync(midterm);
+                    await _context.FinalsGrades.AddAsync(finals);
+                }
+
                 await _context.UserEvents.AddAsync(userEvent);
                 await _context.SaveChangesAsync();
                 await transaction.CommitAsync();
@@ -117,7 +213,7 @@ namespace BackendApi.Services
                 return new GeneralServiceResponse
                 {
                     Success = true,
-                    Message = "Subjects added to student successfully."
+                    Message = "Subjects and default grades added to student successfully."
                 };
             }
             catch
@@ -126,6 +222,7 @@ namespace BackendApi.Services
                 throw;
             }
         }
+
 
         public async Task<GeneralServiceResponse> DeleteStudentSubject(int id)
         {

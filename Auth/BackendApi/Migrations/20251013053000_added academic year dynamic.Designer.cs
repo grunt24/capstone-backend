@@ -4,6 +4,7 @@ using BackendApi.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackendApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251013053000_added academic year dynamic")]
+    partial class addedacademicyeardynamic
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -169,9 +172,6 @@ namespace BackendApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("AcademicPeriodId")
-                        .HasColumnType("int");
-
                     b.Property<string>("AcademicYear")
                         .HasColumnType("nvarchar(max)");
 
@@ -264,8 +264,6 @@ namespace BackendApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AcademicPeriodId");
-
                     b.HasIndex("StudentId");
 
                     b.HasIndex("SubjectId");
@@ -330,9 +328,6 @@ namespace BackendApi.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("AcademicPeriodId")
-                        .HasColumnType("int");
 
                     b.Property<string>("AcademicYear")
                         .HasColumnType("nvarchar(max)");
@@ -432,8 +427,6 @@ namespace BackendApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AcademicPeriodId");
-
                     b.HasIndex("StudentId");
 
                     b.HasIndex("SubjectId");
@@ -471,38 +464,6 @@ namespace BackendApi.Migrations
                     b.HasIndex("MidtermGradeId");
 
                     b.ToTable("QuizLists");
-                });
-
-            modelBuilder.Entity("BackendApi.Core.Models.StudentEnrollment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AcademicPeriodId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsEnrolled")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("StudentId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AcademicPeriodId");
-
-                    b.HasIndex("StudentId");
-
-                    b.ToTable("StudentEnrollments");
                 });
 
             modelBuilder.Entity("BackendApi.Core.Models.StudentModel", b =>
@@ -681,12 +642,8 @@ namespace BackendApi.Migrations
 
             modelBuilder.Entity("BackendApi.Core.Models.FinalsGrade", b =>
                 {
-                    b.HasOne("BackendApi.Core.Models.AcademicPeriod", "AcademicPeriod")
-                        .WithMany()
-                        .HasForeignKey("AcademicPeriodId");
-
                     b.HasOne("BackendApi.Core.Models.StudentModel", "User")
-                        .WithMany("FinalsGrades")
+                        .WithMany()
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -694,8 +651,6 @@ namespace BackendApi.Migrations
                     b.HasOne("BackendApi.Core.Models.Subject", "Subject")
                         .WithMany()
                         .HasForeignKey("SubjectId");
-
-                    b.Navigation("AcademicPeriod");
 
                     b.Navigation("Subject");
 
@@ -704,12 +659,8 @@ namespace BackendApi.Migrations
 
             modelBuilder.Entity("BackendApi.Core.Models.MidtermGrade", b =>
                 {
-                    b.HasOne("BackendApi.Core.Models.AcademicPeriod", "AcademicPeriod")
-                        .WithMany()
-                        .HasForeignKey("AcademicPeriodId");
-
                     b.HasOne("BackendApi.Core.Models.StudentModel", "User")
-                        .WithMany("MidtermGrades")
+                        .WithMany()
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -717,8 +668,6 @@ namespace BackendApi.Migrations
                     b.HasOne("BackendApi.Core.Models.Subject", "Subject")
                         .WithMany()
                         .HasForeignKey("SubjectId");
-
-                    b.Navigation("AcademicPeriod");
 
                     b.Navigation("Subject");
 
@@ -736,25 +685,6 @@ namespace BackendApi.Migrations
                         .WithMany("Quizzes")
                         .HasForeignKey("MidtermGradeId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("BackendApi.Core.Models.StudentEnrollment", b =>
-                {
-                    b.HasOne("BackendApi.Core.Models.AcademicPeriod", "AcademicPeriod")
-                        .WithMany()
-                        .HasForeignKey("AcademicPeriodId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BackendApi.Core.Models.StudentModel", "Student")
-                        .WithMany("Enrollments")
-                        .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AcademicPeriod");
-
-                    b.Navigation("Student");
                 });
 
             modelBuilder.Entity("BackendApi.Core.Models.StudentSubject", b =>
@@ -817,12 +747,6 @@ namespace BackendApi.Migrations
 
             modelBuilder.Entity("BackendApi.Core.Models.StudentModel", b =>
                 {
-                    b.Navigation("Enrollments");
-
-                    b.Navigation("FinalsGrades");
-
-                    b.Navigation("MidtermGrades");
-
                     b.Navigation("StudentSubjects");
 
                     b.Navigation("UserEvents");

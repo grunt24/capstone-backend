@@ -142,12 +142,16 @@ namespace BackendApi.Repositories
 
         public async Task<GeneralServiceResponse> RegisterAsync(UserCredentialsDto userCredential)
         {
-            var currentUser = await GetCurrentUserAsync();
+            //var currentUser = await GetCurrentUserAsync();
 
             // Check if username already exists
             if (_context.Users.Any(us => us.Username == userCredential.Username))
             {
                 throw new Exception("Username already exists");
+            }
+            if (_context.Users.Any(us => us.StudentNumber == userCredential.StudentNumber))
+            {
+                throw new Exception("Student number already exists");
             }
 
             // Create new user
@@ -165,12 +169,12 @@ namespace BackendApi.Repositories
             user.Password = _passwordHasher.HashPassword(user, userCredential.Password);
 
             // Create a user event for tracking
-            var transactionEvent = new UserEvent
-            {
-                UserId = currentUser.Id,
-                EventDescription = $"{currentUser.Username.Pascalize()} created new user: {user.Username.ToUpper()}.",
-                Timestamp = TimeStampFormat()
-            };
+            //var transactionEvent = new UserEvent
+            //{
+            //    UserId = currentUser.Id,
+            //    EventDescription = $"{currentUser.Username.Pascalize()} created new user: {user.Username.ToUpper()}.",
+            //    Timestamp = TimeStampFormat()
+            //};
 
             // Start a transaction
             using var transaction = await _context.Database.BeginTransactionAsync();
@@ -179,7 +183,7 @@ namespace BackendApi.Repositories
             {
                 // Add both entities
                 await _context.AddAsync(user);
-                await _context.AddAsync(transactionEvent);
+                //await _context.AddAsync(transactionEvent);
 
                 // Save changes to the database
                 await _context.SaveChangesAsync();
@@ -205,10 +209,21 @@ namespace BackendApi.Repositories
 
         public async Task<LoginServiceResponse> LoginAsync(LoginDto userCredential)
         {
-            //userCredential.Username = "superadmin";
-            //userCredential.Password = "superadmin";
+            // Try to find user by username or student number
+            var user = await _context.Users
+                .FirstOrDefaultAsync(u =>
+                    u.Username == userCredential.Username ||
+                    u.StudentNumber == userCredential.Username);
 
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == userCredential.Username);
+            var currentPeriod = await _context.AcademicPeriods
+    .FirstOrDefaultAsync(p => p.IsCurrent);
+
+            string? academicYear = currentPeriod != null
+                ? $"{currentPeriod.StartYear}-{currentPeriod.EndYear}"
+                : null;
+
+            string? semester = currentPeriod?.Semester;
+
 
             if (user == null)
                 throw new Exception("Invalid credentials!");
@@ -222,10 +237,7 @@ namespace BackendApi.Repositories
             string? userFullname = null;
             int returnId;
 
-            //added
-
-            //user.LatestTransaction = $"{userCredential.Username.ToUpper()} Login at {DateTime.Now:yyyy-MM-dd hh:mm:ss}";
-
+            // Log login event
             var userEvent = new UserEvent
             {
                 Timestamp = TimeStampFormat(),
@@ -233,6 +245,7 @@ namespace BackendApi.Repositories
                 UserId = user.Id,
                 User = user,
             };
+
             _context.UserEvents.Update(userEvent);
             await _context.SaveChangesAsync();
 
@@ -245,24 +258,30 @@ namespace BackendApi.Repositories
                 returnId = teacher.Id;
                 userFullname = teacher.Fullname;
             }
-
             else
             {
                 var student = await GetStudentByUserIdAsync(user.Id);
-                userFullname = student?.Fullname ?? user.Username; // fallback if student fullname is missing
+                userFullname = student?.Fullname ?? user.Username;
                 returnId = user.Id;
             }
 
             return new LoginServiceResponse
             {
                 NewToken = newToken,
-                Id = returnId, // dynamic: teacher.Id or user.Id
+                Id = returnId,
                 Username = user.Username,
                 Fullname = userFullname,
                 Role = user.Role.ToString(),
+                AcademicYear = academicYear,
+                Semester = semester
             };
         }
 
+        public async Task<AcademicPeriod?> GetCurrentAcademicPeriodAsync()
+        {
+            return await _context.AcademicPeriods
+                .FirstOrDefaultAsync(p => p.IsCurrent);
+        }
         public string TimeStampFormat()
         {
             return $"{DateTime.Now:yyyy-MM-dd hh:mm:ss tt}";

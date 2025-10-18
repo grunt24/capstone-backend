@@ -90,7 +90,7 @@ namespace BackendApi.Controllers
         // New endpoint for teachers to get their list of students
         [HttpGet("my-students")]
         [Authorize(Roles = "Teacher")]
-        public async Task<ActionResult<IEnumerable<StudentInfoDto>>> GetStudentsForLoggedInTeacher()
+        public async Task<ActionResult<IEnumerable<TeachersStudentsPerSubjectDto>>> GetStudentsForLoggedInTeacher()
         {
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (string.IsNullOrEmpty(userIdClaim))
@@ -99,15 +99,16 @@ namespace BackendApi.Controllers
             }
 
             int userId = int.Parse(userIdClaim);
-            var students = await _teacherService.GetStudentsForLoggedInTeacherAsync(userId);
+            var subjects = await _teacherService.GetSubjectsWithStudentsAsync(userId);
 
-            if (students == null || !students.Any())
+            if (subjects == null || !subjects.Any())
             {
-                return NotFound(new GeneralServiceResponse { Success = false, Message = "No students found for this teacher's subjects." });
+                return NotFound(new GeneralServiceResponse { Success = false, Message = "No subjects or students found." });
             }
 
-            return Ok(students);
+            return Ok(subjects);
         }
+
 
     }
 }

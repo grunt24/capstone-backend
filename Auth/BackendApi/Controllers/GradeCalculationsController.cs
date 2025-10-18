@@ -149,6 +149,30 @@ namespace BackendApi.Controllers
                 return BadRequest("Semester and Academic Year not found in the uploaded file.");
             }
 
+            //added
+            var academicPeriod = await _dbContext.AcademicPeriods
+                .SingleOrDefaultAsync(ap => ap.IsCurrent);
+
+            if (academicPeriod == null)
+            {
+                return BadRequest("No current academic period is set. Please configure one in the system before uploading grades.");
+            }
+
+            // ✅ Use the current academic period's values
+            var academicYearId = academicPeriod.Id;
+            //var academicYear = $"{academicPeriod.StartYear}-{academicPeriod.EndYear}";
+            //var semester = academicPeriod.Semester;
+
+
+
+
+            //if (academicPeriod == null)
+            //{
+            //    return BadRequest($"Academic period '{academicYear} - {semester}' not found, and no current academic period is set.");
+            //}
+
+            //var academicYearId = academicPeriod.Id;
+
 
             // Read SubjectCode from Row 8 (index 7) and look up SubjectId
             const int subjectCodeRowIndex = 7;
@@ -165,10 +189,42 @@ namespace BackendApi.Controllers
                 .Where(s => s.SubjectCode == subjectCode)
                 .ToDictionaryAsync(s => s.SubjectCode, s => s.Id);
 
-            if (!subjectLookup.TryGetValue(subjectCode, out var subjectId))
+            var currentUser = await _authRepo.GetCurrentUserAsync();
+
+            if (currentUser.Role != UserRole.Teacher)
+            {
+                return Forbid("Only teachers are allowed to upload grades.");
+            }
+
+            // ✅ Get subject including the assigned teacher
+            var subject = await _dbContext.Subjects
+                .Include(s => s.Teacher)
+                .FirstOrDefaultAsync(s => s.SubjectCode == subjectCode);
+
+            if (subject == null)
             {
                 return NotFound($"Subject with code '{subjectCode}' not found in the database.");
             }
+
+            // ✅ Get teacher record of current user
+            var teacher = await _dbContext.Teachers
+                .FirstOrDefaultAsync(t => t.UserID == currentUser.Id);
+
+            if (teacher == null)
+            {
+                return Forbid("You are not registered as a teacher.");
+            }
+
+            // ✅ Check if the current teacher is assigned to this subject
+            if (subject.TeacherId != teacher.Id)
+            {
+                return Unauthorized(new { message = $"You are not assigned to the subject '{subject.SubjectName}'. Only the assigned teacher can upload grades for this subject." });
+
+            }
+
+            // ✅ Extract subjectId for further use
+            var subjectId = subject.Id;
+
 
             // Read PrelimTotal and MidtermTotal from Row 13 (index 12)
             const int totalScoresRowIndex = 12;
@@ -251,7 +307,8 @@ namespace BackendApi.Controllers
                     PrelimScore = row[prelimScoreColumnIndex] is DBNull ? 0 : Convert.ToInt32(row[prelimScoreColumnIndex]),
                     PrelimTotal = prelimTotal,
                     MidtermScore = row[midtermScoreColumnIndex] is DBNull ? 0 : Convert.ToInt32(row[midtermScoreColumnIndex]),
-                    MidtermTotal = midtermTotal
+                    MidtermTotal = midtermTotal,
+                    AcademicPeriodId = academicYearId,
                 };
 
                 // ✅ Check if midterm grade for this student already exists
@@ -367,6 +424,33 @@ namespace BackendApi.Controllers
             }
 
 
+            //added
+            // ✅ Remove any "AY" prefix before splitting
+            var cleanedAcademicYear = academicYear.Replace("AY", "", StringComparison.OrdinalIgnoreCase).Trim();
+
+            var academicYearParts = cleanedAcademicYear.Split('-');
+            if (academicYearParts.Length != 2
+                || !int.TryParse(academicYearParts[0].Trim(), out int startYear)
+                || !int.TryParse(academicYearParts[1].Trim(), out int endYear))
+            {
+                return BadRequest($"Invalid academic year format '{academicYear}'. Expected format 'YYYY-YYYY' or 'AY YYYY-YYYY'.");
+            }
+
+
+
+            var academicPeriod = await _dbContext.AcademicPeriods
+    .FirstOrDefaultAsync(ap =>
+        ap.StartYear == startYear &&
+        ap.EndYear == endYear &&
+        ap.Semester.Equals(semester, StringComparison.OrdinalIgnoreCase));
+
+            if (academicPeriod == null)
+            {
+                return BadRequest($"Academic period '{academicYear} - {semester}' not found in the database.");
+            }
+
+            var academicYearId = academicPeriod.Id;
+
             // Read SubjectCode from Row 8 (index 7) and look up SubjectId
             const int subjectCodeRowIndex = 7;
             const int subjectCodeColumnIndex = 0;
@@ -382,10 +466,43 @@ namespace BackendApi.Controllers
                 .Where(s => s.SubjectCode == subjectCode)
                 .ToDictionaryAsync(s => s.SubjectCode, s => s.Id);
 
-            if (!subjectLookup.TryGetValue(subjectCode, out var subjectId))
+            // ✅ Get the current logged-in user
+            var currentUser = await _authRepo.GetCurrentUserAsync();
+
+            if (currentUser.Role != UserRole.Teacher)
+            {
+                return Forbid("Only teachers are allowed to upload grades.");
+            }
+
+            // ✅ Get subject including the assigned teacher
+            var subject = await _dbContext.Subjects
+                .Include(s => s.Teacher)
+                .FirstOrDefaultAsync(s => s.SubjectCode == subjectCode);
+
+            if (subject == null)
             {
                 return NotFound($"Subject with code '{subjectCode}' not found in the database.");
             }
+
+            // ✅ Get teacher record of current user
+            var teacher = await _dbContext.Teachers
+                .FirstOrDefaultAsync(t => t.UserID == currentUser.Id);
+
+            if (teacher == null)
+            {
+                return Forbid("You are not registered as a teacher.");
+            }
+
+            // ✅ Check if the current teacher is assigned to this subject
+            if (subject.TeacherId != teacher.Id)
+            {
+                return Unauthorized(new { message = $"{currentUser.Fullname} is not assigned to the subject '{subject.SubjectName}'. Only the assigned teacher can upload grades for this subject." });
+
+            }
+
+            // ✅ Extract subjectId for further use
+            var subjectId = subject.Id;
+
 
             // Constants based on the Excel file structure
             const int quizTotalRowIndex = 11;
@@ -473,7 +590,8 @@ namespace BackendApi.Controllers
                     FinalsScore = row[finalsScoreColumnIndex] is DBNull ? 0 : Convert.ToInt32(row[finalsScoreColumnIndex]),
                     FinalsTotal = finalExamTotal,
                     TotalScoreFinals = totalScoreFinals,
-                    OverallFinals = overAllFInals
+                    OverallFinals = overAllFInals,
+                    AcademicYearId = academicYearId,
                 };
 
                 bool alreadyExists = await _dbContext.FinalsGrades.AnyAsync(g =>
@@ -608,6 +726,8 @@ namespace BackendApi.Controllers
                 .Select(g => new
                 { g.StudentId, Fullname = g.User.Fullname, 
                     g.SubjectId, g.Subject.SubjectName, 
+                    Department = g.User.Department, 
+                    YearLevel = g.User.YearLevel,
                     g.Subject.SubjectCode, 
                     g.AcademicYear, g.Semester, 
                     g.QuizPG, g.RecitationScore, 
@@ -616,7 +736,7 @@ namespace BackendApi.Controllers
                     g.PrelimScore, g.PrelimTotal, 
                     g.MidtermScore, g.MidtermTotal, 
                     g.CombinedPrelimMidtermAverage, 
-                    g.TotalMidtermGradeRounded, 
+                    g.TotalMidtermGradeRounded, g.AcademicPeriodId,
                     Quizzes = g.Quizzes.Select(q => new { q.Id, q.Label, q.QuizScore, q.TotalQuizScore }).ToList(),
                     ClassStandingItems = g.ClassStandingItems.Select(c => new {c.Id, c.Label, c.Score, c.Total}).ToList()
                 })
@@ -645,6 +765,9 @@ namespace BackendApi.Controllers
                 {
                     studentId = m.StudentId,
                     studentFullName = m.Fullname,
+                    department = m.Department,
+                    yearLevel = m.YearLevel,
+                    AcademicPeriodId = m.AcademicPeriodId,
                     subjectId = m.SubjectId,
                     subjectName = m.SubjectName,
                     subjectCode = m.SubjectCode,
@@ -714,8 +837,12 @@ namespace BackendApi.Controllers
                 .OrderByDescending(g => g)
                 .ToList();
 
-            var midtermCount = await _dbContext.MidtermGrades.CountAsync();
-            var finalCount = await _dbContext.FinalsGrades.CountAsync();
+            // ✅ Only count midterm and final grades with GradePointEquivalent > 0
+            var midtermCount = await _dbContext.MidtermGrades
+                .CountAsync(g => g.TotalMidtermGradeRounded > 0);
+
+            var finalCount = await _dbContext.FinalsGrades
+                .CountAsync(g => g.TotalFinalsGradeRounded > 0);
 
             return Ok(new
             {
@@ -731,6 +858,7 @@ namespace BackendApi.Controllers
                 }
             });
         }
+
 
 
 
@@ -758,6 +886,49 @@ namespace BackendApi.Controllers
                 _ => 0
             };
         }
+
+        // Midterm - calculate for all subjects in current academic period
+        [HttpPost("calculate-midterm-all")]
+        public async Task<IActionResult> CalculateMidtermAllAsync()
+        {
+            var result = await _gradeCalculationService.CalculateMidtermGradesForAllSubjectsAsync();
+            return Ok(result);
+        }
+
+        // Finals - calculate for all subjects in current academic period
+        [HttpPost("calculate-finals-all")]
+        public async Task<IActionResult> CalculateFinalsAllAsync()
+        {
+            var result = await _gradeCalculationService.CalculateFinalsGradesForAllSubjectsAsync();
+            return Ok(result);
+        }
+
+
+
+
+        // GET: api/midterm-grades/{subjectId}/{academicPeriodId}
+        [HttpGet("{subjectId:int}/{academicPeriodId:int}")]
+        public async Task<IActionResult> GetGradesBySubjectAndPeriod(int subjectId, int academicPeriodId)
+        {
+            var grades = await _gradeCalculationService.GetGradesBySubjectAndPeriodAsync(subjectId, academicPeriodId);
+            return Ok(grades);
+        }
+
+        // PUT: api/midterm-grades/{studentId}
+        [HttpPut("{studentId:int}")]
+        public async Task<IActionResult> UpdateMidtermGrade(int studentId, [FromBody] MidtermGradeDto updatedGrade)
+        {
+            if (updatedGrade == null)
+                return BadRequest("Invalid grade data.");
+
+            var result = await _gradeCalculationService.UpdateMidtermGradeAsync(studentId, updatedGrade);
+
+            if (!result)
+                return NotFound($"Student ID {studentId} not found or update failed.");
+
+            return Ok(new { message = "Midterm grade updated successfully." });
+        }
+
 
 
     }

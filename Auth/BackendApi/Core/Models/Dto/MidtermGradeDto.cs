@@ -4,11 +4,22 @@
     /// Data Transfer Object for MidtermGrade, used to transfer data between layers.
     /// This DTO includes the student's full name for display purposes.
     /// </summary>
+    /// 
+
+    public class CalculateGradesInputDto
+    {
+        public int SubjectId { get; set; }
+        public int AcademicPeriodId { get; set; }
+    }
+
+
     public class MidtermGradeDto
     {
         // Student Information
         public int StudentId { get; set; }
         public string? StudentNumber { get; set; }
+        public string? Department { get; set; }
+
         public string? StudentFullName { get; set; } // Added to include the student's full name
         public int? SubjectId { get; set; }
         public string? SubjectCode { get; set; }
@@ -58,6 +69,7 @@
         public double GradePointEquivalent { get; set; }
         public string? Semester { get; set; }
         public string? AcademicYear { get; set; }
+        public int? AcademicPeriodId { get; set; }
     }
 
     /// <summary>

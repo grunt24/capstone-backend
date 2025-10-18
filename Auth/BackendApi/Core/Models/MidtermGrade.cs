@@ -58,6 +58,11 @@ namespace BackendApi.Core.Models
         // New properties for Semester and Academic Year
         public string? Semester { get; set; }
         public string? AcademicYear { get; set; }
+        public int? AcademicPeriodId { get; set; }
+
+        [ForeignKey("AcademicPeriodId")]
+        public AcademicPeriod? AcademicPeriod { get; set; }
+
 
     }
     public class QuizList

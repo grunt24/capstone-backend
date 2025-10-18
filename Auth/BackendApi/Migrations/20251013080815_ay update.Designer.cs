@@ -4,6 +4,7 @@ using BackendApi.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackendApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251013080815_ay update")]
+    partial class ayupdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -686,7 +689,7 @@ namespace BackendApi.Migrations
                         .HasForeignKey("AcademicPeriodId");
 
                     b.HasOne("BackendApi.Core.Models.StudentModel", "User")
-                        .WithMany("FinalsGrades")
+                        .WithMany()
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -709,7 +712,7 @@ namespace BackendApi.Migrations
                         .HasForeignKey("AcademicPeriodId");
 
                     b.HasOne("BackendApi.Core.Models.StudentModel", "User")
-                        .WithMany("MidtermGrades")
+                        .WithMany()
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -818,10 +821,6 @@ namespace BackendApi.Migrations
             modelBuilder.Entity("BackendApi.Core.Models.StudentModel", b =>
                 {
                     b.Navigation("Enrollments");
-
-                    b.Navigation("FinalsGrades");
-
-                    b.Navigation("MidtermGrades");
 
                     b.Navigation("StudentSubjects");
 

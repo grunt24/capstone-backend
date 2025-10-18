@@ -24,41 +24,69 @@ namespace BackendApi.Context
         public DbSet<QuizList> QuizLists { get; set; }
         public DbSet<ClassStandingItem> ClassStanding { get; set; }
         public DbSet<GradeWeights> GradeWeights { get; set; }
+        public DbSet<AcademicPeriod> AcademicPeriods { get; set; }
+        public DbSet<StudentEnrollment> StudentEnrollments { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Configure cascade delete for MidtermGrade's QuizList
+            // MidtermGrade -> QuizList & ClassStandingItem cascade
             modelBuilder.Entity<QuizList>()
                 .HasOne<MidtermGrade>()
                 .WithMany(g => g.Quizzes)
                 .HasForeignKey("MidtermGradeId")
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // Configure cascade delete for MidtermGrade's ClassStandingItem
             modelBuilder.Entity<ClassStandingItem>()
                 .HasOne<MidtermGrade>()
                 .WithMany(g => g.ClassStandingItems)
                 .HasForeignKey("MidtermGradeId")
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // --- Finals Grade Configurations ---
-
-            // **Changed to DeleteBehavior.NoAction to prevent a cycle**
+            // FinalsGrade -> QuizList & ClassStandingItem cascade
             modelBuilder.Entity<QuizList>()
                 .HasOne<FinalsGrade>()
                 .WithMany(g => g.Quizzes)
                 .HasForeignKey("FinalsGradeId")
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Cascade);
 
-            // **Changed to DeleteBehavior.NoAction to prevent a cycle**
+            modelBuilder.Entity<ClassStandingItem>()
+                .HasOne<FinalsGrade>()
+                .WithMany(g => g.ClassStandingItems)
+                .HasForeignKey("FinalsGradeId")
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // MidtermGrade -> QuizList & ClassStandingItem
+            modelBuilder.Entity<QuizList>()
+                .HasOne<MidtermGrade>()
+                .WithMany(g => g.Quizzes)
+                .HasForeignKey("MidtermGradeId")
+                .OnDelete(DeleteBehavior.Cascade); // Safe: only one cascade path
+
+            modelBuilder.Entity<ClassStandingItem>()
+                .HasOne<MidtermGrade>()
+                .WithMany(g => g.ClassStandingItems)
+                .HasForeignKey("MidtermGradeId")
+                .OnDelete(DeleteBehavior.Cascade); // Safe
+
+            // FinalsGrade -> QuizList & ClassStandingItem
+            modelBuilder.Entity<QuizList>()
+                .HasOne<FinalsGrade>()
+                .WithMany(g => g.Quizzes)
+                .HasForeignKey("FinalsGradeId")
+                .OnDelete(DeleteBehavior.NoAction); // Prevents multiple cascade path error
+
             modelBuilder.Entity<ClassStandingItem>()
                 .HasOne<FinalsGrade>()
                 .WithMany(g => g.ClassStandingItems)
                 .HasForeignKey("FinalsGradeId")
                 .OnDelete(DeleteBehavior.NoAction);
+
 
             base.OnModelCreating(modelBuilder);
         }
+
+
     }
 
 }

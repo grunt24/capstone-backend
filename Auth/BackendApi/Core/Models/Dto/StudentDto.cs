@@ -32,4 +32,9 @@
         public string TeacherName { get; set; }
         public ICollection<StudentWithGradesDto> Students { get; set; }
     }
+    public class EnrollStudentsRequest
+    {
+        public List<int> StudentIds { get; set; } = new();
+    }
+
 }

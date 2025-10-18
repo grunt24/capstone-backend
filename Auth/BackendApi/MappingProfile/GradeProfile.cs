@@ -9,17 +9,19 @@ namespace BackendApi.MappingProfile
         public GradeProfile()
         {
             CreateMap<MidtermGrade, MidtermGradeDto>()
-                .ForMember(dest => dest.StudentFullName,opt => opt.MapFrom(src => src.User.Fullname))
+                .ForMember(dest => dest.StudentFullName, opt => opt.MapFrom(src => src.User.Fullname))
                 .ForMember(dest => dest.SubjectTeacher, opt => opt.MapFrom(src => src.Subject.Teacher.Fullname))
                     .ForMember(dest => dest.StudentNumber, opt => opt.MapFrom(src => src.User.StudentNumber))
-                .ForMember(dest => dest.SubjectName,opt => opt.MapFrom(src => src.Subject.SubjectName))
-                .ForMember(dest => dest.SubjectCode,opt => opt.MapFrom(src => src.Subject.SubjectCode));
+                .ForMember(dest => dest.SubjectName, opt => opt.MapFrom(src => src.Subject.SubjectName))
+                .ForMember(dest => dest.SubjectCode, opt => opt.MapFrom(src => src.Subject.SubjectCode))
+                .ForMember(dest => dest.Department, opt => opt.MapFrom(src => src.User.Department));
 
             CreateMap<FinalsGrade, FinalsGradeDto>()
                 .ForMember(dest => dest.StudentFullName, opt => opt.MapFrom(src => src.User.Fullname))
                 .ForMember(dest => dest.SubjectTeacher, opt => opt.MapFrom(src => src.Subject.Teacher.Fullname))
                     .ForMember(dest => dest.StudentNumber, opt => opt.MapFrom(src => src.User.StudentNumber))
                 .ForMember(dest => dest.SubjectName, opt => opt.MapFrom(src => src.Subject.SubjectName))
+                    .ForMember(dest => dest.Department, opt => opt.MapFrom(src => src.User.Department))
                 .ForMember(dest => dest.SubjectCode, opt => opt.MapFrom(src => src.Subject.SubjectCode));
 
             CreateMap<MidtermGradeDto, MidtermGrade>();

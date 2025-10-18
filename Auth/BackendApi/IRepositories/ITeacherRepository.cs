@@ -15,7 +15,7 @@ namespace BackendApi.IRepositories
         Task<TeacherWithSubjectsDto> GetTeacherByUserId(int userId);
 
         // New method to get students associated with the logged-in teacher's subjects.
-        Task<IEnumerable<StudentInfoDto>> GetStudentsForLoggedInTeacherAsync(int userId);
+        Task<IEnumerable<TeachersStudentsPerSubjectDto>> GetSubjectsWithStudentsAsync(int userId);
 
     }
 }

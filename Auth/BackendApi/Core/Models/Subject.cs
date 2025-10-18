@@ -27,6 +27,7 @@ namespace BackendApi.Core.Models
         // Navigation properties for Teacher and Students
         // Foreign key
         public int? TeacherId { get; set; }
+        [JsonIgnore]
         public Teacher? Teacher { get; set; }
         [JsonIgnore]
         public ICollection<StudentSubject> StudentSubjects { get; set; } = new List<StudentSubject>();

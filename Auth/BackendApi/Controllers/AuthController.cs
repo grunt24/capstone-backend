@@ -1,9 +1,11 @@
-﻿using BackendApi.Core.Models;
+﻿using BackendApi.Context;
+using BackendApi.Core.Models;
 using BackendApi.Core.Models.Dto;
 using BackendApi.IRepositories;
 using BackendApi.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using NuGet.Protocol.Plugins;
 
@@ -14,10 +16,12 @@ namespace BackendApi.Controllers;
 public class AuthController : ControllerBase
 {
     private readonly IAuthRepository _authService;
+    private readonly AppDbContext _context;
 
-    public AuthController(IAuthRepository authService)
+    public AuthController(IAuthRepository authService, AppDbContext context)
     {
         _authService = authService;
+        _context = context;
     }
 
     [HttpGet("roles")]
@@ -84,8 +88,18 @@ public class AuthController : ControllerBase
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginDto request)
     {
-        var result = await _authService.LoginAsync(request); 
-        return Ok(new { token = result.NewToken, username = result.Username, fullname = result.Fullname, role = result.Role.ToString(), id = result.Id}); 
+        var result = await _authService.LoginAsync(request);
+        var academicPeriod = await _authService.GetCurrentAcademicPeriodAsync();
+        return Ok(new
+        {
+            token = result.NewToken,
+            username = result.Username,
+            fullname = result.Fullname,
+            role = result.Role.ToString(),
+            id = result.Id,
+            academicYear = academicPeriod != null ? $"{academicPeriod.StartYear}-{academicPeriod.EndYear}" : null,
+            semester = academicPeriod?.Semester
+        });
     }
     [HttpPut("update-userRole/{id}")]
     public async Task<IActionResult> UpdateUserRole(int id, [FromBody] UserRoleUpdateDto dto)
@@ -139,13 +153,39 @@ public class AuthController : ControllerBase
 
 
     [HttpDelete("delete-user/{id}")]
-    public async Task<IActionResult> DeleteStudent(int id)
+    public async Task<bool> DeleteStudentAsync(int id)
     {
-        var result = await _authService.DeleteStudentAsync(id);
+        var student = await _context.Users
+            .Include(u => u.MidtermGrades)
+                .ThenInclude(m => m.Quizzes)
+            .Include(u => u.MidtermGrades)
+                .ThenInclude(m => m.ClassStandingItems)
+            .Include(u => u.FinalsGrades)
+                .ThenInclude(f => f.Quizzes)
+            .Include(u => u.FinalsGrades)
+                .ThenInclude(f => f.ClassStandingItems)
+            .FirstOrDefaultAsync(u => u.Id == id);
 
-        if (!result.Success)
-            return NotFound(result);
+        if (student == null) return false;
 
-        return Ok(result);
+        // Delete Midterm quizzes and class standing items (cascade is optional)
+        _context.QuizLists.RemoveRange(student.MidtermGrades.SelectMany(m => m.Quizzes));
+        _context.ClassStanding.RemoveRange(student.MidtermGrades.SelectMany(m => m.ClassStandingItems));
+
+        // Delete Finals quizzes and class standing items manually (NoAction)
+        _context.QuizLists.RemoveRange(student.FinalsGrades.SelectMany(f => f.Quizzes));
+        _context.ClassStanding.RemoveRange(student.FinalsGrades.SelectMany(f => f.ClassStandingItems));
+
+        // Delete the grades themselves
+        _context.MidtermGrades.RemoveRange(student.MidtermGrades);
+        _context.FinalsGrades.RemoveRange(student.FinalsGrades);
+
+        // Finally delete the student
+        _context.Users.Remove(student);
+
+        await _context.SaveChangesAsync();
+        return true;
     }
+
+
 }

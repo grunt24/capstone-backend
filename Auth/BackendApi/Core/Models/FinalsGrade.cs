@@ -55,5 +55,9 @@ namespace BackendApi.Core.Models
         public double GradePointEquivalent { get; set; }
         public string? Semester { get; set; }
         public string? AcademicYear { get; set; }
+
+        public int? AcademicPeriodId { get; set; }
+        [ForeignKey("AcademicPeriodId")]
+        public AcademicPeriod? AcademicPeriod { get; set; }
     }
 }

@@ -262,67 +262,41 @@ namespace BackendApi.Services
         }
 
         // New service method to get a list of students for the logged-in teacher.
-        public async Task<IEnumerable<StudentInfoDto>> GetStudentsForLoggedInTeacherAsync(int userId)
+        public async Task<IEnumerable<TeachersStudentsPerSubjectDto>> GetSubjectsWithStudentsAsync(int userId)
         {
-            // Find the teacher by the logged-in user's ID and eagerly load their subjects and students.
             var teacher = await _context.Teachers
                 .Include(t => t.Subjects)
                     .ThenInclude(s => s.StudentSubjects)
                         .ThenInclude(ss => ss.User)
                 .FirstOrDefaultAsync(t => t.UserID == userId);
 
-            // If no teacher is found for the user ID, return an empty list.
             if (teacher == null)
-            {
-                return Enumerable.Empty<StudentInfoDto>();
-            }
+                return Enumerable.Empty<TeachersStudentsPerSubjectDto>();
 
-            // A dictionary to store unique students and their subjects.
-            var studentsDict = new Dictionary<int, StudentInfoDto>();
+            var subjectList = new List<TeachersStudentsPerSubjectDto>();
 
             foreach (var subject in teacher.Subjects)
             {
-                foreach (var studentSubject in subject.StudentSubjects)
+                var subjectDto = new TeachersStudentsPerSubjectDto
                 {
-                    var student = studentSubject.User;
-                    if (student != null)
-                    {
-                        if (!studentsDict.ContainsKey(student.Id))
+                    SubjectId = subject.Id,
+                    SubjectName = subject.SubjectName,
+                    SubjectCode = subject.SubjectCode,
+                    Students = subject.StudentSubjects
+                        .Where(ss => ss.User != null)
+                        .Select(ss => new StudentInfoDto
                         {
-                            // If the student is not yet in the dictionary, add them with their first subject.
-                            studentsDict.Add(student.Id, new StudentInfoDto
-                            {
-                                UserId = student.Id,
-                                Fullname = student.Fullname,
-                                Subjects = new List<SubjectItemDto>()
-                                {
-                                    new SubjectItemDto
-                                    {
-                                        SubjectId = subject.Id,
-                                        SubjectName = subject.SubjectName,
-                                        SubjectCode = subject.SubjectCode,
-                                        TeacherName = teacher.Fullname
-                                    }
-                                }
-                            });
-                        }
-                        else
-                        {
-                            // If the student is already in the dictionary, add the new subject to their list.
-                            studentsDict[student.Id].Subjects.Add(new SubjectItemDto
-                            {
-                                SubjectId = subject.Id,
-                                SubjectName = subject.SubjectName,
-                                SubjectCode = subject.SubjectCode,
-                                TeacherName = teacher.Fullname
-                            });
-                        }
-                    }
-                }
+                            UserId = ss.User.Id,
+                            Fullname = ss.User.Fullname,
+                            YearLevel = ss.User.YearLevel
+                        })
+                        .ToList()
+                };
+
+                subjectList.Add(subjectDto);
             }
 
-            // Return the list of unique students with their associated subjects.
-            return studentsDict.Values;
+            return subjectList;
         }
 
     }

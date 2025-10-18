@@ -13,6 +13,8 @@ namespace BackendApi.Core.General
         public string? Username { get; set; }
         public string? Fullname { get; set; }
         public string? Role { get; set; }
+        public string? AcademicYear { get; set; }
+        public string? Semester { get; set; }
 
         //public string? Role { get; set; }
     }

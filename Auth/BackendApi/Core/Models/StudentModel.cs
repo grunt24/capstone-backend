@@ -36,5 +36,11 @@ namespace BackendApi.Core.Models
         public string? LastUpdatedBy { get; set; }
         public string? LatestTransaction { get; set; }
         public ICollection<UserEvent> UserEvents { get; set; }
+        public ICollection<StudentEnrollment> Enrollments { get; set; } = new List<StudentEnrollment>();
+
+        // Navigation properties
+        public ICollection<MidtermGrade> MidtermGrades { get; set; } = new List<MidtermGrade>();
+        public ICollection<FinalsGrade> FinalsGrades { get; set; } = new List<FinalsGrade>();
+
     }
 }

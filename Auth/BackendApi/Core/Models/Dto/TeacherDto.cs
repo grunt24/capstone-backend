@@ -19,6 +19,14 @@
     {
         public int UserId { get; set; }
         public string? Fullname { get; set; }
-        public List<SubjectItemDto> Subjects { get; set; } = new List<SubjectItemDto>();
+        public string? YearLevel { get; set; }
+
+    }
+    public class TeachersStudentsPerSubjectDto
+    {
+        public int SubjectId { get; set; }
+        public string? SubjectName { get; set; }
+        public string? SubjectCode { get; set; }
+        public List<StudentInfoDto> Students { get; set; } = new();
     }
 }

@@ -6,6 +6,8 @@
         public int StudentId { get; set; }
         public string? StudentNumber { get; set; } // Added to include the student's full name
         public string? StudentFullName { get; set; } // Added to include the student's full name
+        public string? Department { get; set; } // Added to include the student's full name
+
         public int? SubjectId { get; set; }
         public string? SubjectCode { get; set; }
         public string? SubjectName { get; set; }
@@ -52,6 +54,8 @@
         public double GradePointEquivalent { get; set; }
         public string? Semester { get; set; }
         public string? AcademicYear { get; set; }
+        public int? AcademicYearId { get; set; }
+
     }
     public class FinalsGradeUploadResult
     {

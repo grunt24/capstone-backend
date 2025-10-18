@@ -1,5 +1,41 @@
 [
   {
+    "ContainingType": "BackendApi.Controllers.AcademicPeriodsController",
+    "Method": "GetAllAcademicPeriod",
+    "RelativePath": "api/AcademicPeriods/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApi.Controllers.AcademicPeriodsController",
+    "Method": "GetCurrentAcademicPeriod",
+    "RelativePath": "api/AcademicPeriods/current",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApi.Controllers.AcademicPeriodsController",
+    "Method": "SetCurrentAcademicPeriod",
+    "RelativePath": "api/AcademicPeriods/set-current",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "BackendApi.Controllers.AcademicPeriodsController\u002BAcademicPeriodDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BackendApi.Controllers.AuthController",
     "Method": "GetAllStudents",
     "RelativePath": "api/Auth/all-students",
@@ -47,19 +83,34 @@
   },
   {
     "ContainingType": "BackendApi.Controllers.AuthController",
-    "Method": "DeleteStudent",
+    "Method": "DeleteStudentAsync",
     "RelativePath": "api/Auth/delete-user/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "studentId",
         "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "id",
+        "Type": "",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "BackendApi.Controllers.AuthController",
@@ -144,6 +195,152 @@
     "Method": "GetUsersLatestEvent",
     "RelativePath": "api/Auth/user-events",
     "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApi.Controllers.ClassStandingsController",
+    "Method": "AddClassStandingAsync",
+    "RelativePath": "api/ClassStandings/add-class-standing",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "BackendApi.Core.Models.Dto.AddClassStandingInputDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrollmentController",
+    "Method": "EnrollStudentsInCurrentSemester",
+    "RelativePath": "api/enrollments/enroll-current",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BackendApi.Core.Models.Dto.EnrollStudentsRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrollmentController",
+    "Method": "GetEnrolledStudentsForCurrentSemester",
+    "RelativePath": "api/enrollments/enrolled-current",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApi.Controllers.GradeCalculation.FinalsGradeController",
+    "Method": "UpdateFinalsGrade",
+    "RelativePath": "api/FinalsGrade/{studentId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatedGrade",
+        "Type": "BackendApi.Core.Models.Dto.FinalsGradeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApi.Controllers.GradeCalculation.FinalsGradeController",
+    "Method": "GetGradesBySubjectAndPeriod",
+    "RelativePath": "api/FinalsGrade/{subjectId}/{academicPeriodId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "subjectId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "academicPeriodId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApi.Controllers.GradeCalculationController",
+    "Method": "UpdateMidtermGrade",
+    "RelativePath": "api/GradeCalculation/{studentId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "studentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatedGrade",
+        "Type": "BackendApi.Core.Models.Dto.MidtermGradeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApi.Controllers.GradeCalculationController",
+    "Method": "GetGradesBySubjectAndPeriod",
+    "RelativePath": "api/GradeCalculation/{subjectId}/{academicPeriodId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "subjectId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "academicPeriodId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApi.Controllers.GradeCalculationController",
+    "Method": "CalculateFinalsAllAsync",
+    "RelativePath": "api/GradeCalculation/calculate-finals-all",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BackendApi.Controllers.GradeCalculationController",
+    "Method": "CalculateMidtermAllAsync",
+    "RelativePath": "api/GradeCalculation/calculate-midterm-all",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
@@ -385,6 +582,22 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "BackendApi.Controllers.QuizzesController",
+    "Method": "AddQuizAsync",
+    "RelativePath": "api/Quizzes/add-quiz",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "input",
+        "Type": "BackendApi.Core.Models.Dto.AddQuizInputDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "BackendApi.Controllers.StudentSubjectsController",
@@ -799,7 +1012,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[BackendApi.Core.Models.Dto.StudentInfoDto, BackendApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BackendApi.Core.Models.Dto.TeachersStudentsPerSubjectDto, BackendApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
