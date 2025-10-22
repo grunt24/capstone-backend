@@ -1915,6 +1915,22 @@
             "type": "integer",
             "format": "int32",
             "nullable": true
+          },
+          "midtermGradeId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "midtermGrade": {
+            "$ref": "#/components/schemas/MidtermGrade"
+          },
+          "finalsGradeId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "finalsGrade": {
+            "$ref": "#/components/schemas/FinalsGrade"
           }
         },
         "additionalProperties": false
@@ -2873,6 +2889,22 @@
             "type": "integer",
             "format": "int32",
             "nullable": true
+          },
+          "midtermGradeId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "midtermGrade": {
+            "$ref": "#/components/schemas/MidtermGrade"
+          },
+          "finalsGradeId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "finalsGrade": {
+            "$ref": "#/components/schemas/FinalsGrade"
           }
         },
         "additionalProperties": false
@@ -3167,6 +3199,7 @@
       "Subject": {
         "required": [
           "credits",
+          "department",
           "subjectCode",
           "subjectName"
         ],
@@ -3189,6 +3222,11 @@
           "description": {
             "type": "string",
             "nullable": true
+          },
+          "department": {
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string"
           },
           "credits": {
             "type": "integer",
@@ -3225,6 +3263,10 @@
             "type": "integer",
             "format": "int32",
             "nullable": true
+          },
+          "department": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -3253,6 +3295,10 @@
             "format": "int32"
           },
           "teacherName": {
+            "type": "string",
+            "nullable": true
+          },
+          "subjectDepartment": {
             "type": "string",
             "nullable": true
           }

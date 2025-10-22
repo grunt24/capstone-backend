@@ -49,7 +49,9 @@ namespace BackendApi.Services
                         SubjectId = ss.Subject!.Id,
                         SubjectName = ss.Subject.SubjectName,
                         SubjectCode = ss.Subject.SubjectCode,
-                        TeacherName = ss.Subject.Teacher?.Fullname ?? "No Teacher"
+                        TeacherName = ss.Subject.Teacher?.Fullname ?? "No Teacher",
+                        Department = ss.Subject.Department
+
                     }).ToList()
                 });
 

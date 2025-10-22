@@ -30,58 +30,31 @@ namespace BackendApi.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // MidtermGrade -> QuizList & ClassStandingItem cascade
+            // Midterm relationships
             modelBuilder.Entity<QuizList>()
-                .HasOne<MidtermGrade>()
+                .HasOne(q => q.MidtermGrade)
                 .WithMany(g => g.Quizzes)
-                .HasForeignKey("MidtermGradeId")
+                .HasForeignKey(q => q.MidtermGradeId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<ClassStandingItem>()
-                .HasOne<MidtermGrade>()
+                .HasOne(c => c.MidtermGrade)
                 .WithMany(g => g.ClassStandingItems)
-                .HasForeignKey("MidtermGradeId")
+                .HasForeignKey(c => c.MidtermGradeId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // FinalsGrade -> QuizList & ClassStandingItem cascade
+            // Finals relationships
             modelBuilder.Entity<QuizList>()
-                .HasOne<FinalsGrade>()
+                .HasOne(q => q.FinalsGrade)
                 .WithMany(g => g.Quizzes)
-                .HasForeignKey("FinalsGradeId")
+                .HasForeignKey(q => q.FinalsGradeId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<ClassStandingItem>()
+                .HasOne(c => c.FinalsGrade)
+                .WithMany(g => g.ClassStandingItems)
+                .HasForeignKey(c => c.FinalsGradeId)
                 .OnDelete(DeleteBehavior.Cascade);
-
-            modelBuilder.Entity<ClassStandingItem>()
-                .HasOne<FinalsGrade>()
-                .WithMany(g => g.ClassStandingItems)
-                .HasForeignKey("FinalsGradeId")
-                .OnDelete(DeleteBehavior.Cascade);
-
-            // MidtermGrade -> QuizList & ClassStandingItem
-            modelBuilder.Entity<QuizList>()
-                .HasOne<MidtermGrade>()
-                .WithMany(g => g.Quizzes)
-                .HasForeignKey("MidtermGradeId")
-                .OnDelete(DeleteBehavior.Cascade); // Safe: only one cascade path
-
-            modelBuilder.Entity<ClassStandingItem>()
-                .HasOne<MidtermGrade>()
-                .WithMany(g => g.ClassStandingItems)
-                .HasForeignKey("MidtermGradeId")
-                .OnDelete(DeleteBehavior.Cascade); // Safe
-
-            // FinalsGrade -> QuizList & ClassStandingItem
-            modelBuilder.Entity<QuizList>()
-                .HasOne<FinalsGrade>()
-                .WithMany(g => g.Quizzes)
-                .HasForeignKey("FinalsGradeId")
-                .OnDelete(DeleteBehavior.NoAction); // Prevents multiple cascade path error
-
-            modelBuilder.Entity<ClassStandingItem>()
-                .HasOne<FinalsGrade>()
-                .WithMany(g => g.ClassStandingItems)
-                .HasForeignKey("FinalsGradeId")
-                .OnDelete(DeleteBehavior.NoAction);
-
 
             base.OnModelCreating(modelBuilder);
         }

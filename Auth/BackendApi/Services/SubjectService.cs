@@ -39,7 +39,8 @@ namespace BackendApi.Services
                 SubjectCode = s.SubjectCode,
                 Description = s.Description,
                 Credits = s.Credits,
-                TeacherName = s.Teacher?.Fullname ?? "No Teacher Assigned"
+                TeacherName = s.Teacher?.Fullname ?? "No Teacher Assigned",
+                SubjectDepartment = s.Department
             }).ToList();
         }
 

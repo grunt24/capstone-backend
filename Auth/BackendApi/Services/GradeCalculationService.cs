@@ -936,53 +936,81 @@ public class GradeCalculationService : IGradeCalculationService
         if (existingGrade == null)
             return false;
 
-        // ✅ Update basic grade fields
+        // === Basic Updates ===
         existingGrade.RecitationScore = updatedGrade.RecitationScore;
         existingGrade.AttendanceScore = updatedGrade.AttendanceScore;
         existingGrade.ProjectScore = updatedGrade.ProjectScore;
-        if (!string.Equals(updatedGrade.Department, "BSED", StringComparison.OrdinalIgnoreCase))
-        {
-            existingGrade.SEPScore = 0;
-        }
-        else
-        {
-            existingGrade.SEPScore = updatedGrade.SEPScore;
-        }
+
+        existingGrade.SEPScore = string.Equals(updatedGrade.Department, "BSED", StringComparison.OrdinalIgnoreCase)
+            ? updatedGrade.SEPScore
+            : 0;
 
         existingGrade.MidtermScore = updatedGrade.MidtermScore;
         existingGrade.MidtermTotal = updatedGrade.MidtermTotal;
-
         existingGrade.PrelimScore = updatedGrade.PrelimScore;
         existingGrade.PrelimTotal = updatedGrade.PrelimTotal;
 
-        // ✅ Update academic info
         existingGrade.Semester = updatedGrade.Semester;
         existingGrade.AcademicYear = updatedGrade.AcademicYear;
         existingGrade.AcademicPeriodId = updatedGrade.AcademicPeriodId;
 
-        // ✅ Update Quizzes
-        existingGrade.Quizzes.Clear();
-        foreach (var quiz in updatedGrade.Quizzes)
+        // === Update Quizzes (no re-creation) ===
+        var updatedQuizLabels = updatedGrade.Quizzes.Select(q => q.Label).ToHashSet();
+
+        foreach (var quizDto in updatedGrade.Quizzes)
         {
-            existingGrade.Quizzes.Add(new QuizList
+            var existingQuiz = existingGrade.Quizzes.FirstOrDefault(q => q.Label == quizDto.Label);
+
+            if (existingQuiz != null)
             {
-                Label = quiz.Label,
-                QuizScore = quiz.QuizScore ?? 0,
-                TotalQuizScore = quiz.TotalQuizScore ?? 0
-            });
+                existingQuiz.QuizScore = quizDto.QuizScore ?? 0;
+                existingQuiz.TotalQuizScore = quizDto.TotalQuizScore ?? 0;
+            }
+            else
+            {
+                existingGrade.Quizzes.Add(new QuizList
+                {
+                    Label = quizDto.Label,
+                    QuizScore = quizDto.QuizScore ?? 0,
+                    TotalQuizScore = quizDto.TotalQuizScore ?? 0
+                });
+            }
         }
 
-        // ✅ Update Class Standing
-        existingGrade.ClassStandingItems.Clear();
-        foreach (var cs in updatedGrade.ClassStandingItems)
+        // Remove quizzes that are no longer present
+        existingGrade.Quizzes
+            .Where(q => !updatedQuizLabels.Contains(q.Label))
+            .ToList()
+            .ForEach(q => _context.QuizLists.Remove(q));
+
+        // === Update Class Standing Items ===
+        var updatedCSLabels = updatedGrade.ClassStandingItems.Select(cs => cs.Label).ToHashSet();
+
+        foreach (var csDto in updatedGrade.ClassStandingItems)
         {
-            existingGrade.ClassStandingItems.Add(new ClassStandingItem
+            var existingCS = existingGrade.ClassStandingItems.FirstOrDefault(c => c.Label == csDto.Label);
+
+            if (existingCS != null)
             {
-                Label = cs.Label,
-                Score = cs.Score ?? 0,
-                Total = cs.Total ?? 0
-            });
+                existingCS.Score = csDto.Score ?? 0;
+                existingCS.Total = csDto.Total ?? 0;
+            }
+            else
+            {
+                existingGrade.ClassStandingItems.Add(new ClassStandingItem
+                {
+                    Label = csDto.Label,
+                    Score = csDto.Score ?? 0,
+                    Total = csDto.Total ?? 0
+                });
+            }
         }
+
+        // Remove deleted ClassStanding items
+        existingGrade.ClassStandingItems
+            .Where(cs => !updatedCSLabels.Contains(cs.Label))
+            .ToList()
+            .ForEach(cs => _context.ClassStanding.Remove(cs));
 
         await _context.SaveChangesAsync();
         return true;
@@ -1099,14 +1127,13 @@ public class GradeCalculationService : IGradeCalculationService
         if (existingGrade == null)
             return false;
 
-        // Basic updates
+        // === Basic Updates ===
         existingGrade.RecitationScore = updatedGrade.RecitationScore;
         existingGrade.AttendanceScore = updatedGrade.AttendanceScore;
         existingGrade.ProjectScore = updatedGrade.ProjectScore;
         existingGrade.FinalsScore = updatedGrade.FinalsScore;
         existingGrade.FinalsTotal = updatedGrade.FinalsTotal;
 
-        // Set SEP = 0 if not BSED
         existingGrade.SEPScore = string.Equals(updatedGrade.Department, "BSED", StringComparison.OrdinalIgnoreCase)
             ? updatedGrade.SEPScore
             : 0;
@@ -1115,29 +1142,66 @@ public class GradeCalculationService : IGradeCalculationService
         existingGrade.AcademicYear = updatedGrade.AcademicYear;
         existingGrade.AcademicPeriodId = updatedGrade.AcademicYearId;
 
-        // ✅ Replace Quizzes
-        existingGrade.Quizzes.Clear();
-        foreach (var quiz in updatedGrade.Quizzes)
+        // === Update Quizzes (no re-creation) ===
+        var updatedQuizLabels = updatedGrade.Quizzes.Select(q => q.Label).ToHashSet();
+
+        // Update or add
+        foreach (var quizDto in updatedGrade.Quizzes)
         {
-            existingGrade.Quizzes.Add(new QuizList
+            var existingQuiz = existingGrade.Quizzes.FirstOrDefault(q => q.Label == quizDto.Label);
+
+            if (existingQuiz != null)
             {
-                Label = quiz.Label,
-                QuizScore = quiz.QuizScore ?? 0,
-                TotalQuizScore = quiz.TotalQuizScore ?? 0
-            });
+                // Update existing quiz
+                existingQuiz.QuizScore = quizDto.QuizScore ?? 0;
+                existingQuiz.TotalQuizScore = quizDto.TotalQuizScore ?? 0;
+            }
+            else
+            {
+                // Add new quiz if not found
+                existingGrade.Quizzes.Add(new QuizList
+                {
+                    Label = quizDto.Label,
+                    QuizScore = quizDto.QuizScore ?? 0,
+                    TotalQuizScore = quizDto.TotalQuizScore ?? 0
+                });
+            }
         }
 
-        // ✅ Replace Class Standing
-        existingGrade.ClassStandingItems.Clear();
-        foreach (var cs in updatedGrade.ClassStandingItems)
+        // Remove quizzes no longer in DTO
+        existingGrade.Quizzes
+            .Where(q => !updatedQuizLabels.Contains(q.Label))
+            .ToList()
+            .ForEach(q => _context.QuizLists.Remove(q));
+
+        // === Update Class Standing ===
+        var updatedCSLabels = updatedGrade.ClassStandingItems.Select(cs => cs.Label).ToHashSet();
+
+        foreach (var csDto in updatedGrade.ClassStandingItems)
         {
-            existingGrade.ClassStandingItems.Add(new ClassStandingItem
+            var existingCS = existingGrade.ClassStandingItems.FirstOrDefault(c => c.Label == csDto.Label);
+
+            if (existingCS != null)
             {
-                Label = cs.Label,
-                Score = cs.Score ?? 0,
-                Total = cs.Total ?? 0
-            });
+                existingCS.Score = csDto.Score ?? 0;
+                existingCS.Total = csDto.Total ?? 0;
+            }
+            else
+            {
+                existingGrade.ClassStandingItems.Add(new ClassStandingItem
+                {
+                    Label = csDto.Label,
+                    Score = csDto.Score ?? 0,
+                    Total = csDto.Total ?? 0
+                });
+            }
         }
+
+        // Remove deleted class standing items
+        existingGrade.ClassStandingItems
+            .Where(cs => !updatedCSLabels.Contains(cs.Label))
+            .ToList()
+            .ForEach(cs => _context.ClassStanding.Remove(cs));
 
         await _context.SaveChangesAsync();
         return true;

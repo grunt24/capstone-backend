@@ -20,6 +20,8 @@ namespace BackendApi.Core.Models
         [Required, MaxLength(150)]
         public string? SubjectName { get; set; }
         public string? Description { get; set; }
+        [Required, MaxLength(50)]
+        public string Department { get; set; } = "GENERAL";
 
         [Required]
         public int Credits { get; set; }

@@ -71,6 +71,11 @@ namespace BackendApi.Core.Models
         public string? Label { get; set; } // e.g., "Quiz 1"
         public int? QuizScore { get; set; }
         public int? TotalQuizScore { get; set; }
+        public int? MidtermGradeId { get; set; }
+        public MidtermGrade? MidtermGrade { get; set; }
+
+        public int? FinalsGradeId { get; set; }
+        public FinalsGrade? FinalsGrade { get; set; }
     }
     public class ClassStandingItem
     {
@@ -78,5 +83,10 @@ namespace BackendApi.Core.Models
         public string? Label { get; set; } // e.g., "SW/ASS/GRP WRK 1"
         public int? Score { get; set; }
         public int? Total { get; set; }
+        public int? MidtermGradeId { get; set; }
+        public MidtermGrade? MidtermGrade { get; set; }
+
+        public int? FinalsGradeId { get; set; }
+        public FinalsGrade? FinalsGrade { get; set; }
     }
 }
